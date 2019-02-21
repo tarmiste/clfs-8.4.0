@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-chroot-pwdgroup">
+  <?dbhtml filename="pwdgroup.html"?>
+
+  <title>Creating the passwd and group Files</title>
+
+  <indexterm zone="ch-chroot-pwdgroup">
+    <primary sortas="e-/etc/passwd">/etc/passwd</primary>
+    <secondary>chroot</secondary>
+  </indexterm>
+
+  <indexterm zone="ch-chroot-pwdgroup">
+    <primary sortas="e-/etc/group">/etc/group</primary>
+    <secondary>chroot</secondary>
+  </indexterm>
+
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+  href="../../boot/common/pwdgroup.xml"
+  xpointer="xpointer(//*[@os='a'])"/>
+
+  <para>Create the <filename>/etc/passwd</filename> file by running the
+  following command:</para>
+
+<screen><userinput>cat &gt; /etc/passwd &lt;&lt; "EOF"
+<literal>root:x:&uid-root;:&gid-root;:root:/root:/bin/bash</literal>
+<literal>bin:x:&uid-bin;:&gid-bin;:/bin:/bin/false</literal>
+<literal>daemon:x:&uid-daemon;:&gid-daemon;:/sbin:/bin/false</literal>
+<literal>messagebus:x:&uid-messagebus;:&gid-messagebus;:D-Bus Message Daemon User:/dev/null:/bin/false</literal>
+<literal>systemd-bus-proxy:x:&uid-systemd-bus-proxy;:&gid-systemd-bus-proxy;:systemd Bus Proxy:/:/bin/false</literal>
+<literal>systemd-journal-gateway:x:&uid-systemd-journal-gateway;:&gid-systemd-journal-gateway;:systemd Journal Gateway:/:/bin/false</literal>
+<literal>systemd-journal-remote:x:&uid-systemd-journal-remote;:&gid-systemd-journal-remote;:systemd Journal Remote:/:/bin/false</literal>
+<literal>systemd-journal-upload:x:&uid-systemd-journal-upload;:&gid-systemd-journal-upload;:systemd Journal Upload:/:/bin/false</literal>
+<literal>systemd-network:x:&uid-systemd-network;:&gid-systemd-network;:systemd Network Management:/:/bin/false</literal>
+<literal>systemd-resolve:x:&uid-systemd-resolve;:&gid-systemd-resolve;:systemd Resolver:/:/bin/false</literal>
+<literal>systemd-timesync:x:&uid-systemd-timesync;:&gid-systemd-timesync;:systemd Time Synchronization:/:/bin/false</literal>
+<literal>systemd-coredump:x:&uid-systemd-coredump;:&gid-systemd-coredump;:systemd Core Dumper:/:/bin/false</literal>
+<literal>nobody:x:&uid-nobody;:&gid-nogroup;:Unprivileged User:/dev/null:/bin/false</literal>
+EOF</userinput></screen>
+
+  <para os="b">The actual password for
+  <systemitem class="username">root</systemitem> (the <quote>x</quote>
+  used here is just a placeholder) will be set later.</para>
+
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+  href="../../boot/common/pwdgroup.xml"
+  xpointer="xpointer(//*[@os='c'])"/>
+
+  <para>Create the <filename>/etc/group</filename> file by running the
+  following command:</para>
+
+<screen><userinput>cat &gt; /etc/group &lt;&lt; "EOF"
+<literal>root:x:0:
+bin:x:&gid-bin;:
+sys:x:&gid-sys;:
+kmem:x:&gid-kmem;:
+tty:x:&gid-tty;:
+tape:x:&gid-tape;:
+daemon:x:&gid-daemon;:
+floppy:x:&gid-floppy;:
+disk:x:&gid-disk;:
+lp:x:&gid-lp;:
+dialout:x:&gid-dialout;:
+audio:x:&gid-audio;:
+video:x:&gid-video;:
+utmp:x:&gid-utmp;:
+usb:x:&gid-usb;:
+cdrom:x:&gid-cdrom;:
+adm:x:&gid-adm;:
+mail:x:&gid-mail;:
+messagebus:x:&gid-messagebus;:
+nogroup:x:&gid-nogroup;:
+systemd-bus-proxy:x:&gid-systemd-bus-proxy;:
+systemd-journal:x:&gid-systemd-journal;:
+systemd-journal-gateway:x:&gid-systemd-journal-gateway;:
+systemd-journal-remote:x:&gid-systemd-journal-remote;:
+systemd-journal-upload:x:&gid-systemd-journal-upload;:
+systemd-network:x:&gid-systemd-network;:
+systemd-resolve:x:&gid-systemd-resolve;:
+systemd-timesync:x:&gid-systemd-timesync;:
+systemd-coredump:x:&gid-systemd-coredump;:
+wheel:x:&gid-wheel;:</literal>
+EOF</userinput></screen>
+
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+  href="../../boot/common/pwdgroup.xml"
+  xpointer="xpointer(//*[@os='d'])"/>
+
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+  href="../../boot/common/pwdgroup.xml"
+  xpointer="xpointer(//*[@os='e'])"/>
+
+  <para>To remove the <quote>I have no name!</quote> prompt, start a
+  new shell. Since a full Glibc was installed in <xref
+  linkend="chapter-cross-tools"/> and the <filename>/etc/passwd</filename>
+  and <filename>/etc/group</filename> files have been created, user name
+  and group name resolution will now work.</para>
+
+<screen role="nodump"><userinput>exec /tools/bin/bash --login +h</userinput></screen>
+
+  <para>Note the use of the <parameter>+h</parameter> directive. This tells
+  <command>bash</command> not to use its internal path hashing. Without this
+  directive, <command>bash</command> would remember the paths to binaries it
+  has executed. To ensure the use of the newly compiled binaries as soon as
+  they are installed, the <parameter>+h</parameter> directive will be used
+  for the duration of the next chapters.</para>
+
+</sect1>

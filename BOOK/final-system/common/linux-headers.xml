@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-linux-headers" role="wrap">
+  <?dbhtml filename="linux-headers.html"?>
+
+  <title>Linux-&linux-version2; Headers</title>
+
+  <indexterm zone="ch-system-linux-headers">
+    <primary sortas="a-Linux Headers">Linux Headers</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>The Linux Kernel contains a <command>make</command> target that
+    installs <quote>sanitized</quote> kernel headers.</para>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installation of Linux Headers</title>
+
+    <note os="a">
+      <para>For this step you will need to unpack the kernel tarball
+      (<filename>linux-&linux-version;.tar.xz</filename>) and
+      <command>cd</command> into its source
+      directory before entering the commands on this page.</para>
+    </note>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../../bootable/x86/kernel.xml"
+    xpointer="xpointer(//*[@os='p1'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../../bootable/x86/kernel.xml"
+    xpointer="xpointer(//*[@os='p2'])"/>
+
+    <para os="b">Install the kernel header files:</para>
+
+<screen os="c"><userinput>make mrproper
+make headers_check
+make INSTALL_HDR_PATH=/usr headers_install
+find /usr/include -name .install -or -name ..install.cmd | xargs rm -fv</userinput></screen>
+
+    <variablelist os="d">
+      <title>The meaning of the make commands:</title>
+
+      <varlistentry os="d1">
+        <term><parameter>make mrproper</parameter></term>
+        <listitem>
+          <para>Ensures that the kernel source dir is clean.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry os="d2">
+        <term><parameter>make headers_check</parameter></term>
+        <listitem>
+          <para>Sanitizes the raw kernel headers so that they can be used
+          by userspace programs.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry os="d3">
+        <term><parameter>make INSTALL_HDR_PATH=/usr headers_install</parameter></term>
+        <listitem>
+          <para>This will install the kernel headers into
+          <filename class="directory">/usr/include</filename>.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry os="d4">
+        <term><parameter>find /usr/include -name .install -or -name ..install.cmd | xargs rm -fv</parameter></term>
+        <listitem>
+          <para>Removes a number of unneeded debugging files that were installed.</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+  <sect2 id="contents-linux-headers" role="content">
+    <title>Contents of Linux Headers</title>
+
+    <segmentedlist>
+      <segtitle>Installed headers</segtitle>
+      <segtitle>Installed directories</segtitle>
+
+      <seglistitem>
+        <seg>/usr/include/{asm,asm-generic,drm,linux,misc,mtd,rdma,scsi,sound,video,xen}/*.h</seg>
+        <seg>/usr/include/asm, /usr/include/asm-generic, /usr/include/drm,
+        /usr/include/linux, /usr/include/misc, /usr/include/mtd, /usr/include/rdma,
+        /usr/include/scsi, /usr/include/sound, /usr/include/uapi,
+        /usr/include/video, /usr/include/xen</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="linux-headers">
+        <term><filename
+        class="headerfile">/usr/include/{asm,asm-generic,drm,linux,mtd,rdma,sound,video}/*.h</filename></term>
+        <listitem>
+          <para>The Linux API headers</para>
+          <indexterm zone="ch-system-linux-headers linux-headers">
+            <primary
+            sortas="e-/usr/include/{asm,linux}/*.h">/usr/include/{asm,linux}/*.h</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>

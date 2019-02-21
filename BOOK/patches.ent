@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!ENTITY patches-root "http://patches.clfs.org/dev/">
+
+<!-- Start of Common Patches -->
+
+<!ENTITY automake-perl-patch "automake-&automake-version;-perl_5_26-1.patch">
+<!ENTITY automake-perl-patch-md5 "99dd9d0a31f4a51fbe77bbc13aa9d783">
+<!ENTITY automake-perl-patch-size "0.685 KB">
+
+<!ENTITY bash-branch_update-patch "bash-&bash-version;-branch_update-1.patch">
+<!ENTITY bash-branch_update-patch-md5 "9f59bec94bfd1023d9c6a76b49187420">
+<!ENTITY bash-branch_update-patch-size "17 KB">
+
+<!-- Binutils branch update area
+<!ENTITY binutils-branch_update-patch "binutils-&binutils-version;-branch_update-1.patch">
+<!ENTITY binutils-branch_update-patch-md5 "4fcdd8ef88fe07db8616e91a14bc5ac8">
+<!ENTITY binutils-branch_update-patch-size "5,268 KB">
+-->
+
+<!ENTITY coreutils-uname-patch "coreutils-&coreutils-version;-uname-1.patch">
+<!ENTITY coreutils-uname-patch-md5 "e9bc0459d313f677cebc2095c3b18818">
+<!ENTITY coreutils-uname-patch-size "5.020 KB">
+
+<!ENTITY gcc-specs-patch "gcc-&gcc-version;-specs-1.patch">
+<!ENTITY gcc-specs-patch-md5 "9f4efe1ae2cb46e6ad41b2ba2a24e5d8">
+<!ENTITY gcc-specs-patch-size "21 KB">
+
+<!--GCC Branch Update Area
+<!ENTITY gcc-branch_update-patch "gcc-&gcc-version;-branch_update-1.patch">
+<!ENTITY gcc-branch_update-patch-md5 "0ce406be87a6504a7539ab45f7abf781">
+<!ENTITY gcc-branch_update-patch-size "1,251 KB">
+-->
+
+<!ENTITY iana-etc-numbers_update-date "20140202">
+<!ENTITY iana-etc-numbers_update-patch "iana-etc-&iana-etc-version;-numbers_update-&iana-etc-numbers_update-date;-2.patch.xz">
+<!ENTITY iana-etc-numbers_update-patch-md5 "b0e7051fef0b3ba064209a5f3d23bd2a">
+<!ENTITY iana-etc-numbers_update-patch-size "282 KB">
+
+<!ENTITY intltool-perl-patch "intltool-&intltool-version;-perl-5.22-compatibility.patch">
+<!ENTITY intltool-perl-patch-size "2.390 KB">
+<!ENTITY intltool-perl-patch-md5 "476b85e0c100eb2c8fbd74825cb4761e">
+
+<!ENTITY iputils-build-patch "iputils-&iputils-version;-build-1.patch">
+<!ENTITY iputils-build-patch-md5 "113c166a13d33a3ec10e1ec65542bdc3">
+<!ENTITY iputils-build-patch-size "47 KB">
+
+<!ENTITY linux-sublevel-patch "patch-&linux-version2;.xz">
+<!ENTITY linux-sublevel-patch-md5 "59351116e4dfdb9072dd8cccd15e1800">
+<!ENTITY linux-sublevel-patch-size "465 KB">
+
+<!ENTITY mpfr-fixes-patch "mpfr-&mpfr-version;-fixes-1.patch">
+<!ENTITY mpfr-fixes-patch-md5 "c9e1bfc93ee8d90226772b628ab77f38">
+<!ENTITY mpfr-fixes-patch-size "5.101 KB">
+
+<!ENTITY ncurses-bashfix-patch "ncurses-&ncurses-version;-bash_fix-1.patch">
+<!ENTITY ncurses-bashfix-patch-md5 "e3b6d45ce0f0b87e0df98e5bc0d09415">
+<!ENTITY ncurses-bashfix-patch-size ".743 KB">
+
+<!--Ncurses Branch Update Area
+<!ENTITY ncurses-branch_update-patch "ncurses-&ncurses-version;-branch_update-4.patch">
+<!ENTITY ncurses-branch_update-patch-md5 "c2b2dc2d31b02c218359e6218f12a72c">
+<!ENTITY ncurses-branch_update-patch-size "2,492 KB">
+-->
+
+<!ENTITY readline-branch_update-patch "readline-&readline-version;-branch_update-1.patch">
+<!ENTITY readline-branch_update-patch-md5 "8b429202ce52362ae927f36a48461c23">
+<!ENTITY readline-branch_update-patch-size "3.049 KB">
+
+<!ENTITY sysvinit-tools_updates-patch "sysvinit-&sysvinit-version;-tools_updates-1.patch">
+<!ENTITY sysvinit-tools_updates-patch-md5 "c3f6981c46868b68bfd58921570ea51f">
+<!ENTITY sysvinit-tools_updates-patch-size "2.339 KB">
+
+<!-- Vim branch update patch area -->
+
+<!ENTITY vim-branch_update-patch "vim-&vim-version;-branch_update-1.patch">
+<!ENTITY vim-branch_update-patch-md5 "5a076d526aee80e1d32decf46b5287f9">
+<!ENTITY vim-branch_update-patch-size "961 KB">
+
+<!-- Start of multilib patches -->
+
+<!ENTITY perl-multilib-patch "perl-&perl-version;-Configure_multilib-1.patch">
+<!ENTITY perl-multilib-patch-md5 "87bbdf3d6414916f9e89531a2d4bfefa">
+<!ENTITY perl-multilib-patch-size "2.030 KB">
+
+<!-- Start of Pure64 patches -->
+
+<!ENTITY gcc-pure64-patch "gcc-&gcc-version;-pure64-2.patch">
+<!ENTITY gcc-pure64-patch-md5 "7d6e3f9419fe2fc032da4c5878fbec13">
+<!ENTITY gcc-pure64-patch-size "9.124 KB">
+
+<!ENTITY gcc-specs_pure64-patch "gcc-&gcc-version;-pure64_specs-2.patch">
+<!ENTITY gcc-specs_pure64-patch-md5 "4c6866da93add51341c042eb6b321ef1">
+<!ENTITY gcc-specs_pure64-patch-size "20 KB">
+
+<!-- Start of mips/mips64 patches -->
+
+<!ENTITY colo-make-patch "colo-&colo-version;-make_fix-1.patch">
+<!ENTITY colo-make-patch-md5 "b89575a0e385b5366b19a6b5f176d49b">
+<!ENTITY colo-make-patch-size "2.8 KB">
+
+<!ENTITY colo-relocation-patch "colo-&colo-version;-relocation_fix-1.patch">
+<!ENTITY colo-relocation-patch-md5 "e0607ee1071f2f805ffa1ef1c5b1a766">
+<!ENTITY colo-relocation-patch-size ".749 KB">
+
+<!ENTITY dvhtool-fixes-patch "dvhtool-&dvhtool-version;-fixes-1.patch">
+<!ENTITY dvhtool-fixes-patch-md5 "a521b380354b6a0c96b2d6308372749d">
+<!ENTITY dvhtool-fixes-patch-size "6.3 KB">
+
+<!-- Start of ppc/ppc64 patches -->
+
+<!ENTITY gcc-nof-patch "gcc-&gcc-version;-powerpc64_multilib-1.patch">
+<!ENTITY gcc-nof-patch-md5 "cb19503a9c3e4d155dec55a8a74292ee">
+<!ENTITY gcc-nof-patch-size "1 KB">
+
+<!ENTITY gcc-ppc_fixes-patch "gcc-&gcc-version;-ppc_fixes-1.patch">
+<!ENTITY gcc-ppc_fixes-patch-md5 "dbe990d4886c85fa250c8141488cb263">
+<!ENTITY gcc-ppc_fixes-patch-size "2 KB">
+
+<!ENTITY hfsutils-fixes-patch "hfsutils-&hfsutils-version;-fixes-1.patch">
+<!ENTITY hfsutils-fixes-patch-md5 "8519f11aada2f393609d529621a9f1b1">
+<!ENTITY hfsutils-fixes-patch-size "1.1 KB">
+
+<!ENTITY powerpcutils-patch "powerpc-utils_&powerpcutils-version;-fixes-2.patch">
+<!ENTITY powerpcutils-patch-md5 "d2776b1a4977c5711037b8f1402f792a">
+<!ENTITY powerpcutils-patch-size "22 KB">
+
+<!ENTITY yaboot-ofpath_path-patch "yaboot-&yaboot-version;-ofpath_path_prefix-1.patch">
+<!ENTITY yaboot-ofpath_path-patch-md5 "3faf70e0cb4e4f62a1e8815c3452ab38">
+<!ENTITY yaboot-ofpath_path-patch-size ".830 KB">
+
+<!ENTITY yaboot-parted-patch "yaboot-&yaboot-version;-parted-1.patch">
+<!ENTITY yaboot-parted-patch-md5 "af05081b2056f0070b8b057acc32fea5">
+<!ENTITY yaboot-parted-patch-size "1.245 KB">
+
+<!ENTITY yaboot-stubfuncs-patch "yaboot-&yaboot-version;-stubfuncs-1.patch">
+<!ENTITY yaboot-stubfuncs-patch-md5 "b5cc91f9904383c24848040bfe6f11ae">
+<!ENTITY yaboot-stubfuncs-patch-size "4.2 KB">
+
+<!-- Start of sparc/sparc64 patches -->
+
+<!ENTITY elftoaout-fixes-patch "elftoaout-&elftoaout-version;-64bit_fixes-1.patch">
+<!ENTITY elftoaout-fixes-patch-md5 "485e77cf2ed082d3d0ea99c703f1f14b">
+<!ENTITY elftoaout-fixes-patch-size "6.7 KB">
+
+<!ENTITY silo-fixes-patch "silo-&silo-version;-fixes-3.patch">
+<!ENTITY silo-fixes-patch-md5 "a7619f75c9cf888104b434c21d31117a">
+<!ENTITY silo-fixes-patch-size "32 KB">

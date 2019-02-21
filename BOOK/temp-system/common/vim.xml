@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-temp-system-vim" role="wrap">
+  <?dbhtml filename="vim.html"?>
+
+  <title>Vim-&vim-version;</title>
+
+  <indexterm zone="ch-temp-system-vim">
+    <primary sortas="a-Vim">Vim</primary>
+    <secondary>temporary system</secondary>
+  </indexterm>
+
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+  href="../../final-system/common/vim.xml"
+  xpointer="xpointer(//*[@role='package'])"/>
+
+  <sect2 role="installation">
+    <title>Installation of VIM</title>
+
+    <para os="a">We will cross-compile Vim so that we can have a text editor in
+    <filename class="directory">/tools</filename>. Vim is not technically
+    necessary in the temporary system, in that it is not there to satisfy any
+    package dependencies in the final system, but we believe that a text editor
+    is an extremely useful tool to have there.<!-- If you prefer a different
+    editor, you may check the hints project at <ulink url="&hints-root;" />
+    for information on cross-compiling other text editors. (placeholder -
+    uncomment this sentence if/when such information actually exists)--></para>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../../final-system/common/vim.xml"
+    xpointer="xpointer(//*[@os='p1'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../../final-system/common/vim.xml"
+    xpointer="xpointer(//*[@os='p2'])"/>
+
+    <para os="c1">The <command>configure</command> script is full of logic
+    that aborts at the first sign of cross compiling. Work around this by
+    setting the cached values of several tests with the following
+    command:</para>
+
+<screen os="c2"><userinput>cat &gt; src/auto/config.cache &lt;&lt; "EOF"
+vim_cv_getcwd_broken=no
+vim_cv_memmove_handles_overlap=yes
+vim_cv_stat_ignores_slash=no
+vim_cv_terminfo=yes
+vim_cv_toupper_broken=no
+vim_cv_tty_group=world
+vim_cv_tgent=zero
+EOF</userinput></screen>
+
+    <para os="b">Change the default location of
+    the <filename>vimrc</filename> configuration file to <filename
+    class="directory">/tools/etc</filename>:</para>
+
+<screen os="c"><userinput>echo '#define SYS_VIMRC_FILE "/tools/etc/vimrc"' &gt;&gt; src/feature.h</userinput></screen>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../../final-system/common/vim.xml"
+    xpointer="xpointer(//*[@os='d'])"/>
+
+<screen os="e"><userinput>./configure \
+    --build=${CLFS_HOST} \
+    --host=${CLFS_TARGET} \
+    --prefix=/tools \
+    --enable-gui=no \
+    --disable-gtktest \
+    --disable-xim \
+    --disable-gpm \
+    --without-x \
+    --disable-netbeans \
+    --with-tlib=ncurses</userinput></screen>
+
+    <variablelist os="f">
+      <title>The meaning of the new configure options:</title>
+
+      <varlistentry>
+        <term><parameter>--enable-gui=no --disable-gtktest --disable-xim --disable-gpm --without-x --disable-netbeans</parameter></term>
+        <listitem>
+          <para>These options prevent Vim from trying to link to libraries
+          that might be on the host but won't exist inside the temporary
+          build environment.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--with-tlib=ncurses</parameter></term>
+        <listitem>
+          <para>Tells Vim to use Ncurses as its terminal library.</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../../final-system/common/vim.xml"
+    xpointer="xpointer(//*[@os='g'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../../final-system/common/vim.xml"
+    xpointer="xpointer(//*[@os='h'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../../final-system/common/vim.xml"
+    xpointer="xpointer(//*[@os='j'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../../final-system/common/vim.xml"
+    xpointer="xpointer(//*[@os='k'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../../final-system/common/vim.xml"
+    xpointer="xpointer(//*[@os='l'])"/>
+
+<screen os="m"><userinput>ln -sv vim /tools/bin/vi</userinput></screen>
+
+    <para os="tv1">Create a temporary vimrc to make it function more the way you may
+    expect it to. This is explained more in the final system:</para>
+
+<screen os="tv2"><userinput>cat &gt; /tools/etc/vimrc &lt;&lt; "EOF"
+<literal>" Begin /tools/etc/vimrc
+
+set nocompatible
+set backspace=2
+set ruler
+syntax on
+
+" End /tools/etc/vimrc</literal>
+EOF</userinput></screen>
+
+  </sect2>
+
+  <sect2 role="content">
+    <title/>
+
+    <para>Details on this package are located in <xref
+    linkend="contents-vim" role="."/></para>
+
+  </sect2>
+
+</sect1>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-util-linux" role="wrap">
+  <?dbhtml filename="util-linux-64bit.html"?>
+
+  <title>Util-linux-&util-linux-version; 64 Bit</title>
+
+  <indexterm zone="ch-system-util-linux">
+    <primary sortas="a-Util-linux">Util-linux</primary>
+  </indexterm>
+
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+  href="../common/util-linux.xml"
+  xpointer="xpointer(//*[@role='package'])"/>
+
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+  href="../common/util-linux.xml"
+  xpointer="xpointer(//*[@id='fhs-util-linux'])"/>
+
+  <sect2 role="installation">
+    <title>Installation of Util-linux</title>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../common/util-linux.xml"
+    xpointer="xpointer(//*[@os='a'])"/>
+
+<screen os="b"><userinput>CC="gcc ${BUILD64}" ./configure \
+    ADJTIME_PATH=/var/lib/hwclock/adjtime \
+    --libdir=/lib64 \
+    --enable-write \
+    --disable-chfn-chsh \
+    --disable-login \
+    --disable-nologin \
+    --disable-su \
+    --disable-setpriv \
+    --disable-runuser \
+    --docdir=/usr/share/doc/util-linux-&util-linux-version;</userinput></screen>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../common/util-linux.xml"
+    xpointer="xpointer(//*[@os='c'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../common/util-linux.xml"
+    xpointer="xpointer(//*[@os='d'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../common/util-linux.xml"
+    xpointer="xpointer(//*[@os='e'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../common/util-linux.xml"
+    xpointer="xpointer(//*[@os='f'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../common/util-linux.xml"
+    xpointer="xpointer(//*[@os='f2'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../common/util-linux.xml"
+    xpointer="xpointer(//*[@os='g'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../common/util-linux.xml"
+    xpointer="xpointer(//*[@os='h'])"/>
+
+  </sect2>
+
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+  href="../common/util-linux.xml"
+  xpointer="xpointer(id('contents-util-linux'))"/>
+
+</sect1>

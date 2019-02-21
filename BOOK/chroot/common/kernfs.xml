@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-chroot-kernfs">
+  <?dbhtml filename="kernfs.html"?>
+
+  <title>Mounting Virtual Kernel File Systems</title>
+
+    <note os="a">
+      <para>The commands in the remainder of the book should be run as
+      the <systemitem class="username">root</systemitem> user. Check
+      that ${CLFS} is set in the
+      <systemitem class="username">root</systemitem> user&rsquo;s environment
+       before proceeding.</para>
+    </note>
+
+  <para>Various file systems exported by the kernel are used to communicate
+  to and from the kernel itself. These file systems are virtual in that no
+  disk space is used for them. The content of the file systems resides in
+  memory.</para>
+
+  <para>Begin by creating directories onto which the file systems will
+  be mounted:</para>
+
+<screen><userinput>mkdir -pv ${CLFS}/{dev,proc,run,sys}</userinput></screen>
+
+  <para>Two device nodes, <filename class="devicefile">/dev/console</filename>
+  and <filename class="devicefile">/dev/null</filename>, are required to be
+  present on the file system. These are needed by the kernel even before
+  starting Udev early in the boot process, so we create them here:</para>
+
+<screen><userinput>mknod -m 600 ${CLFS}/dev/console c 5 1
+mknod -m 666 ${CLFS}/dev/null c 1 3</userinput></screen>
+
+  <para>Once the system is complete and booting, the rest of our device
+  nodes will be created by the kernel's
+  <systemitem class="filesystem">devtmpfs</systemitem> file system. For now
+  though, we will just use the <quote>bind</quote> option in the mount command
+  to make our host system's <filename class="directory">/dev</filename> structure appear in the new CLFS file system:</para>
+
+<screen><userinput>mount -v -o bind /dev ${CLFS}/dev</userinput></screen>
+
+  <para>Now mount the remaining file systems:</para>
+
+<screen><userinput>mount -vt devpts -o gid=&gid-tty;,mode=620 devpts ${CLFS}/dev/pts
+mount -vt proc proc ${CLFS}/proc
+mount -vt tmpfs tmpfs ${CLFS}/run
+mount -vt sysfs sysfs ${CLFS}/sys</userinput></screen>
+
+  <para>On some host systems, <filename class="directory">/dev/shm</filename>
+  is a symbolic link to <filename class="directory">/run/shm</filename>.
+  If it is, create a directory in <filename class="directory">/run</filename>:</para>
+
+<screen><userinput>[ -h ${CLFS}/dev/shm ] &amp;&amp; mkdir -pv ${CLFS}/$(readlink ${CLFS}/dev/shm)</userinput></screen>
+
+  <para>Remember that if for any reason you stop working on the CLFS system
+  and start again later, it is important to check that these file systems
+  are mounted again before entering the chroot environment.</para>
+
+</sect1>

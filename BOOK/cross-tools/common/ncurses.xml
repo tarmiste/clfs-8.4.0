@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-cross-tools-ncurses" role="wrap">
+  <?dbhtml filename="ncurses.html"?>
+
+  <title>Ncurses-&ncurses-version;</title>
+
+  <indexterm zone="ch-cross-tools-ncurses">
+    <primary sortas="a-Ncurses">Ncurses</primary>
+    <secondary>cross tools</secondary>
+  </indexterm>
+
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+  href="../../final-system/common/ncurses.xml"
+  xpointer="xpointer(//*[@role='package'])"/>
+
+  <sect2 role="installation">
+    <title>Installation of Ncurses</title>
+
+    <para os="e1">When Ncurses is compiled, it executes <command>tic</command>
+    to create a terminfo database in
+    <filename class="directory">${prefix}/share/terminfo</filename>. If
+    possible, the <filename>Makefile</filename> will use the
+    <command>tic</command> binary that was just compiled in its
+    source tree, but this does not work when Ncurses is cross-compiled. To
+    allow the Ncurses build in <xref linkend="chapter-temp-system" /> to succeed, we
+    will build and install a <command>tic</command> program that can be run on
+    the host system.</para>
+
+<!--Ncurses Branch Update Area
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../../temp-system/common/ncurses.xml"
+    xpointer="xpointer(//*[@os='p1'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../../temp-system/common/ncurses.xml"
+    xpointer="xpointer(//*[@os='p2'])"/>
+-->
+
+    <para os="a">Prepare Ncurses for compilation:</para>
+
+<screen os="b"><userinput>AWK=gawk ./configure \
+    --prefix=/cross-tools \
+    --without-debug</userinput></screen>
+
+    <variablelist os="b1">
+      <title>The meaning of the new configure options:</title>
+
+      <varlistentry os="b2">
+        <term><parameter>--without-debug</parameter></term>
+        <listitem>
+          <para>Tells Ncurses to build without debugging information.</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+    <para os="c">Only one binary is needed for the Cross-Tools. Build the
+    headers and then build <command>tic</command>:</para>
+
+<screen os="d"><userinput>make -C include
+make -C progs tic</userinput></screen>
+
+    <para os="e">Install <command>tic</command> with the following command:</para>
+
+<screen os="f"><userinput>install -v -m755 progs/tic /cross-tools/bin</userinput></screen>
+
+  </sect2>
+
+  <sect2 role="content">
+    <title/>
+
+    <para>Details on this package are located in <xref
+    linkend="contents-ncurses" role="."/></para>
+
+  </sect2>
+
+</sect1>

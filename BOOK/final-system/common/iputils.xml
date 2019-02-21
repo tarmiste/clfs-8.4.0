@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-iputils" role="wrap">
+  <?dbhtml filename="iputils.html"?>
+
+  <title>IPutils-&iputils-version;</title>
+
+  <indexterm zone="ch-system-iputils">
+    <primary sortas="a-IPutils">IPutils</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>The IPutils package contains programs for basic networking.</para>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installation of IPutils</title>
+
+    <para os="p1">Apply the following patch for man-pages and build edits:</para>
+
+<screen os="p2"><userinput>patch -Np1 -i ../&iputils-build-patch;</userinput></screen>
+
+    <para os="a">Compile the package:</para>
+
+<screen os="b"><userinput>make TARGETS="clockdiff ping rdisc tracepath tracepath6 traceroute6"</userinput></screen>
+
+    <para os="c">This package does not come with a test suite.</para>
+
+    <para os="d">Install the package:</para>
+
+<screen os="e"><userinput>install -v -m755 ping /bin
+install -v -m755 clockdiff /usr/bin
+install -v -m755 rdisc /usr/bin
+install -v -m755 tracepath /usr/bin
+install -v -m755 trace{path,route}6 /usr/bin
+install -v -m644 doc/*.8 /usr/share/man/man8
+ln -sv ping /bin/ping4
+ln -sv ping /bin/ping6</userinput></screen>
+
+  </sect2>
+
+  <sect2 id="contents-iputils" role="content">
+    <title>Contents of iputils</title>
+
+    <segmentedlist>
+      <segtitle>Installed programs</segtitle>
+
+      <seglistitem>
+        <seg>clockdiff, ping, rdisc, tracepath, tracepath6, traceroute6, ping4 (link to ping), ping6 (link to ping)</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+<!--
+      <varlistentry id="arping">
+        <term><command>arping</command></term>
+        <listitem>
+          <para>Sends an ARP request to a neighbor host</para>
+          <indexterm zone="ch-system-iputils arping">
+            <primary sortas="b-arping">arping</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+-->
+      <varlistentry id="clockdiff">
+        <term><command>clockdiff</command></term>
+        <listitem>
+          <para>Measures the clock difference between hosts</para>
+          <indexterm zone="ch-system-iputils clockdiff">
+            <primary sortas="b-clockdiff">clockdiff</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="ping">
+        <term><command>ping</command></term>
+        <listitem>
+          <para>Sends echo-request packets and reports how long the replies
+          take.</para>
+          <indexterm zone="ch-system-iputils ping">
+            <primary sortas="b-ping">ping</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="ping4">
+        <term><command>ping</command></term>
+        <listitem>
+          <para>Executes ping for IPV4 support</para>
+          <indexterm zone="ch-system-iputils ping4">
+            <primary sortas="b-ping4">ping</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="ping6">
+        <term><command>ping6</command></term>
+        <listitem>
+          <para>Executes ping for  IPV6 support</para>
+          <indexterm zone="ch-system-iputils ping6">
+            <primary sortas="b-ping6">ping6</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="rdisc">
+        <term><command>rdisc</command></term>
+        <listitem>
+          <para>Network router discovery daemon</para>
+          <indexterm zone="ch-system-iputils rdisc">
+            <primary sortas="b-rdisc">rdisc</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="tracepath">
+        <term><command>tracepath</command></term>
+        <listitem>
+          <para>Traces the path to a network host discovering MTU along the
+          path. This is the IPV4 version.</para>
+          <indexterm zone="ch-system-iputils tracepath">
+            <primary sortas="b-tracepath">tracepath</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="tracepath6">
+        <term><command>tracepath6</command></term>
+        <listitem>
+          <para>Traces the path to a network host discovering MTU along the
+          path. This is the IPV6 version.</para>
+          <indexterm zone="ch-system-iputils tracepath6">
+            <primary sortas="b-tracepath6">tracepath6</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="traceroute6">
+        <term><command>traceroute6</command></term>
+        <listitem>
+          <para>Traces the path to a network host on an IPV6 network</para>
+          <indexterm zone="ch-system-iputils traceroute6">
+            <primary sortas="b-traceroute6">traceroute6</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>

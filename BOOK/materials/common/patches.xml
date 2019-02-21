@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-materials-patches-common">
+  <?dbhtml filename="patches.html"?>
+
+  <title>Needed Patches</title>
+
+  <para>In addition to the packages, several patches are also required.
+  These patches correct any mistakes in the packages that should be
+  fixed by the maintainer. The patches also make small modifications to
+  make the packages easier to work with. The following patches will be
+  needed to build a CLFS system:</para>
+
+  <variablelist role="materials">
+
+    <varlistentry>
+      <term>Automake Perl Patch - <token>&automake-perl-patch-size;</token>:</term>
+      <listitem>
+        <para>Download: <ulink
+        url="&patches-root;&automake-perl-patch;"/></para>
+        <para>MD5 sum: <literal>&automake-perl-patch-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+
+
+    <varlistentry>
+      <term>Bash Branch Update Patch - <token>&bash-branch_update-patch-size;</token>:</term>
+      <listitem>
+        <para>Download: <ulink
+        url="&patches-root;&bash-branch_update-patch;"/></para>
+        <para>MD5 sum: <literal>&bash-branch_update-patch-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+
+<!-- Binutils branch update area
+    <varlistentry>
+      <term>Binutils Branch Update Patch - <token>&binutils-branch_update-patch-size;</token>:</term>
+      <listitem>
+        <para>Download: <ulink
+        url="&patches-root;&binutils-branch_update-patch;"/></para>
+        <para>MD5 sum: <literal>&binutils-branch_update-patch-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+-->
+    <varlistentry>
+      <term>Coreutils Uname Patch - <token>&coreutils-uname-patch-size;</token>:</term>
+      <listitem>
+        <para>Download: <ulink
+        url="&patches-root;&coreutils-uname-patch;"/></para>
+        <para>MD5 sum: <literal>&coreutils-uname-patch-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+
+<!--GCC Branch Update Area
+    <varlistentry>
+      <term>GCC Branch Update Patch - <token>&gcc-branch_update-patch-size;</token>:</term>
+      <listitem>
+        <para>Download: <ulink
+        url="&patches-root;&gcc-branch_update-patch;"/></para>
+        <para>MD5 sum: <literal>&gcc-branch_update-patch-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+-->
+
+    <varlistentry>
+      <term>Iana-Etc Protocol and Port Numbers Update - <token>&iana-etc-numbers_update-patch-size;</token>:</term>
+      <listitem>
+        <para>Download: <ulink
+        url="&patches-root;&iana-etc-numbers_update-patch;"/></para>
+        <para>MD5 sum: <literal>&iana-etc-numbers_update-patch-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Intool Perl Fix - <token>&intltool-perl-patch-size;</token>:</term>
+      <listitem>
+        <para>Download: <ulink
+        url="&patches-root;&intltool-perl-patch;"/></para>
+        <para>MD5 sum: <literal>&intltool-perl-patch-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>IPUtils Fixes Patch - <token>&iputils-build-patch-size;</token>:</term>
+      <listitem>
+        <para>Download: <ulink
+        url="&patches-root;&iputils-build-patch;"/></para>
+        <para>MD5 sum: <literal>&iputils-build-patch-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Linux Sublevel Patch - <token>&linux-sublevel-patch-size;</token>:</term>
+      <listitem>
+        <para>Download: <ulink
+        url="&kernel;linux/kernel/v&linux-dl-version;/&linux-sublevel-patch;"/></para>
+        <para>MD5 sum: <literal>&linux-sublevel-patch-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>MPFR Fixes Patch - <token>&mpfr-fixes-patch-size;</token>:</term>
+      <listitem>
+        <para>Download: <ulink
+        url="&patches-root;&mpfr-fixes-patch;"/></para>
+        <para>MD5 sum: <literal>&mpfr-fixes-patch-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Ncurses Bash Patch - <token>&ncurses-bashfix-patch-size;</token>:</term>
+      <listitem>
+        <para>Download: <ulink
+        url="&patches-root;&ncurses-bashfix-patch;"/></para>
+        <para>MD5 sum: <literal>&ncurses-bashfix-patch-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+
+<!--Ncurses Branch Update Area
+    <varlistentry>
+      <term>Ncurses Branch Update Patch - <token>&ncurses-branch_update-patch-size;</token>:</term>
+      <listitem>
+        <para>Download: <ulink
+        url="&patches-root;&ncurses-branch_update-patch;"/></para>
+        <para>MD5 sum: <literal>&ncurses-branch_update-patch-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+-->
+
+    <varlistentry>
+      <term>Readline Branch Update - <token>&readline-branch_update-patch-size;</token>:</term>
+      <listitem>
+        <para>Download: <ulink
+        url="&patches-root;&readline-branch_update-patch;"/></para>
+        <para>MD5 sum: <literal>&readline-branch_update-patch-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Sysvinit Tools Updates Patch - <token>&sysvinit-tools_updates-patch-size;</token>:</term>
+      <listitem>
+        <para>Download: <ulink
+        url="&patches-root;&sysvinit-tools_updates-patch;"/></para>
+        <para>MD5 sum: <literal>&sysvinit-tools_updates-patch-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+
+<!-- Vim branch update patch area -->
+    <varlistentry>
+      <term>Vim Branch Update Patch - <token>&vim-branch_update-patch-size;</token>:</term>
+      <listitem>
+        <para>Download: <ulink
+        url="&patches-root;&vim-branch_update-patch;"/></para>
+        <para>MD5 sum: <literal>&vim-branch_update-patch-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+
+  </variablelist>
+
+  <para os="a">Total size of these patches: about <returnvalue/></para>
+
+  <para>In addition to the above required patches, there exist a number of
+  optional patches created by the CLFS community. These optional patches
+  solve minor problems or enable functionality that is not enabled by
+  default. Feel free to peruse the patches database located at
+  <ulink url="&patches-root;"/> and acquire any additional
+  patches to suit the system needs.</para>
+
+</sect1>

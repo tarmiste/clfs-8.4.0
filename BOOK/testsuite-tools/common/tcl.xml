@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-testsuite-tools-tcl" role="wrap">
+  <?dbhtml filename="tcl.html"?>
+
+  <title>Tcl-&tcl-version;</title>
+
+  <indexterm zone="ch-testsuite-tools-tcl">
+    <primary sortas="a-Tcl">Tcl</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>The Tcl package contains the Tool Command Language.</para>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installation of Tcl</title>
+
+    <para os="a">Prepare Tcl for compilation:</para>
+
+<screen><userinput>cd unix
+./configure \
+    --prefix=/tools</userinput></screen>
+
+    <para os="c">Build the package:</para>
+
+<screen os="d"><userinput>make</userinput></screen>
+
+    <para os="e">Install the package:</para>
+
+<screen os="f"><userinput>make install</userinput></screen>
+
+    <para os="g">Tcl's private header files are needed for the next
+    package, Expect. Install them into /tools:</para>
+
+<screen os="h"><userinput>make install-private-headers</userinput></screen>
+
+    <para os="i">Now make a necessary symbolic link:</para>
+
+<screen os="j"><userinput>ln -sv tclsh&tcl-version2; /tools/bin/tclsh</userinput></screen>
+
+  </sect2>
+
+  <sect2 id="contents-tcl" role="content">
+    <title>Contents of Tcl</title>
+
+    <segmentedlist>
+      <segtitle>Installed programs</segtitle>
+      <segtitle>Installed libraries</segtitle>
+
+      <seglistitem>
+        <seg>tclsh (link to tclsh&tcl-version2;) and tclsh&tcl-version2;</seg>
+        <seg>libtcl&tcl-version2;.so, libtclstub&tcl-version2;.a</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="tclsh-version">
+        <term><command>tclsh&tcl-version2;</command></term>
+        <listitem>
+          <para>The Tcl command shell</para>
+          <indexterm zone="ch-testsuite-tools-tcl tclsh-version">
+            <primary sortas="b-tclsh-version">tclsh-version;</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="tclsh">
+        <term><command>tclsh</command></term>
+        <listitem>
+          <para>A link to tclsh&tcl-version2;</para>
+          <indexterm zone="ch-testsuite-tools-tcl tclsh">
+            <primary sortas="b-tclsh">tclsh</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libtcl-version.so">
+        <term><filename class="libraryfile">libtcl&tcl-version2;.so</filename></term>
+        <listitem>
+          <para>The Tcl library</para>
+          <indexterm zone="ch-testsuite-tools-tcl libtcl-version.so">
+            <primary sortas="c-libtcl-version.so">libtcl-version.so</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libtclstub-version.a">
+        <term><filename class="libraryfile">libtclstub&tcl-version2;.a</filename></term>
+        <listitem>
+          <para>The Tcl Stub library</para>
+          <indexterm zone="ch-testsuite-tools-tcl libtclstub-version.a">
+            <primary sortas="c-libtclstub-version.a">libtclstub-version.a</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>

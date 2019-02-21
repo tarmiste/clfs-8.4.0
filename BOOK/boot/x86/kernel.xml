@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-boot-kernel" role="wrap">
+  <?dbhtml filename="kernel.html"?>
+
+  <title>Linux-&linux-version2;</title>
+
+  <indexterm zone="ch-boot-kernel">
+    <primary sortas="a-Linux">Linux</primary>
+    <secondary>boot</secondary>
+  </indexterm>
+
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+  href="../../bootable/x86/kernel.xml"
+  xpointer="xpointer(//*[@role='package'])"/>
+
+  <sect2 role="installation">
+    <title>Installation of the kernel</title>
+
+    <warning os="aa">
+      <para>Here a temporary cross-compiled kernel will be built. When
+      configuring it, select the minimal amount of options required to
+      boot the target machine and build the final system. I.e., no support
+      for sound, printers, etc. will be needed.</para>
+
+      <para>Also, try to avoid the use of modules if possible, and don't
+      use the resulting kernel image for production systems.</para>
+    </warning>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../../bootable/x86/kernel.xml"
+    xpointer="xpointer(//*[@os='a'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../../bootable/x86/kernel.xml"
+    xpointer="xpointer(//*[@os='p1'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../../bootable/x86/kernel.xml"
+    xpointer="xpointer(//*[@os='p2'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../../bootable/x86/kernel.xml"
+    xpointer="xpointer(//*[@os='b'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../../bootable/x86/kernel.xml"
+    xpointer="xpointer(//*[@os='c'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../../bootable/x86/kernel.xml"
+    xpointer="xpointer(//*[@os='d'])"/>
+
+    <note os="kc"><para>A good starting place for setting up the kernel
+    configuration is to run <command>make defconfig</command>. This will set the    base configuration to a good state that takes your current system
+    architecture into account.</para>
+
+    <para>Be sure to configure the following options as
+    shown, or the system might not work correctly or boot at all.</para>
+
+<screen role="nodump">Device Drivers  ---&gt;
+  Generic Driver Options  ---&gt;
+    ()  path to uevent helper (CONFIG_UEVENT_HELPER_PATH)
+    [*] Maintain a devtmpfs filesystem to mount at /dev (CONFIG_DEVTMPFS)
+    [ ] Fallback user-helper invocation for firmware loading (CONFIG_FW_LOADER_USER_HELPER)</screen></note>
+
+    <para os="ae">Configure the kernel via a menu-driven interface:</para>
+
+<screen><userinput>make ARCH=i386 CROSS_COMPILE=${CLFS_TARGET}- menuconfig</userinput></screen>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../../bootable/x86/kernel.xml"
+    xpointer="xpointer(//*[@os='m'])"/>
+
+<screen><userinput>make ARCH=i386 CROSS_COMPILE=${CLFS_TARGET}-</userinput></screen>
+
+    <para os="af">If the use of kernel modules can't be avoided, a file in
+    <filename class="directory">/etc/modprobe.d</filename> may be needed.
+    Information pertaining to modules and kernel configuration is
+    located in the kernel documentation in the <filename
+    class="directory">Documentation</filename> directory of the kernel
+    sources tree. The <filename>modprobe.d</filename> man page may also
+    be of interest.</para>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../../bootable/x86/kernel.xml"
+    xpointer="xpointer(//*[@os='s'])"/>
+
+<screen><userinput>make ARCH=i386 CROSS_COMPILE=${CLFS_TARGET}- \
+    INSTALL_MOD_PATH=/tools modules_install</userinput></screen>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../../bootable/x86/kernel.xml"
+    xpointer="xpointer(//*[@os='s2'])"/>
+
+<screen><userinput>make ARCH=i386 CROSS_COMPILE=${CLFS_TARGET}- \
+    INSTALL_MOD_PATH=/tools firmware_install</userinput></screen>
+
+    <para os="u">After kernel compilation is complete, additional steps are
+    required to complete the installation. Some files need to be copied to
+    the <filename class="directory">/tools/boot</filename> directory.</para>
+
+    <para os="v">Issue the following commands to install the kernel:</para>
+
+<screen><userinput>mkdir -pv /tools/boot
+cp -v arch/i386/boot/bzImage /tools/boot/vmlinuz-clfs-&linux-version2;</userinput></screen>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../../bootable/x86/kernel.xml"
+    xpointer="xpointer(//*[@os='w'])"/>
+
+<screen os="w1"><userinput>cp -v System.map /tools/boot/System.map-&linux-version2;</userinput></screen>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../../bootable/x86/kernel.xml"
+    xpointer="xpointer(//*[@os='x'])"/>
+
+<screen os="x1"><userinput>cp -v .config /tools/boot/config-&linux-version2;</userinput></screen>
+
+  </sect2>
+
+  <sect2 role="content">
+    <title/>
+
+    <para>Details on this package are located in <xref
+    linkend="contents-kernel" role="."/></para>
+
+  </sect2>
+
+</sect1>

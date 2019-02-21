@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-cross-tools-gcc-static" role="wrap">
+  <?dbhtml filename="gcc-static.html"?>
+
+  <title>Cross GCC-&gcc-version; - Static</title>
+
+  <indexterm zone="ch-cross-tools-gcc-static">
+    <primary sortas="a-GCC">GCC</primary>
+    <secondary>cross tools, static</secondary>
+  </indexterm>
+
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+  href="../../final-system/common/gcc.xml"
+  xpointer="xpointer(//*[@role='package'])"/>
+
+  <sect2 role="installation">
+    <title>Installation of Cross GCC Compiler with Static libgcc
+    and no Threads</title>
+
+    <para os="e">Here we will compile GCC, as a cross-compiler that will create
+    executables for our target architecture, statically so that it will not
+    need to look for Glibc's startfiles, which do not yet exist in
+    <filename class="directory">/tools</filename>. We will use this
+    cross-compiler, plus the cross-linker we have just installed with Binutils,
+    to compile Glibc. After Glibc is installed into
+    <filename class="directory">/tools</filename>, we can rebuild GCC
+    so that it will then be able to build executables that link against the
+    libraries in <filename class="directory">/tools</filename>.</para>
+
+<!--GCC Branch Update Area
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../../final-system/common/gcc.xml"
+    xpointer="xpointer(//*[@os='p1'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../../final-system/common/gcc.xml"
+    xpointer="xpointer(//*[@os='p2'])"/>
+-->
+
+    <para os="aa">Make a couple of essential adjustments to GCC's specs
+    to ensure GCC uses our build environment:</para>
+
+<screen os="ab"><userinput>patch -Np1 -i ../&gcc-specs-patch;</userinput></screen>
+
+    <para os="ag">Change the StartFile Spec so that GCC looks in
+<filename class="directory">/tools</filename>:</para>
+
+<screen os="ah"><userinput>echo -en '\n#undef STANDARD_STARTFILE_PREFIX_1\n#define STANDARD_STARTFILE_PREFIX_1 "/tools/lib/"\n' &gt;&gt; gcc/config/linux.h
+echo -en '\n#undef STANDARD_STARTFILE_PREFIX_2\n#define STANDARD_STARTFILE_PREFIX_2 ""\n' &gt;&gt; gcc/config/linux.h 
+echo -en '\n#undef STANDARD_STARTFILE_PREFIX_1\n#define STANDARD_STARTFILE_PREFIX_1 "/tools/lib/"\n' &gt;&gt; gcc/config/rs6000/sysv4.h
+echo -en '\n#undef STANDARD_STARTFILE_PREFIX_2\n#define STANDARD_STARTFILE_PREFIX_2 ""\n' &gt;&gt; gcc/config/rs6000/sysv4.h</userinput></screen>
+
+    <para os="t1">We will create a dummy <filename>limits.h</filename> so
+    the build will not use the one provided by the host distro:</para>
+
+<screen os="t2"><userinput>touch /tools/include/limits.h</userinput></screen>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../../final-system/common/gcc.xml"
+    xpointer="xpointer(//*[@os='f'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../../final-system/common/gcc.xml"
+    xpointer="xpointer(//*[@os='g'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../../final-system/common/gcc.xml"
+    xpointer="xpointer(//*[@os='h'])"/>
+
+<screen os="al"><userinput>AR=ar \
+LDFLAGS="-Wl,-rpath,/cross-tools/lib" \
+../gcc-&gcc-version;/configure \
+    --prefix=/cross-tools \
+    --build=${CLFS_HOST} \
+    --host=${CLFS_HOST} \
+    --target=${CLFS_TARGET} \
+    --with-sysroot=${CLFS} \
+    --with-local-prefix=/tools \
+    --with-native-system-header-dir=/tools/include \
+    --disable-shared \
+    --with-mpfr=/cross-tools \
+    --with-gmp=/cross-tools \
+    --with-isl=/cross-tools \
+    --with-mpc=/cross-tools \
+    --without-headers \
+    --with-newlib \
+    --disable-decimal-float \
+    --disable-libgomp \
+    --disable-libssp \
+    --disable-libatomic \
+    --disable-libitm \
+    --disable-libsanitizer \
+    --disable-libquadmath \
+    --disable-libvtv \
+    --disable-libcilkrts \
+    --disable-libstdc++-v3 \
+    --disable-threads \
+    --disable-multilib \
+    --enable-languages=c \
+    --with-glibc-version=&glibc-version;</userinput></screen>
+
+    <variablelist os="am">
+      <title>The meaning of the new configure options:</title>
+
+      <varlistentry>
+        <term><parameter>--build=${CLFS_HOST}</parameter></term>
+        <listitem>
+          <para>This specifies the system on which the cross-compiler is being
+          built.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--with-local-prefix=/tools</parameter></term>
+        <listitem>
+          <para>The purpose of this switch is to remove <filename
+          class="directory">/usr/local/include</filename> from
+          <command>gcc</command>'s include search path. This is not
+          absolutely essential, however, it helps to minimize the
+          influence of the host system.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--with-native-system-headers-dir=/tools/include</parameter></term>
+        <listitem>
+          <para>This switch ensures that GCC will search for the system headers
+           in <filename class="directory">/tools/include</filename> and that
+           host system headers will not be searched.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--disable-shared</parameter></term>
+        <listitem>
+          <para>This tells GCC not to create a shared library.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--without-headers</parameter></term>
+        <listitem>
+          <para>Disables GCC from using the target's Libc when cross compiling.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--with-newlib</parameter></term>
+        <listitem>
+          <para>This causes GCC to enable the <envar>inhibit_libc</envar> flag,
+          which prevents <filename class="libraryfile">libgcc</filename>
+          from building code that uses libc support.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--disable-decimal-float</parameter></term>
+        <listitem>
+          <para>Disables support for the C decimal floating point extension.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--disable-lib*</parameter></term>
+        <listitem>
+          <para>These options prevent GCC from building a number of libraries
+          that are not needed at this time.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--disable-threads</parameter></term>
+        <listitem>
+          <para>This will prevent GCC from looking for the multi-thread
+          include files, since they haven't been created for this architecture
+          yet. GCC will be able to find the multi-thread information after
+          the Glibc headers are created.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--with-system-zlib</parameter></term>
+        <listitem>
+          <para>This tells GCC to link to the system-installed zlib instead
+          of the one in its source tree.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--enable-languages=c</parameter></term>
+        <listitem>
+          <para>This option ensures that only the C compiler is built.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--with-glibc-version=&glibc-version;</parameter></term>
+        <listitem>
+          <para>Needed when bootstrapping a cross toolchain without the header
+          files available for building the initial bootstrap compiler.</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+    <para os="an">Continue with compiling the package:</para>
+
+<screen os="ao"><userinput>make all-gcc all-target-libgcc</userinput></screen>
+
+    <variablelist os="ap">
+      <title>The meaning of the new make options:</title>
+
+      <varlistentry>
+        <term><parameter>all-gcc all-target-libgcc</parameter></term>
+        <listitem>
+          <para>Compiles only the parts of GCC that are needed at this time,
+          rather than the full package.</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+    <para os="aq">Install the package:</para>
+
+<screen os="ar"><userinput>make install-gcc install-target-libgcc</userinput></screen>
+
+  </sect2>
+
+  <sect2 role="content">
+    <title/>
+
+    <para>Details on this package are located in <xref
+    linkend="contents-gcc" role="."/></para>
+
+  </sect2>
+
+</sect1>

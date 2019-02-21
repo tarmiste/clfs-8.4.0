@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-ncurses-n32" role="wrap">
+  <?dbhtml filename="ncurses-n32.html"?>
+
+  <title>Ncurses-&ncurses-version; N32 Libraries</title>
+
+  <indexterm zone="ch-system-ncurses-n32">
+    <primary sortas="a-Ncurses">Ncurses</primary>
+    <secondary>N32</secondary>
+  </indexterm>
+
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+  href="../common/ncurses.xml"
+  xpointer="xpointer(//*[@role='package'])"/>
+
+  <sect2 role="installation">
+    <title>Installation of Ncurses</title>
+
+<!--Ncurses Branch Update Area
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="ncurses.xml"
+    xpointer="xpointer(//*[@os='p1'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="ncurses.xml"
+    xpointer="xpointer(//*[@os='p2'])"/>
+-->
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="ncurses.xml"
+    xpointer="xpointer(//*[@os='a'])"/>
+
+<screen os="b"><userinput>PKG_CONFIG_PATH=${PKG_CONFIG_PATHN32} \
+CC="gcc ${BUILDN32}" CXX="g++ ${BUILDN32}" ./configure \
+    --prefix=/usr \
+    --libdir=/usr/lib32 \
+    --with-shared \
+    --without-debug \
+    --enable-widec \
+    --enable-pc-files \
+    --with-pkg-config-libdir=/usr/lib32/pkgconfig</userinput></screen>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="ncurses.xml"
+    xpointer="xpointer(//*[@os='c'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="ncurses.xml"
+    xpointer="xpointer(//*[@os='d'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="ncurses.xml"
+    xpointer="xpointer(//*[@os='e'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="ncurses.xml"
+    xpointer="xpointer(//*[@os='f'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="ncurses.xml"
+    xpointer="xpointer(//*[@os='g'])"/>
+
+    <para os="m1">Prepare <filename>ncursesw6-config</filename> to be wrapped by
+    the multiarch wrapper:</para>
+
+<screen os="m2"><userinput>mv -v /usr/bin/ncursesw6-config{,-n32}</userinput></screen>
+
+    <para os="h">Move the <filename class="libraryfile">libncursesw</filename>
+    shared library to <filename class="directory">/lib32</filename>
+    and create a new symlink in <filename class="directory">/usr/lib32</filename>:</para>
+
+<screen os="i"><userinput>mv -v /usr/lib32/libncursesw.so.* /lib32
+ln -svf ../../lib32/$(readlink /usr/lib/libncursesw.so) /usr/lib32/libncursesw.so</userinput></screen>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="ncurses.xml"
+    xpointer="xpointer(//*[@os='l'])"/>
+
+<screen os="m"><userinput>for lib in ncurses form panel menu ; do
+        echo "INPUT(-l${lib}w)" &gt; /usr/lib32/lib${lib}.so
+        ln -sfv lib${lib}w.a /usr/lib32/lib${lib}.a
+done
+ln -sfv libncurses++w.a /usr/lib32/libncurses++.a
+ln -sfv ncursesw6-config-32 /usr/bin/ncurses6-config-32</userinput></screen>
+
+  </sect2>
+
+  <sect2 role="content">
+    <title/>
+
+    <para>Details on this package are located in <xref
+    linkend="contents-ncurses" role="."/></para>
+
+  </sect2>
+
+</sect1>

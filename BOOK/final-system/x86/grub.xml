@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../../general.ent">
+  %general-entities;
+]>
+<sect1 id="ch-system-grub" role="wrap">
+  <?dbhtml filename="grub.html"?>
+
+  <title>GRUB-&grub-version;</title>
+
+  <indexterm zone="ch-system-grub">
+    <primary sortas="a-GRUB">GRUB</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>The GRUB package contains the GRand Unified Bootloader.</para>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installation of GRUB</title>
+
+    <note os="n1">
+      <para>If you would like use a different bootloader than this
+      one you can go to the following link for alternative bootloaders
+      and the instructions to use them.
+      <ulink url="http://trac.clfs.org/wiki/bootloaders"/></para>
+    </note>
+
+    <note os="n2">
+      <para>This package is known to have issues when its default optimization
+      flags (including the <option>-march</option> and <option>-mtune</option>
+      options) are changed. If any environment variables that override default
+      optimizations have been defined, such as <envar>CFLAGS</envar> and
+      <envar>CXXFLAGS</envar>, unset them when building GRUB.</para>
+    </note>
+
+    <para os="s1">Glibc-&glibc-version; does not declare gets():</para>
+
+<screen os="s2"><userinput>sed -i -e '/gets is a/d' grub-core/gnulib/stdio.in.h</userinput></screen>
+
+    <para os="a">Prepare GRUB for compilation:</para>
+
+<screen os="b"><userinput>./configure \
+    --prefix=/usr \
+    --sysconfdir=/etc \
+    --disable-werror</userinput></screen>
+
+    <para os="c">Compile the package:</para>
+
+<screen os="d"><userinput>make</userinput></screen>
+
+    <para os="e">To test GRUB you must have QEMU installed and then, issue:</para>
+
+<screen os="d2"><userinput remap="test">make check</userinput></screen>
+
+    <para os="f">Install the package:</para>
+
+<screen os="g"><userinput>make install</userinput></screen>
+
+  </sect2>
+
+  <sect2 id="conf-grub" role="configuration">
+    <title>Configuring GRUB</title>
+
+    <indexterm zone="conf-grub">
+      <primary sortas="a-GRUB">GRUB</primary>
+    <secondary>configuring</secondary></indexterm>
+
+    <indexterm zone="conf-grub">
+      <primary sortas="e-/etc/default/grub">/etc/default/grub</primary>
+    </indexterm>
+
+    <para>Now that grub is installed, we need to configure the defaults that
+    will be used to generate the configuration after we install the kernel.
+    Create this file with the following:</para>
+
+<screen><userinput>install -m755 -dv /etc/default
+cat &gt; /etc/default/grub &lt;&lt; "EOF"
+<literal># Begin /etc/default/grub
+
+GRUB_DEFAULT=0
+#GRUB_SAVEDEFAULT=true
+GRUB_HIDDEN_TIMEOUT=
+GRUB_HIDDEN_TIMEOUT_QUIET=false
+GRUB_TIMEOUT=10
+GRUB_DISTRIBUTOR=Cross-LFS
+
+GRUB_CMDLINE_LINUX=""
+GRUB_CMDLINE_LINUX_DEFAULT=""
+
+#GRUB_TERMINAL=console
+#GRUB_GFXMODE=640x480
+#GRUB_GFXPAYLOAD_LINUX=keep
+
+#GRUB_DISABLE_LINUX_UUID=true
+#GRUB_DISABLE_LINUX_RECOVERY=true
+
+#GRUB_INIT_TUNE="480 440 1"
+
+#GRUB_DISABLE_OS_PROBER=true
+
+# End /etc/default/grub</literal>
+EOF</userinput></screen>
+
+    <variablelist>
+      <title>The meaning of the above options and possible alternate
+      values:</title>
+
+    <varlistentry>
+      <term><parameter>GRUB_DEFAULT=</parameter></term>
+      <listitem>
+        <para>Write Me</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><parameter>GRUB_SAVEDEFAULT=</parameter></term>
+      <listitem>
+        <para>Write Me</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><parameter>GRUB_HIDDEN_TIMEOUT=</parameter></term>
+      <listitem>
+        <para>Write Me</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><parameter>GRUB_HIDDEN_TIMEOUT_QUIET=</parameter></term>
+      <listitem>
+        <para>Write Me</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><parameter>GRUB_TIMEOUT=</parameter></term>
+      <listitem>
+        <para>Write Me</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><parameter>GRUB_DISTRIBUTOR=</parameter></term>
+      <listitem>
+        <para>Write Me</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><parameter>GRUB_CMDLINE_LINUX=</parameter></term>
+      <listitem>
+        <para>Write Me</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><parameter>GRUB_CMDLINE_LINUX_DEFAULT=</parameter></term>
+      <listitem>
+        <para>Write Me</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><parameter>GRUB_TERMINAL=</parameter></term>
+      <listitem>
+        <para>Write Me</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><parameter>GRUB_GFXMODE=</parameter></term>
+      <listitem>
+        <para>Write Me</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><parameter>GRUB_GFXPAYLOAD_LINUX=</parameter></term>
+      <listitem>
+        <para>Write Me</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><parameter>GRUB_DEFAULT=</parameter></term>
+      <listitem>
+        <para>Write Me</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><parameter>GRUB_DISABLE_LINUX_UUID=</parameter></term>
+      <listitem>
+        <para>Write Me</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><parameter>GRUB_DISABLE_LINUX_RECOVERY=</parameter></term>
+      <listitem>
+        <para>Write Me</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><parameter>GRUB_INIT_TUNE=</parameter></term>
+      <listitem>
+        <para>Write Me</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><parameter>GRUB_DISABLE_OS_PROBER=</parameter></term>
+      <listitem>
+        <para>Write Me</para>
+      </listitem>
+    </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+  <sect2 id="contents-grub" role="content">
+    <title>Contents of GRUB</title>
+
+    <segmentedlist>
+      <segtitle>Installed programs</segtitle>
+      <segtitle>Installed directories</segtitle>
+
+      <seglistitem>
+        <seg>grub, grub-install, grub-md5-crypt, grub-set-default, grub-terminfo, and mbchk</seg>
+        <seg>/usr/lib/grub, /boot/grub</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="grub">
+        <term><command>grub</command></term>
+        <listitem>
+          <para>The Grand Unified Bootloader's command shell</para>
+          <indexterm zone="ch-system-grub grub">
+            <primary sortas="b-grub">grub</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="grub-install">
+        <term><command>grub-install</command></term>
+        <listitem>
+          <para>Installs GRUB on the given device</para>
+          <indexterm zone="ch-system-grub grub-install">
+            <primary sortas="b-grub-install">grub-install</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="grub-md5-crypt">
+        <term><command>grub-md5-crypt</command></term>
+        <listitem>
+          <para>Encrypts a password in MD5 format</para>
+          <indexterm zone="ch-system-grub grub-md5-crypt">
+            <primary sortas="b-grub-md5-crypt">grub-md5-crypt</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="grub-set-default">
+        <term><command>grub-set-default</command></term>
+        <listitem>
+          <para>Sets the default boot entry for GRUB</para>
+          <indexterm zone="ch-system-grub grub-set-default">
+            <primary sortas="b-grub-set-default">grub-set-default</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="grub-terminfo">
+        <term><command>grub-terminfo</command></term>
+        <listitem>
+          <para>Generates a terminfo command from a terminfo name; it can be
+          employed if an unknown terminal is being used</para>
+          <indexterm zone="ch-system-grub grub-terminfo">
+            <primary sortas="b-grub-terminfo">grub-terminfo</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="mbchk">
+        <term><command>mbchk</command></term>
+        <listitem>
+          <para>Checks the format of a multi-boot kernel</para>
+          <indexterm zone="ch-system-grub mbchk">
+            <primary sortas="b-mbchk">mbchk</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>

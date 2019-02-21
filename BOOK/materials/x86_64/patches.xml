@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-materials-patches-x86_64">
+  <?dbhtml filename="patches-x86_64.html"?>
+
+  <title>Additional Patches for x86_64 Multilib</title>
+
+  <variablelist role="materials">
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../x86/patches.xml"
+    xpointer="xpointer(//*[@os='gcc-specs-patch'])"/>
+
+    <varlistentry os="perl-multilib-patch">
+      <term>Perl Configure Multilib Patch - <token>&perl-multilib-patch-size;</token>:</term>
+      <listitem>
+        <para>Download: <ulink
+        url="&patches-root;&perl-multilib-patch;"/></para>
+        <para>MD5 sum: <literal>&perl-multilib-patch-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+
+  </variablelist>
+
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+  href="../common/patches.xml"
+  xpointer="xpointer(//*[@os='a'])"/>
+
+</sect1>

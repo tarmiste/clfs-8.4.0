@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-bootable-grub">
+  <?dbhtml filename="grub.html"?>
+
+  <title>Making the CLFS System Bootable</title>
+
+  <indexterm zone="ch-bootable-grub">
+    <primary sortas="a-GRUB">GRUB</primary>
+    <secondary>bootable</secondary>
+  </indexterm>
+
+  <para os="a">Your shiny new CLFS system is almost complete. One of the last
+  things to do is to ensure that the system can be properly booted. The
+  instructions below apply only to computers of x86 and x86_64 architecture,
+  meaning mainstream PCs. Information on <quote>boot loading</quote> for
+  other architectures should be available in the usual resource-specific
+  locations for those architectures.</para>
+
+  <para os="b">Boot loading can be a complex area, so a few cautionary words
+  are in order. Be familiar with the current boot loader and any other
+  operating systems present on the hard drive(s) that need to be bootable.
+  Make sure that an emergency boot disk is ready to <quote>rescue</quote>
+  the computer if the computer becomes unusable (un-bootable).</para>
+
+  <warning os="w1">
+    <para>The following command will overwrite the current boot loader.
+    Do not run the command if this is not desired, for example, if using
+    a third party boot manager to manage the Master Boot Record (MBR).
+    In this scenario, it would make more sense to install GRUB into the
+    <quote>boot sector</quote> of the CLFS partition. In this case, this
+    next command would become <userinput>grub-install /dev/sda2</userinput>
+    .</para>
+  </warning>
+
+  <para os="e">Instruct GRUB to install itself into the MBR of
+  <filename class="partition">sda</filename>:</para>
+
+<screen os="f"><userinput>grub-install /dev/sda</userinput></screen>
+
+  <para os="c">Next, we need to generate a configuration for GRUB.
+  In previous versions of grub we could create the configuration manually
+  here, but with GRUB2 we can generate <filename>grub.cfg</filename>
+  automatically. You can do this with the following command:</para>
+
+<screen os="d"><userinput>grub-mkconfig -o /boot/grub/grub.cfg</userinput></screen>
+
+</sect1>
