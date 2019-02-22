@@ -35,7 +35,7 @@
     <para os="p1">The following patch corrects a failure with isl-0.20 and gcc 
     &gcc-version; branch by the GCC developers:</para>
 
-<screen os="p2"><userinput>patch -Np1 -i ../gcc-isl20_fix.patch</userinput></screen>
+<screen os="p2"><userinput>patch -Np1 -i ../gcc-8.2.0-isl20.patch</userinput></screen>
 
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
     href="../../cross-tools/multilib/gcc-static.xml"
