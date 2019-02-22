@@ -26,6 +26,10 @@
 <!ENTITY gcc-specs-patch-md5 "2768e3770df9adc63fa8d09218f55026">
 <!ENTITY gcc-specs-patch-size "21 KB">
 
+<!ENTITY gcc-isl20-patch "gcc-&gcc-version;-isl20.patch">
+<!ENTITY gcc-isl20-patch-md5 "b2c8c8e31c1fbe2ecb117f5aad8c7da4">
+<!ENTITY gcc-isl20-patch-size "1 KB">
+
 <!--GCC Branch Update Area
 <!ENTITY gcc-branch_update-patch "gcc-&gcc-version;-branch_update-1.patch">
 <!ENTITY gcc-branch_update-patch-md5 "f631b4444432a549943d04425d9ea2ce">
