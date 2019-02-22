@@ -1,0 +1,210 @@
+Submitted By:            Douglas R. Reno <renodr at linuxfromscratch dot org>
+Date:                    2019-01-10
+Initial Package Version: 240
+Upstream Status:         Applied
+Origin:                  Upstream / Self (modifications)
+Description:             Fix CVE-2018-16865 and CVE-2018-18684. These are both memory corruption
+                         vulnerabilities that lead to stack overflows, which can lead to
+                         Arbitrary Code Execution (ACE). Both vulnerabilities reside in the
+                         journald subsystem.
+
+diff -Naurp systemd-240.orig/src/basic/io-util.c systemd-240/src/basic/io-util.c
+--- systemd-240.orig/src/basic/io-util.c	2018-12-21 12:53:33.000000000 -0600
++++ systemd-240/src/basic/io-util.c	2019-01-10 15:27:07.904411057 -0600
+@@ -8,6 +8,7 @@
+ #include <unistd.h>
+ 
+ #include "io-util.h"
++#include "string-util.h"
+ #include "time-util.h"
+ 
+ int flush_fd(int fd) {
+@@ -252,3 +253,12 @@ ssize_t sparse_write(int fd, const void
+ 
+         return q - (const uint8_t*) p;
+ }
++
++char* set_iovec_string_field(struct iovec *iovec, size_t *n_iovec, const char *field, const char *value) {
++   char *x;
++
++   x = strappend(field, value);
++   if (x)
++      iovec[(*n_iovec)++] = IOVEC_MAKE_STRING(x);
++   return x;
++}
+diff -Naurp systemd-240.orig/src/basic/io-util.h systemd-240/src/basic/io-util.h
+--- systemd-240.orig/src/basic/io-util.h	2018-12-21 12:53:33.000000000 -0600
++++ systemd-240/src/basic/io-util.h	2019-01-10 15:51:13.445799163 -0600
+@@ -71,3 +71,4 @@ static inline bool FILE_SIZE_VALID_OR_IN
+ #define IOVEC_MAKE(base, len) (struct iovec) IOVEC_INIT(base, len)
+ #define IOVEC_INIT_STRING(string) IOVEC_INIT((char*) string, strlen(string))
+ #define IOVEC_MAKE_STRING(string) (struct iovec) IOVEC_INIT_STRING(string)
++char* set_iovec_string_field(struct iovec *iovec, size_t *n_iovec, const char *field, const char *value);
+diff -Naurp systemd-240.orig/src/coredump/coredump.c systemd-240/src/coredump/coredump.c
+--- systemd-240.orig/src/coredump/coredump.c	2018-12-21 12:53:33.000000000 -0600
++++ systemd-240/src/coredump/coredump.c	2019-01-10 15:35:32.689128102 -0600
+@@ -1062,19 +1062,10 @@ static int send_iovec(const struct iovec
+         return 0;
+ }
+ 
+-static char* set_iovec_field(struct iovec *iovec, size_t *n_iovec, const char *field, const char *value) {
+-        char *x;
+-
+-        x = strappend(field, value);
+-        if (x)
+-                iovec[(*n_iovec)++] = IOVEC_MAKE_STRING(x);
+-        return x;
+-}
+-
+ static char* set_iovec_field_free(struct iovec *iovec, size_t *n_iovec, const char *field, char *value) {
+         char *x;
+ 
+-        x = set_iovec_field(iovec, n_iovec, field, value);
++        x = set_iovec_string_field(iovec, n_iovec, field, value);
+         free(value);
+         return x;
+ }
+@@ -1124,36 +1115,36 @@ static int gather_pid_metadata(
+                         disable_coredumps();
+                 }
+ 
+-                set_iovec_field(iovec, n_iovec, "COREDUMP_UNIT=", context[CONTEXT_UNIT]);
++                set_iovec_string_field(iovec, n_iovec, "COREDUMP_UNIT=", context[CONTEXT_UNIT]);
+         }
+ 
+         if (cg_pid_get_user_unit(pid, &t) >= 0)
+                 set_iovec_field_free(iovec, n_iovec, "COREDUMP_USER_UNIT=", t);
+ 
+         /* The next few are mandatory */
+-        if (!set_iovec_field(iovec, n_iovec, "COREDUMP_PID=", context[CONTEXT_PID]))
++        if (!set_iovec_string_field(iovec, n_iovec, "COREDUMP_PID=", context[CONTEXT_PID]))
+                 return log_oom();
+ 
+-        if (!set_iovec_field(iovec, n_iovec, "COREDUMP_UID=", context[CONTEXT_UID]))
++        if (!set_iovec_string_field(iovec, n_iovec, "COREDUMP_UID=", context[CONTEXT_UID]))
+                 return log_oom();
+ 
+-        if (!set_iovec_field(iovec, n_iovec, "COREDUMP_GID=", context[CONTEXT_GID]))
++        if (!set_iovec_string_field(iovec, n_iovec, "COREDUMP_GID=", context[CONTEXT_GID]))
+                 return log_oom();
+ 
+-        if (!set_iovec_field(iovec, n_iovec, "COREDUMP_SIGNAL=", context[CONTEXT_SIGNAL]))
++        if (!set_iovec_string_field(iovec, n_iovec, "COREDUMP_SIGNAL=", context[CONTEXT_SIGNAL]))
+                 return log_oom();
+ 
+-        if (!set_iovec_field(iovec, n_iovec, "COREDUMP_RLIMIT=", context[CONTEXT_RLIMIT]))
++        if (!set_iovec_string_field(iovec, n_iovec, "COREDUMP_RLIMIT=", context[CONTEXT_RLIMIT]))
+                 return log_oom();
+ 
+-        if (!set_iovec_field(iovec, n_iovec, "COREDUMP_HOSTNAME=", context[CONTEXT_HOSTNAME]))
++        if (!set_iovec_string_field(iovec, n_iovec, "COREDUMP_HOSTNAME=", context[CONTEXT_HOSTNAME]))
+                 return log_oom();
+ 
+-        if (!set_iovec_field(iovec, n_iovec, "COREDUMP_COMM=", context[CONTEXT_COMM]))
++        if (!set_iovec_string_field(iovec, n_iovec, "COREDUMP_COMM=", context[CONTEXT_COMM]))
+                 return log_oom();
+ 
+         if (context[CONTEXT_EXE] &&
+-            !set_iovec_field(iovec, n_iovec, "COREDUMP_EXE=", context[CONTEXT_EXE]))
++            !set_iovec_string_field(iovec, n_iovec, "COREDUMP_EXE=", context[CONTEXT_EXE]))
+                 return log_oom();
+ 
+         if (sd_pid_get_session(pid, &t) >= 0)
+@@ -1221,7 +1212,7 @@ static int gather_pid_metadata(
+                 iovec[(*n_iovec)++] = IOVEC_MAKE_STRING(t);
+ 
+         if (safe_atoi(context[CONTEXT_SIGNAL], &signo) >= 0 && SIGNAL_VALID(signo))
+-                set_iovec_field(iovec, n_iovec, "COREDUMP_SIGNAL_NAME=SIG", signal_to_string(signo));
++                set_iovec_string_field(iovec, n_iovec, "COREDUMP_SIGNAL_NAME=SIG", signal_to_string(signo));
+ 
+         return 0; /* we successfully acquired all metadata */
+ }
+diff -Naurp systemd-240.orig/src/journal/journald-native.c systemd-240/src/journal/journald-native.c
+--- systemd-240.orig/src/journal/journald-native.c	2018-12-21 12:53:33.000000000 -0600
++++ systemd-240/src/journal/journald-native.c	2019-01-10 15:24:01.853985413 -0600
+@@ -141,6 +141,11 @@ static int server_process_entry(
+                 }
+ 
+                 /* A property follows */
++                if (n > ENTRY_FIELD_COUNT_MAX) {
++                   log_debug("Received an entry that has more than " STRINGIFY(ENTRY_FIELD_COUNT_MAX) " fields, ignoring entry.");
++                   r = 1;
++                   goto finish;
++                }
+ 
+                 /* n existing properties, 1 new, +1 for _TRANSPORT */
+                 if (!GREEDY_REALLOC(iovec, m,
+diff -Naurp systemd-240.orig/src/journal/journald-server.c systemd-240/src/journal/journald-server.c
+--- systemd-240.orig/src/journal/journald-server.c	2018-12-21 12:53:33.000000000 -0600
++++ systemd-240/src/journal/journald-server.c	2019-01-10 15:45:01.208580786 -0600
+@@ -905,6 +905,7 @@ static void dispatch_message_real(
+                 pid_t object_pid) {
+ 
+         char source_time[sizeof("_SOURCE_REALTIME_TIMESTAMP=") + DECIMAL_STR_MAX(usec_t)];
++        _cleanup_free_ char *cmdline1 = NULL, *cmdline2 = NULL;
+         uid_t journal_uid;
+         ClientContext *o;
+ 
+@@ -921,20 +922,23 @@ static void dispatch_message_real(
+                 IOVEC_ADD_NUMERIC_FIELD(iovec, n, c->uid, uid_t, uid_is_valid, UID_FMT, "_UID");
+                 IOVEC_ADD_NUMERIC_FIELD(iovec, n, c->gid, gid_t, gid_is_valid, GID_FMT, "_GID");
+ 
+-                IOVEC_ADD_STRING_FIELD(iovec, n, c->comm, "_COMM");
+-                IOVEC_ADD_STRING_FIELD(iovec, n, c->exe, "_EXE");
+-                IOVEC_ADD_STRING_FIELD(iovec, n, c->cmdline, "_CMDLINE");
+-                IOVEC_ADD_STRING_FIELD(iovec, n, c->capeff, "_CAP_EFFECTIVE");
++                IOVEC_ADD_STRING_FIELD(iovec, n, c->comm, "_COMM"); /* At most TASK_COMM_LENGTH (16 bytes) */
++                IOVEC_ADD_STRING_FIELD(iovec, n, c->exe, "_EXE"); /* A path, so at most PATH_MAX (4096 bytes) */
+ 
+-                IOVEC_ADD_SIZED_FIELD(iovec, n, c->label, c->label_size, "_SELINUX_CONTEXT");
++                if (c->cmdline)
++                   /* At most _SC_ARG_MAX (2MB usually), which is too large to put on the stack.
++                    * Let's use a heap allocation for this one now. */
++                   cmdline1 = set_iovec_string_field(iovec, &n, "_CMDLINE=", c->cmdline);
+ 
++                IOVEC_ADD_STRING_FIELD(iovec, n, c->capeff, "_CAP_EFFECTIVE"); /* Read from /proc/.../status */
++                IOVEC_ADD_SIZED_FIELD(iovec, n, c->label, c->label_size, "_SELINUX_CONTEXT");
+                 IOVEC_ADD_NUMERIC_FIELD(iovec, n, c->auditid, uint32_t, audit_session_is_valid, "%" PRIu32, "_AUDIT_SESSION");
+                 IOVEC_ADD_NUMERIC_FIELD(iovec, n, c->loginuid, uid_t, uid_is_valid, UID_FMT, "_AUDIT_LOGINUID");
+ 
+-                IOVEC_ADD_STRING_FIELD(iovec, n, c->cgroup, "_SYSTEMD_CGROUP");
++                IOVEC_ADD_STRING_FIELD(iovec, n, c->cgroup, "_SYSTEMD_CGROUP"); /* A path */
+                 IOVEC_ADD_STRING_FIELD(iovec, n, c->session, "_SYSTEMD_SESSION");
+                 IOVEC_ADD_NUMERIC_FIELD(iovec, n, c->owner_uid, uid_t, uid_is_valid, UID_FMT, "_SYSTEMD_OWNER_UID");
+-                IOVEC_ADD_STRING_FIELD(iovec, n, c->unit, "_SYSTEMD_UNIT");
++                IOVEC_ADD_STRING_FIELD(iovec, n, c->unit, "_SYSTEMD_UNIT"); /* Unit names are bound by UNIT_NAME_MAX */
+                 IOVEC_ADD_STRING_FIELD(iovec, n, c->user_unit, "_SYSTEMD_USER_UNIT");
+                 IOVEC_ADD_STRING_FIELD(iovec, n, c->slice, "_SYSTEMD_SLICE");
+                 IOVEC_ADD_STRING_FIELD(iovec, n, c->user_slice, "_SYSTEMD_USER_SLICE");
+@@ -955,13 +959,14 @@ static void dispatch_message_real(
+                 IOVEC_ADD_NUMERIC_FIELD(iovec, n, o->uid, uid_t, uid_is_valid, UID_FMT, "OBJECT_UID");
+                 IOVEC_ADD_NUMERIC_FIELD(iovec, n, o->gid, gid_t, gid_is_valid, GID_FMT, "OBJECT_GID");
+ 
++                /* See above for size limits, only ->cmdline may be large, so use a heap allocation for it.*/
+                 IOVEC_ADD_STRING_FIELD(iovec, n, o->comm, "OBJECT_COMM");
+                 IOVEC_ADD_STRING_FIELD(iovec, n, o->exe, "OBJECT_EXE");
+-                IOVEC_ADD_STRING_FIELD(iovec, n, o->cmdline, "OBJECT_CMDLINE");
+-                IOVEC_ADD_STRING_FIELD(iovec, n, o->capeff, "OBJECT_CAP_EFFECTIVE");
++                if (o->cmdline)
++                   cmdline2 = set_iovec_string_field(iovec, &n, "OBJECT_CMDLINE=", o->cmdline);
+ 
++                IOVEC_ADD_STRING_FIELD(iovec, n, o->capeff, "OBJECT_CAP_EFFECTIVE");
+                 IOVEC_ADD_SIZED_FIELD(iovec, n, o->label, o->label_size, "OBJECT_SELINUX_CONTEXT");
+-
+                 IOVEC_ADD_NUMERIC_FIELD(iovec, n, o->auditid, uint32_t, audit_session_is_valid, "%" PRIu32, "OBJECT_AUDIT_SESSION");
+                 IOVEC_ADD_NUMERIC_FIELD(iovec, n, o->loginuid, uid_t, uid_is_valid, UID_FMT, "OBJECT_AUDIT_LOGINUID");
+ 
+diff -Naurp systemd-240.orig/src/shared/journal-importer.h systemd-240/src/shared/journal-importer.h
+--- systemd-240.orig/src/shared/journal-importer.h	2018-12-21 12:53:33.000000000 -0600
++++ systemd-240/src/shared/journal-importer.h	2019-01-10 15:25:24.092188924 -0600
+@@ -21,6 +21,10 @@
+ #endif
+ #define LINE_CHUNK 8*1024u
+ 
++/* The maximum number of fields in an entry */
++/* Set to 1024 for now */
++#define ENTRY_FIELD_COUNT_MAX 1024
++
+ struct iovec_wrapper {
+         struct iovec *iovec;
+         size_t size_bytes;
