@@ -18,6 +18,7 @@
 
   <variablelist role="materials">
 
+<!--
     <varlistentry>
       <term>Automake Perl Patch - <token>&automake-perl-patch-size;</token>:</term>
       <listitem>
@@ -26,7 +27,7 @@
         <para>MD5 sum: <literal>&automake-perl-patch-md5;</literal></para>
       </listitem>
     </varlistentry>
-
+-->
 
     <varlistentry>
       <term>Bash Branch Update Patch - <token>&bash-branch_update-patch-size;</token>:</term>
@@ -76,6 +77,7 @@
       </listitem>
     </varlistentry>
 
+<!--
     <varlistentry>
       <term>Iana-Etc Protocol and Port Numbers Update - <token>&iana-etc-numbers_update-patch-size;</token>:</term>
       <listitem>
@@ -129,6 +131,7 @@
         <para>MD5 sum: <literal>&ncurses-bashfix-patch-md5;</literal></para>
       </listitem>
     </varlistentry>
+-->
 
 <!--Ncurses Branch Update Area
     <varlistentry>
@@ -159,16 +162,6 @@
       </listitem>
     </varlistentry>
 
-<!-- Vim branch update patch area -->
-    <varlistentry>
-      <term>Vim Branch Update Patch - <token>&vim-branch_update-patch-size;</token>:</term>
-      <listitem>
-        <para>Download: <ulink
-        url="&patches-root;&vim-branch_update-patch;"/></para>
-        <para>MD5 sum: <literal>&vim-branch_update-patch-md5;</literal></para>
-      </listitem>
-    </varlistentry>
-
     <varlistentry>
       <term>Sysvinit Consolidated Patch - <token>&sysvinit-consolidated-patch-size;</token>:</term>
       <listitem>
@@ -182,6 +175,16 @@
       <listitem>
         <para>Download: <ulink url="&patches-root;&systemd-security-patch;"/></para>
         <para>MD5 sum: <literal>&systemd-security-patch-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+
+<!-- Vim branch update patch area -->
+    <varlistentry>
+      <term>Vim Branch Update Patch - <token>&vim-branch_update-patch-size;</token>:</term>
+      <listitem>
+        <para>Download: <ulink
+        url="&patches-root;&vim-branch_update-patch;"/></para>
+        <para>MD5 sum: <literal>&vim-branch_update-patch-md5;</literal></para>
       </listitem>
     </varlistentry>
 
