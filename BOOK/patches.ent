@@ -89,11 +89,11 @@
 
 <!-- Start of Pure64 patches -->
 
-<!ENTITY gcc-pure64-patch "gcc-&gcc-version;-pure64-2.patch">
+<!ENTITY gcc-pure64-patch "gcc-&gcc-version;-pure64-1.patch">
 <!ENTITY gcc-pure64-patch-md5 "5f5dcf6de1882f5bfcab4293f266e198">
 <!ENTITY gcc-pure64-patch-size "9.124 KB">
 
-<!ENTITY gcc-specs_pure64-patch "gcc-&gcc-version;-pure64_specs-2.patch">
+<!ENTITY gcc-specs_pure64-patch "gcc-&gcc-version;-pure64_specs-1.patch">
 <!ENTITY gcc-specs_pure64-patch-md5 "f7fa13ee4b7416f3bf05fdcfcd19314d">
 <!ENTITY gcc-specs_pure64-patch-size "20 KB">
 
