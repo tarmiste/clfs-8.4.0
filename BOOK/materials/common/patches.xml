@@ -68,6 +68,15 @@
 -->
 
     <varlistentry>
+      <term>Gcc fix for isl20 Patch - <token>&gcc-isl20-patch-size;</token>:</term>
+      <listitem>
+        <para>Download: <ulink
+        url="&patches-root;&gcc-isl20-patch;"/></para>
+        <para>MD5 sum: <literal>&gcc-isl20-patch-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
       <term>Iana-Etc Protocol and Port Numbers Update - <token>&iana-etc-numbers_update-patch-size;</token>:</term>
       <listitem>
         <para>Download: <ulink
