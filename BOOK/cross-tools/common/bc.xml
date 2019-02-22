@@ -5,12 +5,12 @@
   %general-entities;
 ]>
 
-<sect1 id="ch-boot-bc">
+<sect1 id="ch-cross-tools-bc">
   <?dbhtml filename="bc.html"?>
 
   <title>Bc-&bc-version;</title>
 
-  <indexterm zone="ch-boot-bc">
+  <indexterm zone="ch-cross-tools-bc">
     <primary sortas="a-Bc">Bc</primary>
     <secondary>boot</secondary>
   </indexterm>
@@ -24,6 +24,24 @@
 
     <para>We will install a <command>bc</command> program that can run
     on the host system, as this is needed to compile the kernel.</para>
+
+    <para>Building bc here can be skipped if you are using the chroot
+    method or if the host system already has the needed version of bc. </para>
+
+    <para os="s1">Change an internal script to use <command>sed</command> 
+        instead of <command>ed</command>:</para>
+
+<screen os="s2"><userinput>cat &gt; bc/fix-libmath_h &lt;&lt; "EOF"
+#! /bin/bash
+sed -e '1   s/^/{"/' \
+    -e     's/$/",/' \
+    -e '2,$ s/^/"/'  \
+    -e   '$ d'       \
+    -i libmath.h
+
+sed -e '$ s/$/0}/' \
+-i libmath.h
+EOF</userinput></screen>
 
     <para>Prepare Bc for compilation:</para>
 

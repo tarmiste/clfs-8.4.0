@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-libffi" role="wrap">
+  <?dbhtml filename="libffi.html"?>
+
+  <title>Libffi-&libffi-version;</title>
+
+  <indexterm zone="ch-system-libffi">
+    <primary sortas="a-Libffi">Libffi</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>The Libffi library provides a portable, high level programming
+    interface to various calling conventions. This allows a programmer to call
+    any function specified by a call interface description at run time.</para>
+
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installation of Libffi</title>
+
+    <para os="A">Modify the Makefile to install headers into the standard
+    <filename class="directory">/usr/include</filename> directory instead of
+    <filename class="directory">/usr/lib/libffi-3.2.1/include</filename>.</para>
+
+<screen os="B"><userinput remap="pre">sed -e '/^includesdir/ s/$(libdir).*$/$(includedir)/' \
+    -i include/Makefile.in
+
+sed -e '/^includedir/ s/=.*$/=@includedir@/' \
+    -e 's/^Cflags: -I${includedir}/Cflags:/' \
+    -i libffi.pc.in</userinput></screen>
+
+
+    <para os="a">Prepare Libffi for compilation:</para>
+
+<screen os="b"><userinput remap="configure">./configure --prefix=/usr --disable-static --with-gcc-arch=native</userinput></screen>
+
+
+    <para os="c">Compile the package:</para>
+
+<screen os="d"><userinput>make</userinput></screen>
+
+    <para os="e">To test the results, issue:</para>
+
+<screen os="E"><userinput remap="test">make check</userinput></screen>
+
+    <para os="f">Install the package:</para>
+
+<screen os="g"><userinput>make install</userinput></screen>
+
+  </sect2>
+
+  <sect2 id="contents-libffi" role="content">
+    <title>Contents of Libffi</title>
+
+    <segmentedlist>
+      <segtitle>Installed library</segtitle>
+
+      <seglistitem>
+        <seg>libffi.so</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="libffi">
+        <term><filename class="libraryfile">libffi</filename></term>
+        <listitem>
+          <para>contains the libffi API functions.</para>
+          <indexterm zone="ch-system-libffi">
+            <primary sortas="c-libffi">libffi</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+  </sect2>
+
+</sect1>
+

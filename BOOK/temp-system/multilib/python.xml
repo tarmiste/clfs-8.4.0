@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-temp-system-Python" role="wrap">
+  <?dbhtml filename="python.html"?>
+
+  <title>Python-&python-version;</title>
+
+  <indexterm zone="ch-temp-system-Python">
+    <primary sortas="a-Python">Python</primary>
+    <secondary>temporary system</secondary>
+  </indexterm>
+
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+  href="../../final-system/common/python.xml"
+  xpointer="xpointer(//*[@role='package'])"/>
+
+  <sect2 role="installation">
+    <title>Installation of Python</title>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../common/python.xml"
+    xpointer="xpointer(//*[@os='a'])"/>
+
+<screen os="b"><userinput>PKG_CONFIG_PATH="" ./configure \
+    --prefix=/tools \
+    --build=${CLFS_HOST} \
+    --host=${CLFS_TARGET} \
+    --libdir='${prefix}'/lib64 \
+            --enable-shared     \
+            --with-system-expat \
+            --with-system-ffi   \
+            --with-ensurepip=yes</userinput></screen>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../common/python.xml"
+    xpointer="xpointer(//*[@os='d'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../common/python.xml"
+    xpointer="xpointer(//*[@os='e'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../common/python.xml"
+    xpointer="xpointer(//*[@os='f'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../common/python.xml"
+    xpointer="xpointer(//*[@os='g'])"/>
+
+<screen os="h"><userinput remap="install">make install
+chmod -v 755 /usr/lib/libpython&python-minor;m.so
+chmod -v 755 /usr/lib/libpython3.so</userinput></screen>
+
+  </sect2>
+
+  <sect2 role="content">
+    <title/>
+
+<para> TBA </para>
+<!--
+    <para>Details on this package are located in <xref
+    linkend="contents-python" role="."/></para>
+-->
+
+  </sect2>
+
+</sect1>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-meson" role="wrap">
+  <?dbhtml filename="meson.html"?>
+
+  <title>Meson-&meson-version;</title>
+
+  <indexterm zone="ch-system-meson">
+    <primary sortas="a-Meson">Meson</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>Meson is an open source build system meant to be both extremely fast,
+    and, even more importantly, as user friendly as possible.</para>
+
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installation of Meson</title>
+
+    <para os="g">Compile Meson with the following command:</para>
+
+<screen os="h"><userinput>python3 setup.py build</userinput></screen>
+
+    <para os="i">This package does not come with a test suite.</para>
+
+    <para os="j">Install the package:</para>
+
+<screen os="k"><userinput>python3 setup.py install --root=dest
+cp -rv dest/* /</userinput></screen>
+
+  </sect2>
+
+  <sect2 id="contents-meson" role="content">
+    <title>Contents of Meson</title>
+
+    <segmentedlist>
+      <segtitle>Installed programs</segtitle>
+      <segtitle>Installed directory</segtitle>
+
+      <seglistitem>
+        <seg>meson, mesonconf, mesonintrospect, mesontest, and wraptool</seg>
+		<seg>/usr/lib/python&python-minor;/site-packages/meson-&meson-version;-py&python-minor;.egg</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="meson">
+		<term><command>meson</command></term>
+        <listitem>
+          <para>A high productivity build system</para>
+          <indexterm zone="ch-system-meson meson">
+            <primary sortas="b-meson">meson</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="mesonconf">
+		<term><command>mesonconf</command></term>
+        <listitem>
+          <para>A tool to configure Meson builds</para>
+          <indexterm zone="ch-system-meson mesonconf">
+            <primary sortas="b-mesonconf">mesonconf</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="mesonintrospect">
+		<term><command>mesonintrospect</command></term>
+        <listitem>
+          <para>A tool to extract information about a Meson build</para>
+          <indexterm zone="ch-system-meson mesonintrospect">
+            <primary sortas="b-mesonintrospect">mesonintrospect</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="mesontest">
+		<term><command>mesontest</command></term>
+        <listitem>
+          <para>Test tool for the Meson build system</para>
+          <indexterm zone="ch-system-meson mesontest">
+            <primary sortas="b-mesontest">mesontest</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="wraptool">
+		<term><command>wraptool</command></term>
+        <listitem>
+          <para>Source dependency downloader</para>
+          <indexterm zone="ch-system-meson wraptool">
+            <primary sortas="b-wraptool">wraptool</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+  </sect2>
+
+</sect1>
+
