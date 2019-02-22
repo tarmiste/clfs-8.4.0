@@ -48,6 +48,7 @@
     --without-debug \
     --without-ada \
     --enable-overwrite \
+    --disable-stripping \
     --with-build-cc=gcc \
     --libdir=/tools/lib64</userinput></screen>
 

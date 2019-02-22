@@ -28,12 +28,12 @@
     <para os="s1">Apply a sed which prevents man-pages which were installed by
     the <xref linkend="ch-system-man-pages"/> package:</para>
 
-<screen os="s2"><userinput>sed -i -e "/SUBDIRS/s|man[25]||g" man/Makefile</userinput></screen>
+<screen os="s2"><userinput>#sed -i -e "/SUBDIRS/s|man[25]||g" man/Makefile</userinput></screen>
 
     <para os="a">Apply a sed to install the documentation with a versioned
     directory:</para>
 
-<screen os="b"><userinput>sed -i -e 's|/@pkg_name@|&amp;-@pkg_version@|' include/builddefs.in</userinput></screen>
+<screen os="b"><userinput>#sed -i -e 's|/@pkg_name@|&amp;-@pkg_version@|' include/builddefs.in</userinput></screen>
 
     <para os="c">Prepare Attr for compilation:</para>
 
@@ -51,7 +51,7 @@
 
     <para os="i">Install the package:</para>
 
-<screen os="j"><userinput>make install install-dev install-lib</userinput></screen>
+<screen os="j"><userinput>make install #install-dev install-lib</userinput></screen>
 
     <para os="k">Move the shared library to <filename class="directory">/lib
     </filename> and recreate the symlink in <filename class="directory">/usr/lib
@@ -62,7 +62,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libattr.so) /usr/lib/libattr.so</userinput
 
     <para os="m">Set the proper permissions on the shared library:</para>
 
-<screen os="n"><userinput>chmod 755 -v /lib/libattr.so.1.1.0</userinput></screen>
+<screen os="n"><userinput>#chmod 755 -v /lib/libattr.so.1</userinput></screen>
 
   </sect2>
 

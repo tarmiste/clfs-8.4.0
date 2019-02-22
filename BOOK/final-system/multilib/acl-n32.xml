@@ -83,7 +83,7 @@ rm -v /lib32/libacl.so</userinput></screen>
     href="../common/acl.xml"
     xpointer="xpointer(//*[@os='o'])"/>
 
-<screen os="p"><userinput>chmod 755 -v /lib32/libacl.so.1.1.0</userinput></screen>
+<screen os="p"><userinput>#chmod 755 -v /lib32/libacl.so.1.1.0</userinput></screen>
 
   </sect2>
 

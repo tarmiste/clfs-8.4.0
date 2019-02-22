@@ -25,12 +25,10 @@
   <sect2 role="installation">
     <title>Installation of GCC</title>
 
-<!--GCC Branch Update Area
-    <para os="p1">The following patch contains a number of updates to the
+    <para os="p1">The following patch corrects a failure with isl-0.20 and gcc 
     &gcc-version; branch by the GCC developers:</para>
 
-<screen os="p2"><userinput>patch -Np1 -i ../&gcc-branch_update-patch;</userinput></screen>
--->
+<screen os="p2"><userinput>patch -Np1 -i ../gcc-isl20_fix.patch</userinput></screen>
 
     <para os="fix1">Apply a <command>sed</command> substitution that will
     suppress the execution of the <command>fixincludes</command> script:</para>

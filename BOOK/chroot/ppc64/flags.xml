@@ -27,6 +27,10 @@ export BUILD64="-m64"</userinput></screen>
 export BUILD32="${BUILD32}"
 export BUILD64="${BUILD64}"
 export CLFS_TARGET32="${CLFS_TARGET32}"
+# Following is for jhalfs builds
+export PKG_CONFIG_PATH32="/usr/lib/pkgconfig"
+export PKG_CONFIG_PATHN32="/usr/lib32/pkgconfig"
+export PKG_CONFIG_PATH64="/usr/lib64/pkgconfig"
 EOF</userinput></screen>
 
 </sect1>

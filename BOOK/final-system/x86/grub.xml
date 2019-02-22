@@ -46,7 +46,9 @@
 
 <screen os="b"><userinput>./configure \
     --prefix=/usr \
+    --sbindir=/sbin \
     --sysconfdir=/etc \
+    --disable-efiemu \
     --disable-werror</userinput></screen>
 
     <para os="c">Compile the package:</para>

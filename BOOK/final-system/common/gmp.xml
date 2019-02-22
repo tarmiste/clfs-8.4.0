@@ -29,7 +29,7 @@
     <para os="p1">The following patch contains a number of updates to the
     &gmp-version; branch by the GMP developers:</para>
 
-<screen os="p2"><userinput>patch -Np1 -i ../&gmp-branch_update-patch;</userinput></screen>
+<screen os="p2"><userinput>#patch -Np1 -i ../&gmp-branch_update-patch;</userinput></screen>
 
 -->
 

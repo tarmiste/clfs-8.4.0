@@ -82,7 +82,7 @@ rm -v /lib64/libattr.so</userinput></screen>
   href="../common/attr.xml"
   xpointer="xpointer(//*[@os='m'])"/>
 
-<screen os="n"><userinput>chmod 755 -v /lib64/libattr.so.1.1.0</userinput></screen>
+<screen os="n"><userinput>#chmod 755 -v /lib64/libattr.so.1.1.0</userinput></screen>
 
   </sect2>
 

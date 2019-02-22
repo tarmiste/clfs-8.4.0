@@ -35,7 +35,10 @@ gl_cv_func_mbrtowc_retval=yes
 gl_cv_func_mbrtowc_nul_retval=yes
 gl_cv_func_wcrtomb_retval=yes
 gl_cv_func_wctob_works=yes
-EOF</userinput></screen>
+EOF
+sed -i 's/IO_ftrylockfile/IO_EOF_SEEN/' lib/*.c
+echo "#define _IO_IN_BACKUP 0x100" >> lib/stdio-impl.h
+</userinput></screen>
 
     <para os="a">Prepare M4 for compilation:</para>
 

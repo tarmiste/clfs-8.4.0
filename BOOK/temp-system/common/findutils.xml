@@ -22,11 +22,18 @@
   <sect2 role="installation">
     <title>Installation of Findutils</title>
 
+
     <para os="t1">The following cache entries set the values for tests that do
     not run while cross-compiling:</para>
 
 <screen os="t2"><userinput>echo "gl_cv_func_wcwidth_works=yes" &gt; config.cache
 echo "ac_cv_func_fnmatch_gnu=yes" &gt;&gt; config.cache</userinput></screen>
+
+    <para os="t3">Next, make some fixes required by glibc-2.28:</para>
+
+<screen os="t4"><userinput>sed -i 's/IO_ftrylockfile/IO_EOF_SEEN/' gl/lib/*.c
+sed -i '/unistd/a #include &lt;sys/sysmacros.h&gt;' gl/lib/mountlist.c
+echo "#define _IO_IN_BACKUP 0x100" >> gl/lib/stdio-impl.h</userinput></screen>
 
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
     href="../../final-system/common/findutils.xml"

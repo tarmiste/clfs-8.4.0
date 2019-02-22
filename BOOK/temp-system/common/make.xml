@@ -22,12 +22,17 @@
   <sect2 role="installation">
     <title>Installation of Make</title>
 
+    <para os="t1">First, work around an error caused by glibc-2.27 and later:</para>
+
+<screen os="az"><userinput>sed -i '211,217 d; 219,229 d; 232 d' glob/glob.c</userinput></screen>
+
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
     href="../../final-system/common/make.xml"
     xpointer="xpointer(//*[@os='a'])"/>
 
 <screen os="aa"><userinput>./configure \
     --prefix=/tools \
+    --without-guile \
     --build=${CLFS_HOST} \
     --host=${CLFS_TARGET}</userinput></screen>
 

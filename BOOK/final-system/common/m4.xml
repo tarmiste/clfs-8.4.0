@@ -24,10 +24,15 @@
   <sect2 role="installation">
     <title>Installation of M4</title>
 
+    <para os="A">First, make some fixes required by glibc-2.28:</para>
+
+<screen os="B"><userinput remap="pre">sed -i 's/IO_ftrylockfile/IO_EOF_SEEN/' lib/*.c
+echo "#define _IO_IN_BACKUP 0x100" >> lib/stdio-impl.h</userinput></screen>
+
     <para os="a">Prepare M4 for compilation:</para>
 
 <screen os="b"><userinput>./configure \
-    --prefix=/usr</userinput></screen>
+    --prefix=/usr </userinput></screen>
 
     <para os="c">Compile the package:</para>
 

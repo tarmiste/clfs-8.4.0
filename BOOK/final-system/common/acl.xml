@@ -26,17 +26,17 @@
 
     <para os="s1">Apply a sed for a test:</para>
 
-<screen os="s2"><userinput>sed -i -e "/TABS-1;/a if (x > (TABS-1)) x = (TABS-1);" \
-    libacl/__acl_to_any_text.c</userinput></screen>
+<screen os="s2"><userinput>#sed -i -e "/TABS-1;/a if (x > (TABS-1)) x = (TABS-1);" \
+    #libacl/__acl_to_any_text.c</userinput></screen>
 
     <para os="a">Apply a sed to install the documentation with a versioned
     directory:</para>
 
-<screen os="b"><userinput>sed -i -e 's|/@pkg_name@|&amp;-@pkg_version@|' include/builddefs.in</userinput></screen>
+<screen os="b"><userinput>#sed -i -e 's|/@pkg_name@|&amp;-@pkg_version@|' include/builddefs.in</userinput></screen>
 
     <para os="c">Apply a sed to fix a few tests:</para>
 
-<screen os="d"><userinput>sed -i "s:| sed.*::g" test/{sbits-restore,cp,misc}.test</userinput></screen>
+<screen os="d"><userinput>#sed -i "s:| sed.*::g" test/{sbits-restore,cp,misc}.test</userinput></screen>
 
     <para os="e">Prepare Acl for compilation:</para>
 
@@ -56,7 +56,7 @@
 
     <para os="k">Install the package:</para>
 
-<screen os="l"><userinput>make install install-dev install-lib</userinput></screen>
+<screen os="l"><userinput>make install #install-dev install-lib</userinput></screen>
 
     <para os="m">Move the shared library to <filename class="directory">/lib</filename>
     and recreate the symlink in <filename class="directory">/usr/lib</filename>:</para>
@@ -66,7 +66,7 @@ ln -sfv ../../lib/libacl.so.1 /usr/lib/libacl.so</userinput></screen>
 
     <para os="o">Set the proper permissions on the shared library:</para>
 
-<screen os="p"><userinput>chmod 755 -v /lib/libacl.so.1.1.0</userinput></screen>
+<screen os="p"><userinput>#chmod 755 -v /lib/libacl.so.1.1.0</userinput></screen>
 
   </sect2>
 

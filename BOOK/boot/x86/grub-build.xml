@@ -41,6 +41,7 @@ sed -e '/gets is a/d' grub-core/gnulib/stdio.in.h.orig &gt; grub-core/gnulib/std
     --prefix=/tools \
     --build=${CLFS_HOST} \
     --host=${CLFS_TARGET} \
+    --disable-efiemu \
     --disable-werror \
     --enable-grub-mkfont=no \
     --with-bootdir=tools/boot</userinput></screen>

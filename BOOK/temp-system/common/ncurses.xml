@@ -43,6 +43,7 @@
     --without-debug \
     --without-ada \
     --enable-overwrite \
+    --disable-stripping \
     --with-build-cc=gcc</userinput></screen>
 
     <variablelist os="c">

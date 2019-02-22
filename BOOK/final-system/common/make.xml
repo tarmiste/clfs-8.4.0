@@ -24,6 +24,10 @@
   <sect2 role="installation">
     <title>Installation of Make</title>
 
+    <para os="t1">First, work around an error caused by glibc-2.27 and later:</para>
+
+<screen os="az"><userinput>sed -i '211,217 d; 219,229 d; 232 d' glob/glob.c</userinput></screen>
+
     <para os="a">Prepare Make for compilation:</para>
 
 <screen os="b"><userinput>./configure \

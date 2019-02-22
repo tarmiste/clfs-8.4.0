@@ -33,7 +33,7 @@
 
     <para os="d">Install the package:</para>
 
-<screen os="e"><userinput>make RAISE_SETFCAP=no install
+<screen os="e"><userinput>make RAISE_SETFCAP=no lib=lib install
 chmod -v 755 /lib/libcap.so.&libcap-version;
 ln -sfv ../../lib/$(readlink /lib/libcap.so) /usr/lib/libcap.so
 rm -v /lib/libcap.so

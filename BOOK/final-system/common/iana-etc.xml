@@ -28,7 +28,7 @@
     <para os="p2">The following patch contains xml files which provide updates
     to the services and protocol files:</para>
 
-<screen os="p3"><userinput>xzcat ../&iana-etc-numbers_update-patch; | patch -Np1 -i -</userinput></screen>
+<screen os="p3"><userinput>#xzcat ../&iana-etc-numbers_update-patch; | patch -Np1 -i -</userinput></screen>
 
     <para os="a">The following command converts the raw data provided by IANA into
     the correct formats for the <filename>/etc/protocols</filename> and

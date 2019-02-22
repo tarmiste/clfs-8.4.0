@@ -177,6 +177,15 @@
     </varlistentry>
 
     <varlistentry>
+      <term>Elfutils (&elfutils-version;) - <token>&elfutils-size;</token>:</term>
+      <listitem>
+        <para>Home page: <ulink url="&elfutils-home;"/></para>
+        <para>Download: <ulink url="&elfutils-url;"/></para>
+        <para>MD5 sum: <literal>&elfutils-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
       <term>Eudev (&eudev-version;) - <token>&eudev-size;</token>:</term>
       <listitem>
         <para>Home page: <ulink url="&eudev-home;"/></para>
@@ -411,6 +420,33 @@
     </varlistentry>
 
     <varlistentry>
+      <term>Libee (&libee-version;) - <token>&libee-size;</token>:</term>
+      <listitem>
+        <para>Home page: <ulink url="&libee-home;"/></para>
+        <para>Download: <ulink url="&libee-url;"/></para>
+        <para>MD5 sum: <literal>&libee-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Libestr (&libestr-version;) - <token>&libestr-size;</token>:</term>
+      <listitem>
+        <para>Home page: <ulink url="&libestr-home;"/></para>
+        <para>Download: <ulink url="&libestr-url;"/></para>
+        <para>MD5 sum: <literal>&libestr-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Libffi (&libffi-version;) - <token>&libffi-size;</token>:</term>
+      <listitem>
+        <para>Home page: <ulink url="&libffi-home;"/></para>
+        <para>Download: <ulink url="&libffi-url;"/></para>
+        <para>MD5 sum: <literal>&libffi-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
       <term>Libpipeline (&libpipeline-version;) - <token>&libpipeline-size;</token>:</term>
       <listitem>
         <para>Home page: <ulink url="&libpipeline-home;"/></para>
@@ -474,6 +510,15 @@
     </varlistentry>
 
     <varlistentry>
+      <term>Meson (&meson-version;) - <token>&meson-size;</token>:</term>
+      <listitem>
+        <para>Home page: <ulink url="&meson-home;"/></para>
+        <para>Download: <ulink url="&meson-url;"/></para>
+        <para>MD5 sum: <literal>&meson-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
       <term>MPC (&mpc-version;) - <token>&mpc-size;</token>:</term>
       <listitem>
         <para>Home page: <ulink url="&mpc-home;"/></para>
@@ -492,11 +537,29 @@
     </varlistentry>
 
     <varlistentry>
+      <term>Ninja (&ninja-version;) - <token>&ninja-size;</token>:</term>
+      <listitem>
+        <para>Home page: <ulink url="&ninja-home;"/></para>
+        <para>Download: <ulink url="&ninja-url;"/></para>
+        <para>MD5 sum: <literal>&ninja-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
       <term>Ncurses (&ncurses-version;) - <token>&ncurses-size;</token>:</term>
       <listitem>
         <para>Home page: <ulink url="&ncurses-home;"/></para>
         <para>Download: <ulink url="&ncurses-url;"/></para>
         <para>MD5 sum: <literal>&ncurses-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>OpenSSL (&openssl-version;) - <token>&openssl-size;</token>:</term>
+      <listitem>
+        <para>Home page: <ulink url="&openssl-home;"/></para>
+        <para>Download: <ulink url="&openssl-url;"/></para>
+        <para>MD5 sum: <literal>&openssl-md5;</literal></para>
       </listitem>
     </varlistentry>
 
@@ -546,11 +609,37 @@
     </varlistentry>
 
     <varlistentry>
+      <term>Python (&python-version;) - <token>&python-size;</token>:</term>
+      <listitem>
+        <para>Home page: <ulink url="&python-home;"/></para>
+        <para>Download: <ulink url="&python-url;"/></para>
+        <para>MD5 sum: <literal>&python-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Python Documentation (&python-version;) - <token>&python-docs-size;</token>:</term>
+      <listitem>
+        <para>Download: <ulink url="&python-docs-url;"/></para>
+        <para>MD5 sum: <literal>&python-docs-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
       <term>Readline (&readline-version;) - <token>&readline-size;</token>:</term>
       <listitem>
         <para>Home page: <ulink url="&readline-home;"/></para>
         <para>Download: <ulink url="&readline-url;"/></para>
         <para>MD5 sum: <literal>&readline-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Rsyslog (&rsyslog-version;) - <token>&rsyslog-size;</token>:</term>
+      <listitem>
+        <para>Home page: <ulink url="&rsyslog-home;"/></para>
+        <para>Download: <ulink url="&rsyslog-url;"/></para>
+        <para>MD5 sum: <literal>&rsyslog-md5;</literal></para>
       </listitem>
     </varlistentry>
 
@@ -573,11 +662,11 @@
     </varlistentry>
 
     <varlistentry>
-      <term>Sysvinit (&sysvinit-version;) - <token>&sysvinit-size;</token>:</term>
+      <term>Sysklogd (&sysklogd-version;) - <token>&sysklogd-size;</token>:</term>
       <listitem>
-        <para>Home page: <ulink url="&sysvinit-home;"/></para>
-        <para>Download: <ulink url="&sysvinit-url;"/></para>
-        <para>MD5 sum: <literal>&sysvinit-md5;</literal></para>
+        <para>Home page: <ulink url="&sysklogd-home;"/></para>
+        <para>Download: <ulink url="&sysklogd-url;"/></para>
+        <para>MD5 sum: <literal>&sysklogd-md5;</literal></para>
       </listitem>
     </varlistentry>
 
@@ -587,6 +676,21 @@
         <para>Home page: <ulink url="&systemd-home;"/></para>
         <para>Download: <ulink url="&systemd-url;"/></para>
         <para>MD5 sum: <literal>&systemd-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Systemd Man Pages(&systemd-version;) - <token>&systemd-man-size;</token>:</term>
+      <listitem>
+        <para>Home page: <ulink url="&systemd-home;"/></para>
+        <para>Download: <ulink url="&systemd-man-url;"/></para>
+        <para>MD5 sum: <literal>&systemd-man-md5;</literal></para>
+
+        <note>
+          <para>The Linux From Scratch team generates its own tarball of the
+          man pages using the systemd source. This is done in order to avoid
+          unnecessary dependencies.</para>
+        </note>
       </listitem>
     </varlistentry>
 
@@ -605,6 +709,15 @@
         <para>Home page: <ulink url="&tcl-home;"/></para>
         <para>Download: <ulink url="&tcl-url;"/></para>
         <para>MD5 sum: <literal>&tcl-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Sysvinit (&sysvinit-version;) - <token>&sysvinit-size;</token>:</term>
+      <listitem>
+        <para>Home page: <ulink url="&sysvinit-home;"/></para>
+        <para>Download: <ulink url="&sysvinit-url;"/></para>
+        <para>MD5 sum: <literal>&sysvinit-md5;</literal></para>
       </listitem>
     </varlistentry>
 
