@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-openssl-32" role="wrap">
+  <?dbhtml filename="openssl.html"?>
+
+  <title>Openssl-&openssl-version; 32 Bit Libraries</title>
+
+  <indexterm zone="ch-system-openssl-32">
+    <primary sortas="a-Openssl">Openssl</primary>
+    <secondary>32 Bit</secondary>
+  </indexterm>
+
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+  href="../ppc/openssl.xml"
+  xpointer="xpointer(//*[@role='package'])"/>
+
+  <sect2 role="installation">
+    <title>Installation of Openssl</title>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../ppc/openssl.xml"
+    xpointer="xpointer(//*[@os='a'])"/>
+
+<screen os="b"><userinput remap="configure">CC="gcc ${BUILD32}" ./config --prefix=/usr         \
+         --openssldir=/etc/ssl \
+         --libdir=lib          \
+         shared                \
+         zlib-dynamic </userinput></screen>
+
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../ppc/openssl.xml"
+    xpointer="xpointer(//*[@os='c'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../ppc/openssl.xml"
+    xpointer="xpointer(//*[@os='d'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../ppc/openssl.xml"
+    xpointer="xpointer(//*[@os='e'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../ppc/openssl.xml"
+    xpointer="xpointer(//*[@os='E'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../ppc/openssl.xml"
+    xpointer="xpointer(//*[@os='f'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../ppc/openssl.xml"
+    xpointer="xpointer(//*[@os='g'])"/>
+
+  </sect2>
+
+  <sect2 role="content">
+    <title/>
+
+    <para>Details on this package are located in <xref
+    linkend="contents-openssl" role="."/></para>
+
+  </sect2>
+
+</sect1>

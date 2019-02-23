@@ -111,6 +111,7 @@
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/libffi-n32.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/libffi-64bit.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/openssl.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/openssl-n32.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/openssl-64bit.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/python.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/python-n32.xml"/>

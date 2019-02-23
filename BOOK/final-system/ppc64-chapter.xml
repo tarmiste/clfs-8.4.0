@@ -85,8 +85,8 @@
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/libelf-64bit.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/libffi.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/libffi-64bit.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/openssl.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/openssl-64bit.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ppc64/openssl.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ppc64/openssl-64bit.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/python.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/python-64bit.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/ninja.xml"/>
