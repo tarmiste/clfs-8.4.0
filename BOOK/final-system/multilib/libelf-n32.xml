@@ -28,14 +28,10 @@
 
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
     href="../common/libelf.xml"
-    xpointer="xpointer(//*[@os='B'])"/>
-
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-    href="../common/libelf.xml"
     xpointer="xpointer(//*[@os='a'])"/>
 
 <screen os="b"><userinput>CC="gcc ${BUILDN32}" ./configure --prefix=/usr \
-    --libdir=/usr/lib32 --disable-static --with-gcc-arch=native</userinput></screen>
+    --libdir=/usr/lib32</userinput></screen>
 
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
     href="../common/libelf.xml"

@@ -17,9 +17,8 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Libelf library provides a portable, high level programming
-    interface to various calling conventions. This allows a programmer to call
-    any function specified by a call interface description at run time.</para>
+    <para>Libelf is a library for handling ELF (Executable and Linkable Format)
+    files.</para>
 
 
   </sect2>
@@ -27,22 +26,12 @@
   <sect2 role="installation">
     <title>Installation of Libelf</title>
 
-    <para os="A">Modify the Makefile to install headers into the standard
-    <filename class="directory">/usr/include</filename> directory instead of
-    <filename class="directory">/usr/lib/libelf-3.2.1/include</filename>.</para>
-
-<screen os="B"><userinput remap="pre">sed -e '/^includesdir/ s/$(libdir).*$/$(includedir)/' \
-    -i include/Makefile.in
-
-sed -e '/^includedir/ s/=.*$/=@includedir@/' \
-    -e 's/^Cflags: -I${includedir}/Cflags:/' \
-    -i libelf.pc.in</userinput></screen>
-
+      <para os="A">Libelf is part of elfutils-&elfutils-version; package. Use
+      the elfutils-&elfutils-version;.tar.bz2 as the source tarball.</para>
 
     <para os="a">Prepare Libelf for compilation:</para>
 
-<screen os="b"><userinput remap="configure">./configure --prefix=/usr --disable-static --with-gcc-arch=native</userinput></screen>
-
+<screen os="b"><userinput remap="configure">./configure --prefix=/usr</userinput></screen>
 
     <para os="c">Compile the package:</para>
 
@@ -52,9 +41,11 @@ sed -e '/^includedir/ s/=.*$/=@includedir@/' \
 
 <screen os="E"><userinput remap="test">make check</userinput></screen>
 
-    <para os="f">Install the package:</para>
+    <para os="f">Install only Libelf:</para>
 
-<screen os="g"><userinput>make install</userinput></screen>
+<screen os="g"><userinput remap="install">make -C libelf install
+install -vm644 config/libelf.pc /usr/lib/pkgconfig</userinput></screen>
+
 
   </sect2>
 
