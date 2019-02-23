@@ -53,9 +53,8 @@
     href="../common/libelf.xml"
     xpointer="xpointer(//*[@os='f'])"/>
 
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-    href="../common/libelf.xml"
-    xpointer="xpointer(//*[@os='g'])"/>
+<screen os="g"><userinput remap="install">make -C libelf install
+install -vm644 config/libelf.pc /usr/lib32/pkgconfig</userinput></screen>
 
   </sect2>
 
