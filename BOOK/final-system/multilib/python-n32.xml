@@ -24,6 +24,14 @@
 
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
     href="../common/python.xml"
+    xpointer="xpointer(//*[@os='A'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../common/python.xml"
+    xpointer="xpointer(//*[@os='B'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../common/python.xml"
     xpointer="xpointer(//*[@os='a'])"/>
 
 <screen os="b"><userinput>CC="gcc ${BUILDN32}" ./configure \
