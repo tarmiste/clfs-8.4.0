@@ -61,11 +61,19 @@
 <!ENTITY bison-md5 "c9b552dee234b2f6b66e56b27e5234c9">
 <!ENTITY bison-home "&gnu-software;bison/">
 
+<!-- boot-scripts is for systemd -->
 <!ENTITY boot-scripts-clfs-version "3.0-20140710">
 <!ENTITY boot-scripts-clfs-size "22 KB">
 <!ENTITY boot-scripts-clfs-url "&packages-root;boot-scripts-cross-lfs-&boot-scripts-clfs-version;.tar.xz">
 <!ENTITY boot-scripts-clfs-md5 "bac3e8a54e5ab124a2df0713dc4e4ca4">
 <!ENTITY boot-scripts-clfs-home " ">
+
+<!-- bootscripts is for sysvinit -->
+<!ENTITY bootscripts-clfs-version "3.0-20140710">
+<!ENTITY bootscripts-clfs-size "22 KB">
+<!ENTITY bootscripts-clfs-url "&packages-root;bootscripts-cross-lfs-&bootscripts-clfs-version;.tar.xz">
+<!ENTITY bootscripts-clfs-md5 "c1635384cada42205bfbbef86b4a7119">
+<!ENTITY bootscripts-clfs-home " ">
 
 <!ENTITY bzip2-version "1.0.6">
 <!ENTITY bzip2-size "764 KB">
