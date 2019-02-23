@@ -6,9 +6,9 @@
 ]>
 
 <sect1 id="ch-config-bootscripts" role="wrap">
-  <?dbhtml filename="boot-scripts.html"?>
+  <?dbhtml filename="bootscripts.html"?>
 
-  <title>Bootscripts for CLFS &boot-scripts-clfs-version;</title>
+  <title>Bootscripts for CLFS &bootscripts-clfs-version;</title>
 
   <indexterm zone="ch-config-bootscripts">
     <primary sortas="a-Bootscripts">Bootscripts</primary>
