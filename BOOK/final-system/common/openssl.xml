@@ -17,9 +17,10 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Openssl library provides a portable, high level programming
-    interface to various calling conventions. This allows a programmer to call
-    any function specified by a call interface description at run time.</para>
+    <para>The OpenSSL package contains  management tools and libraries relating
+    to cryptography. These are useful for providing cryptographic functions
+    to other packages, such as OpenSSH, email applications and web browsers
+    (for accessing HTTPS sites).  </para>
 
 
   </sect2>
@@ -27,22 +28,14 @@
   <sect2 role="installation">
     <title>Installation of Openssl</title>
 
-    <para os="A">Modify the Makefile to install headers into the standard
-    <filename class="directory">/usr/include</filename> directory instead of
-    <filename class="directory">/usr/lib/openssl-3.2.1/include</filename>.</para>
-
-<screen os="B"><userinput remap="pre">sed -e '/^includesdir/ s/$(libdir).*$/$(includedir)/' \
-    -i include/Makefile.in
-
-sed -e '/^includedir/ s/=.*$/=@includedir@/' \
-    -e 's/^Cflags: -I${includedir}/Cflags:/' \
-    -i openssl.pc.in</userinput></screen>
-
-
     <para os="a">Prepare Openssl for compilation:</para>
 
 <screen os="b"><userinput remap="configure">./configure --prefix=/usr --disable-static --with-gcc-arch=native</userinput></screen>
-
+<screen os="b"><userinput remap="configure"> ./config --prefix=/usr         \
+         --openssldir=/etc/ssl \
+         --libdir=lib          \
+         shared                \
+         zlib-dynamic </userinput></screen>
 
     <para os="c">Compile the package:</para>
 
@@ -50,22 +43,37 @@ sed -e '/^includedir/ s/=.*$/=@includedir@/' \
 
     <para os="e">To test the results, issue:</para>
 
-<screen os="E"><userinput remap="test">make check</userinput></screen>
+<screen os="E"><userinput remap="test">make test</userinput></screen>
 
     <para os="f">Install the package:</para>
 
-<screen os="g"><userinput>make install</userinput></screen>
+<screen os="g"><userinput>sed -i '/INSTALL_LIBS/s/libcrypto.a libssl.a//' Makefile
+make MANSUFFIX=ssl install</userinput></screen>
+
 
   </sect2>
 
   <sect2 id="contents-openssl" role="content">
-    <title>Contents of Openssl</title>
+    <title>Contents of OpenSSL</title>
 
     <segmentedlist>
-      <segtitle>Installed library</segtitle>
+      <segtitle>Installed programs</segtitle>
+      <segtitle>Installed libraries</segtitle>
+      <segtitle>Installed directories</segtitle>
 
       <seglistitem>
-        <seg>openssl.so</seg>
+        <seg>
+          c_rehash and openssl
+        </seg>
+        <seg>
+          libcrypto.{so,a} and libssl.{so,a}
+        </seg>
+        <seg>
+          /etc/ssl,
+          /usr/include/openssl,
+          /usr/lib/engines and
+          /usr/share/doc/openssl-&openssl-version;
+        </seg>
       </seglistitem>
     </segmentedlist>
 
@@ -74,18 +82,68 @@ sed -e '/^includedir/ s/=.*$/=@includedir@/' \
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
-      <varlistentry id="openssl">
-        <term><filename class="libraryfile">openssl</filename></term>
+      <varlistentry id="c_rehash">
+        <term><command>c_rehash</command></term>
         <listitem>
-          <para>contains the openssl API functions.</para>
-          <indexterm zone="ch-system-openssl">
-            <primary sortas="c-openssl">openssl</primary>
+          <para>
+            is a <application>Perl</application> script that scans all files in
+            a directory and adds symbolic links to their hash values.
+          </para>
+          <indexterm zone="ch-system-openssl c_rehash">
+            <primary sortas="b-c_rehash">c_rehash</primary>
           </indexterm>
         </listitem>
       </varlistentry>
+
+      <varlistentry id="openssl-prog">
+        <term><command>openssl</command></term>
+        <listitem>
+          <para>
+            is a command-line tool for using the various cryptography functions
+            of <application>OpenSSL</application>'s crypto library from the
+            shell. It can be used for various functions which are documented in
+            <command>man 1 openssl</command>.
+          </para>
+          <indexterm zone="ch-system-openssl openssl-prog">
+            <primary sortas="b-openssl">openssl</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libcrypto">
+        <term><filename class="libraryfile">libcrypto.so</filename></term>
+        <listitem>
+          <para>
+            implements a wide range of cryptographic algorithms used in various
+            Internet standards. The services provided by  this library are used
+            by the <application>OpenSSL</application> implementations of SSL,
+            TLS and S/MIME, and they have also been used to implement
+            <application>OpenSSH</application>,
+            <application>OpenPGP</application>, and other cryptographic
+            standards.
+          </para>
+          <indexterm zone="ch-system-openssl libcrypto">
+            <primary sortas="c-libcrypto">libcrypto.so</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libssl">
+        <term><filename class="libraryfile">libssl.so</filename></term>
+        <listitem>
+          <para>
+            implements the Transport Layer Security (TLS v1) protocol.
+            It provides a rich API, documentation
+            on which can be found by running <command>man 3 ssl</command>.
+          </para>
+          <indexterm zone="ch-system-openssl libssl">
+            <primary sortas="c-libssl">libssl.so</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
     </variablelist>
 
   </sect2>
 
 </sect1>
-
