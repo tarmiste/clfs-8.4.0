@@ -30,7 +30,6 @@
 
     <para os="a">Prepare Openssl for compilation:</para>
 
-<screen os="b"><userinput remap="configure">./configure --prefix=/usr --disable-static --with-gcc-arch=native</userinput></screen>
 <screen os="b"><userinput remap="configure"> ./config --prefix=/usr         \
          --openssldir=/etc/ssl \
          --libdir=lib          \

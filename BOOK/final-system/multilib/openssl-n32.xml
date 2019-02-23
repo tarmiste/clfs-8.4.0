@@ -26,8 +26,11 @@
     href="../common/openssl.xml"
     xpointer="xpointer(//*[@os='a'])"/>
 
-<screen os="b"><userinput>CC="gcc ${BUILDN32}" ./configure --prefix=/usr \
-    --libdir=/usr/lib32 --disable-static --with-gcc-arch=native</userinput></screen>
+<screen os="b"><userinput remap="configure">CC="gcc ${BUILD32}" ./config --prefix=/usr         \
+         --openssldir=/etc/ssl \
+         --libdir=lib32        \
+         shared                \
+         zlib-dynamic </userinput></screen>
 
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
     href="../common/openssl.xml"
