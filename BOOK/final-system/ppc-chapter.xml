@@ -59,6 +59,7 @@
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/gettext.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/libelf.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/libffi.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ppc/openssl.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/python.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/ninja.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/meson.xml"/>

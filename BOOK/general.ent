@@ -41,6 +41,7 @@
 <!ENTITY livecd-root "&lfs-root;livecd/">
 <!ENTITY test-results "&clfs-root;testsuite-logs/&generic-version;/">
 <!ENTITY errata "&clfs-wiki;wiki/errata">
+<!ENTITY min-kernel      "3.2">
 
 <!ENTITY anduin-sources  "http://anduin.linuxfromscratch.org/LFS">
 <!ENTITY gnu "http://ftp.gnu.org/gnu/">
