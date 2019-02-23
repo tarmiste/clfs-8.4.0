@@ -135,6 +135,15 @@
     </varlistentry>
 -->
 
+    <varlistentry>
+      <term>Python Multilib Patch - <token>&python-multilib-patch-size;</token>:</term>
+      <listitem>
+        <para>Download: <ulink
+        url="&patches-root;&python-multilib-patch;"/></para>
+        <para>MD5 sum: <literal>&python-multilib-patch-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+
 <!--Ncurses Branch Update Area
     <varlistentry>
       <term>Ncurses Branch Update Patch - <token>&ncurses-branch_update-patch-size;</token>:</term>
