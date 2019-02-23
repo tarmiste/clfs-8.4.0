@@ -8,7 +8,7 @@
 <sect1 id="ch-system-libelf" role="wrap">
   <?dbhtml filename="libelf-64bit.html"?>
 
-  <title>Libelf-&libelf-version; 64 Bit</title>
+  <title>Libelf-&elfutils-version; 64 Bit</title>
 
   <indexterm zone="ch-system-libelf">
     <primary sortas="a-Libelf">Libelf</primary>
