@@ -95,6 +95,7 @@
         <para>MD5 sum: <literal>&intltool-perl-patch-md5;</literal></para>
       </listitem>
     </varlistentry>
+-->
 
     <varlistentry>
       <term>IPUtils Fixes Patch - <token>&iputils-build-patch-size;</token>:</term>
@@ -105,6 +106,7 @@
       </listitem>
     </varlistentry>
 
+<!--
     <varlistentry>
       <term>Linux Sublevel Patch - <token>&linux-sublevel-patch-size;</token>:</term>
       <listitem>
