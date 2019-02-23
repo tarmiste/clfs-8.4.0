@@ -85,6 +85,7 @@
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/expat.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/expat-n32.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/expat-64bit.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/iputils.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/perl.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/perl-n32.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/perl-64bit.xml"/>
@@ -103,6 +104,19 @@
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/gettext.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/gettext-n32.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/gettext-64bit.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/libelf.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/libelf-n32.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/libelf-64bit.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/libffi.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/libffi-n32.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/libffi-64bit.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/openssl.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/openssl-64bit.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/python.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/python-n32.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/python-64bit.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/ninja.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/meson.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/coreutils.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/diffutils.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/gawk.xml"/>
@@ -130,7 +144,6 @@
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/e2fsprogs.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/e2fsprogs-n32.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/e2fsprogs-64bit.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/iputils.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/libestr.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/libestr-n32.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/libestr-64bit.xml"/>
@@ -142,14 +155,6 @@
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/eudev.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/eudev-n32.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/eudev-64bit.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/libffi.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/libffi-n32.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/libffi-64bit.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/python.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/python-n32.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/python-64bit.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/ninja.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/meson.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/systemd.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/systemd-n32.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/systemd-64bit.xml"/>

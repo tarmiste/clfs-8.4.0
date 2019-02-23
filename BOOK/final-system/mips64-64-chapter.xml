@@ -48,6 +48,7 @@
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/gdbm.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/gperf.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/expat.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/iputils.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/perl.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/xml-parser.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/intltool.xml"/>
@@ -56,6 +57,12 @@
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/xz.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/kmod.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/gettext.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/libelf.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/libffi.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/python.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/ninja.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/meson.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/systemd.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/coreutils.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/diffutils.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/gawk.xml"/>
@@ -75,17 +82,11 @@
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/procps-ng.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/util-linux.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/e2fsprogs.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/iputils.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/libestr.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/libee.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/rsyslog.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/sysvinit.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/eudev.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/libffi.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/python.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/ninja.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/meson.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/systemd.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common/dbus.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mips64/colo.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mips64/dvhtool.xml"/>
