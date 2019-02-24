@@ -72,7 +72,7 @@
 <!ENTITY bootscripts-clfs-version "3.0-20140710">
 <!ENTITY bootscripts-clfs-size "22 KB">
 <!ENTITY bootscripts-clfs-url "&packages-root;bootscripts-cross-lfs-&bootscripts-clfs-version;.tar.xz">
-<!ENTITY bootscripts-clfs-md5 "ebe69a3adc1da12bfcdfab3e094eeb1a">
+<!ENTITY bootscripts-clfs-md5 "c1635384cada42205bfbbef86b4a7119">
 <!ENTITY bootscripts-clfs-home " ">
 
 <!ENTITY bzip2-version "1.0.6">
