@@ -14,7 +14,7 @@
   href="../../boot/common/creatingdirs.xml"
   xpointer="xpointer(//*[@os='b'])"/>
 
-<screen os="c"><userinput>mkdir -pv /{bin,boot,dev,{etc/,}opt,home,lib,mnt}
+<screen os="c"><userinput>mkdir -pv /{bin,boot,dev,etc/{opt,sysconfig},home,lib/firmware,mnt,opt}
 mkdir -pv /{proc,media/{floppy,cdrom},run/shm,sbin,srv,sys}
 mkdir -pv /var/{lock,log,mail,spool}
 mkdir -pv /var/{opt,cache,lib/{misc,locate},local}
@@ -22,7 +22,7 @@ install -dv -m 0750 /root
 install -dv -m 1777 {/var,}/tmp
 ln -sv ../run /var/run
 mkdir -pv /usr/{,local/}{bin,include,lib,sbin,src}
-mkdir -pv /usr/{,local/}share/{doc,info,locale,man}
+mkdir -pv /usr/{,local/}share/{color,dict,doc,info,locale,man}
 mkdir -pv /usr/{,local/}share/{misc,terminfo,zoneinfo}
 mkdir -pv /usr/{,local/}share/man/man{1..8}</userinput></screen>
 
