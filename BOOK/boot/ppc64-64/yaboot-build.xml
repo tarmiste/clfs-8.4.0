@@ -68,7 +68,7 @@ sed -e "s/\(-print-libgcc-file-name\)/${BUILD64} \1/" \
     href="../../final-system/ppc/yaboot.xml"
     xpointer="xpointer(//*[@os='c'])"/>
 
-<screen><userinput>CFLAGS=${BUILD64} make CROSS=${CLFS_TARGET}-</userinput></screen>
+<screen><userinput>#CFLAGS=${BUILD64} make CROSS=${CLFS_TARGET}-</userinput></screen>
 
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
     href="../../final-system/ppc64/yaboot.xml"
@@ -78,7 +78,7 @@ sed -e "s/\(-print-libgcc-file-name\)/${BUILD64} \1/" \
     href="../../final-system/ppc64/yaboot.xml"
     xpointer="xpointer(//*[@os='e'])"/>
 
-<screen><userinput>make CROSS=${CLFS_TARGET}- ROOT=/tools PREFIX= install 2&gt;&amp;1 | tee instlog</userinput></screen>
+<screen><userinput>#make CROSS=${CLFS_TARGET}- ROOT=/tools PREFIX= install 2&gt;&amp;1 | tee instlog</userinput></screen>
 
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
     href="../../final-system/ppc64/yaboot.xml"

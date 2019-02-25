@@ -62,13 +62,13 @@ sed -e "s/\(strip \)/${CLFS_TARGET}-\1/" \
     href="../../final-system/ppc/yaboot.xml"
     xpointer="xpointer(//*[@os='c'])"/>
 
-<screen><userinput>make CROSS=${CLFS_TARGET}-</userinput></screen>
+<screen><userinput>#make CROSS=${CLFS_TARGET}-</userinput></screen>
 
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
     href="../../final-system/ppc/yaboot.xml"
     xpointer="xpointer(//*[@os='e'])"/>
 
-<screen><userinput>make CROSS=${CLFS_TARGET}- ROOT=/tools PREFIX="" install</userinput></screen>
+<screen><userinput>#make CROSS=${CLFS_TARGET}- ROOT=/tools PREFIX="" install</userinput></screen>
 
   </sect2>
 
