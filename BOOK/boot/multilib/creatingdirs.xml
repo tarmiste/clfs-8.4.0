@@ -18,7 +18,7 @@
   href="../common/creatingdirs.xml"
   xpointer="xpointer(//*[@os='b'])"/>
 
-<screen os="C"><userinput>mkdir -pv ${CLFS}/{bin,boot,dev,etc/{opt,sysconfig},home,lib{,64},lib/firmware,mnt,opt}
+<screen os="c"><userinput>mkdir -pv ${CLFS}/{bin,boot,dev,etc/{opt,sysconfig},home,lib{,64},lib/firmware,mnt,opt}
 mkdir -pv ${CLFS}/{proc,media/{floppy,cdrom},run/{,shm},sbin,srv,sys}
 mkdir -pv ${CLFS}/var/{lock,log,mail,spool}
 mkdir -pv ${CLFS}/var/{opt,cache,lib{,64}/{misc,locate},local}
