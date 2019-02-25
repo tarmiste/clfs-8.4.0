@@ -50,8 +50,8 @@
 
     <para>First install the service from the CLFS Bootscripts package:</para>
 
-<screen role="nodump"><userinput>tar -xvf boot-scripts-cross-lfs-&boot-scripts-clfs-version;.tar.xz
-cd boot-scripts-cross-lfs-&boot-scripts-clfs-version;
+<screen role="nodump"><userinput>tar -xvf bootscripts-cross-lfs-&boot-scripts-clfs-version;.tar.xz
+cd bootscripts-cross-lfs-&boot-scripts-clfs-version;
 make install-service-dhcpcd</userinput></screen>
 
     <para>Finally, create the
