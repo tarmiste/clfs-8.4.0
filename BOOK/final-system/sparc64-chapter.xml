@@ -114,6 +114,8 @@
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/util-linux-64bit.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/e2fsprogs.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/e2fsprogs-64bit.xml"/>
+<!--  For sysvinit:
+-->
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/libestr.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/libestr-64bit.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/libee.xml"/>
@@ -122,10 +124,16 @@
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/sysvinit.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/eudev.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/eudev-64bit.xml"/>
+<!--  end of sysvinit
+-->
+<!--  For systemd:
+-->
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/systemd.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/systemd-64bit.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/dbus.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/dbus-64bit.xml"/>
+<!--  end of systemd
+-->
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sparc64/elftoaout.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sparc64-64/silo.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/aboutdebug.xml"/>
