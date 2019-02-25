@@ -60,12 +60,8 @@
 
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="testsuite-tools/x86-chapter.xml"/>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="final-system/x86-chapter.xml"/>
-<!--
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="system-config/x86-chapter.xml"/>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="network/x86-chapter.xml"/>
--->
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sysvinit-config/x86-chapter.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sysvinit-network/x86-chapter.xml"/>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bootable/x86-chapter.xml"/>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="the-end/chapter.xml"/>
 
