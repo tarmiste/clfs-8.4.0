@@ -1,0 +1,486 @@
+diff -Naur gcc-8.2.0.orig/gcc/config/aarch64/aarch64-linux.h gcc-8.2.0/gcc/config/aarch64/aarch64-linux.h
+--- gcc-8.2.0.orig/gcc/config/aarch64/aarch64-linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.2.0/gcc/config/aarch64/aarch64-linux.h	2019-02-19 12:41:12.394582385 -0700
+@@ -21,7 +21,7 @@
+ #ifndef GCC_AARCH64_LINUX_H
+ #define GCC_AARCH64_LINUX_H
+ 
+-#define GLIBC_DYNAMIC_LINKER "/lib/ld-linux-aarch64%{mbig-endian:_be}%{mabi=ilp32:_ilp32}.so.1"
++#define GLIBC_DYNAMIC_LINKER "/tools/lib/ld-linux-aarch64%{mbig-endian:_be}%{mabi=ilp32:_ilp32}.so.1"
+ 
+ #undef MUSL_DYNAMIC_LINKER
+ #define MUSL_DYNAMIC_LINKER "/lib/ld-musl-aarch64%{mbig-endian:_be}%{mabi=ilp32:_ilp32}.so.1"
+diff -Naur gcc-8.2.0.orig/gcc/config/alpha/linux-elf.h gcc-8.2.0/gcc/config/alpha/linux-elf.h
+--- gcc-8.2.0.orig/gcc/config/alpha/linux-elf.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.2.0/gcc/config/alpha/linux-elf.h	2019-02-19 12:41:12.395582385 -0700
+@@ -23,8 +23,8 @@
+ #define EXTRA_SPECS \
+ { "elf_dynamic_linker", ELF_DYNAMIC_LINKER },
+ 
+-#define GLIBC_DYNAMIC_LINKER	"/lib/ld-linux.so.2"
+-#define UCLIBC_DYNAMIC_LINKER "/lib/ld-uClibc.so.0"
++#define GLIBC_DYNAMIC_LINKER	"/tools/lib/ld-linux.so.2"
++#define UCLIBC_DYNAMIC_LINKER "/tools/lib/ld-uClibc.so.0"
+ #if DEFAULT_LIBC == LIBC_UCLIBC
+ #define CHOOSE_DYNAMIC_LINKER(G, U) "%{mglibc:" G ";:" U "}"
+ #elif DEFAULT_LIBC == LIBC_GLIBC
+diff -Naur gcc-8.2.0.orig/gcc/config/arm/linux-eabi.h gcc-8.2.0/gcc/config/arm/linux-eabi.h
+--- gcc-8.2.0.orig/gcc/config/arm/linux-eabi.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.2.0/gcc/config/arm/linux-eabi.h	2019-02-19 12:41:12.396582385 -0700
+@@ -62,8 +62,8 @@
+    GLIBC_DYNAMIC_LINKER_DEFAULT and TARGET_DEFAULT_FLOAT_ABI.  */
+ 
+ #undef  GLIBC_DYNAMIC_LINKER
+-#define GLIBC_DYNAMIC_LINKER_SOFT_FLOAT "/lib/ld-linux.so.3"
+-#define GLIBC_DYNAMIC_LINKER_HARD_FLOAT "/lib/ld-linux-armhf.so.3"
++#define GLIBC_DYNAMIC_LINKER_SOFT_FLOAT "/tools/lib/ld-linux.so.3"
++#define GLIBC_DYNAMIC_LINKER_HARD_FLOAT "/tools/lib/ld-linux-armhf.so.3"
+ #define GLIBC_DYNAMIC_LINKER_DEFAULT GLIBC_DYNAMIC_LINKER_SOFT_FLOAT
+ 
+ #define GLIBC_DYNAMIC_LINKER \
+diff -Naur gcc-8.2.0.orig/gcc/config/arm/linux-elf.h gcc-8.2.0/gcc/config/arm/linux-elf.h
+--- gcc-8.2.0.orig/gcc/config/arm/linux-elf.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.2.0/gcc/config/arm/linux-elf.h	2019-02-19 12:41:12.397582385 -0700
+@@ -60,7 +60,7 @@
+ 
+ #define LIBGCC_SPEC "%{mfloat-abi=soft*:-lfloat} -lgcc"
+ 
+-#define GLIBC_DYNAMIC_LINKER "/lib/ld-linux.so.2"
++#define GLIBC_DYNAMIC_LINKER "/tools/lib/ld-linux.so.2"
+ 
+ #define LINUX_TARGET_LINK_SPEC  "%{h*} \
+    %{static:-Bstatic} \
+diff -Naur gcc-8.2.0.orig/gcc/config/bfin/linux.h gcc-8.2.0/gcc/config/bfin/linux.h
+--- gcc-8.2.0.orig/gcc/config/bfin/linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.2.0/gcc/config/bfin/linux.h	2019-02-19 12:41:12.398582385 -0700
+@@ -49,7 +49,7 @@
+   %{shared:-G -Bdynamic} \
+   %{!shared: %{!static: \
+    %{rdynamic:-export-dynamic} \
+-   -dynamic-linker /lib/ld-uClibc.so.0} \
++   -dynamic-linker /tools/lib/ld-uClibc.so.0} \
+    %{static}} -init __init -fini __fini"
+ 
+ #undef TARGET_SUPPORTS_SYNC_CALLS
+diff -Naur gcc-8.2.0.orig/gcc/config/c6x/uclinux-elf.h gcc-8.2.0/gcc/config/c6x/uclinux-elf.h
+--- gcc-8.2.0.orig/gcc/config/c6x/uclinux-elf.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.2.0/gcc/config/c6x/uclinux-elf.h	2019-02-19 12:41:12.398582385 -0700
+@@ -36,7 +36,7 @@
+ #define STARTFILE_SPEC \
+   "%{!shared:crt1%O%s} crti%O%s %{shared|pie:crtbeginS.o%s;:crtbegin.o%s}"
+ 
+-#define UCLIBC_DYNAMIC_LINKER "/lib/ld-uClibc.so.0"
++#define UCLIBC_DYNAMIC_LINKER "/tools/lib/ld-uClibc.so.0"
+ 
+ #undef LINK_SPEC
+ #define LINK_SPEC ENDIAN_LINK_SPEC \
+diff -Naur gcc-8.2.0.orig/gcc/config/cris/linux.h gcc-8.2.0/gcc/config/cris/linux.h
+--- gcc-8.2.0.orig/gcc/config/cris/linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.2.0/gcc/config/cris/linux.h	2019-02-19 12:41:12.399582385 -0700
+@@ -102,7 +102,7 @@
+ #undef CRIS_DEFAULT_CPU_VERSION
+ #define CRIS_DEFAULT_CPU_VERSION CRIS_CPU_NG
+ 
+-#define GLIBC_DYNAMIC_LINKER "/lib/ld.so.1"
++#define GLIBC_DYNAMIC_LINKER "/tools/lib/ld.so.1"
+ 
+ #undef CRIS_LINK_SUBTARGET_SPEC
+ #define CRIS_LINK_SUBTARGET_SPEC \
+diff -Naur gcc-8.2.0.orig/gcc/config/freebsd-spec.h gcc-8.2.0/gcc/config/freebsd-spec.h
+--- gcc-8.2.0.orig/gcc/config/freebsd-spec.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.2.0/gcc/config/freebsd-spec.h	2019-02-19 12:41:12.400582385 -0700
+@@ -131,7 +131,7 @@
+ #if FBSD_MAJOR < 6
+ #define FBSD_DYNAMIC_LINKER "/usr/libexec/ld-elf.so.1"
+ #else
+-#define FBSD_DYNAMIC_LINKER "/libexec/ld-elf.so.1"
++#define FBSD_DYNAMIC_LINKER "/tools/libexec/ld-elf.so.1"
+ #endif
+ 
+ /* NOTE: The freebsd-spec.h header is included also for various
+diff -Naur gcc-8.2.0.orig/gcc/config/frv/linux.h gcc-8.2.0/gcc/config/frv/linux.h
+--- gcc-8.2.0.orig/gcc/config/frv/linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.2.0/gcc/config/frv/linux.h	2019-02-19 12:41:12.401582385 -0700
+@@ -34,7 +34,7 @@
+ #define ENDFILE_SPEC \
+   "%{shared|pie:crtendS.o%s;:crtend.o%s} crtn.o%s"
+ 
+-#define GLIBC_DYNAMIC_LINKER "/lib/ld.so.1"
++#define GLIBC_DYNAMIC_LINKER "/tools/lib/ld.so.1"
+ 
+ #undef LINK_SPEC
+ #define LINK_SPEC "\
+diff -Naur gcc-8.2.0.orig/gcc/config/i386/gnu.h gcc-8.2.0/gcc/config/i386/gnu.h
+--- gcc-8.2.0.orig/gcc/config/i386/gnu.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.2.0/gcc/config/i386/gnu.h	2019-02-19 12:41:12.402582385 -0700
+@@ -22,7 +22,7 @@
+ #define GNU_USER_LINK_EMULATION "elf_i386"
+ 
+ #undef GNU_USER_DYNAMIC_LINKER
+-#define GNU_USER_DYNAMIC_LINKER "/lib/ld.so"
++#define GNU_USER_DYNAMIC_LINKER "/tools/lib/ld.so"
+ 
+ #undef	STARTFILE_SPEC
+ #if defined HAVE_LD_PIE
+diff -Naur gcc-8.2.0.orig/gcc/config/i386/kfreebsd-gnu64.h gcc-8.2.0/gcc/config/i386/kfreebsd-gnu64.h
+--- gcc-8.2.0.orig/gcc/config/i386/kfreebsd-gnu64.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.2.0/gcc/config/i386/kfreebsd-gnu64.h	2019-02-19 12:41:12.403582385 -0700
+@@ -22,6 +22,6 @@
+ #define GNU_USER_LINK_EMULATION64 "elf_x86_64_fbsd"
+ #define GNU_USER_LINK_EMULATIONX32 "elf32_x86_64_fbsd"
+ 
+-#define GLIBC_DYNAMIC_LINKER32 "/lib/ld.so.1"
+-#define GLIBC_DYNAMIC_LINKER64 "/lib/ld-kfreebsd-x86-64.so.1"
+-#define GLIBC_DYNAMIC_LINKERX32 "/lib/ld-kfreebsd-x32.so.1"
++#define GLIBC_DYNAMIC_LINKER32 "/tools/lib/ld.so.1"
++#define GLIBC_DYNAMIC_LINKER64 "/tools/lib/ld-kfreebsd-x86-64.so.1"
++#define GLIBC_DYNAMIC_LINKERX32 "/tools/lib/ld-kfreebsd-x32.so.1"
+diff -Naur gcc-8.2.0.orig/gcc/config/i386/kfreebsd-gnu.h gcc-8.2.0/gcc/config/i386/kfreebsd-gnu.h
+--- gcc-8.2.0.orig/gcc/config/i386/kfreebsd-gnu.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.2.0/gcc/config/i386/kfreebsd-gnu.h	2019-02-19 12:41:12.402582385 -0700
+@@ -19,4 +19,4 @@
+ <http://www.gnu.org/licenses/>.  */
+ 
+ #define GNU_USER_LINK_EMULATION "elf_i386_fbsd"
+-#define GLIBC_DYNAMIC_LINKER "/lib/ld.so.1"
++#define GLIBC_DYNAMIC_LINKER "/tools/lib/ld.so.1"
+diff -Naur gcc-8.2.0.orig/gcc/config/i386/linux64.h gcc-8.2.0/gcc/config/i386/linux64.h
+--- gcc-8.2.0.orig/gcc/config/i386/linux64.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.2.0/gcc/config/i386/linux64.h	2019-02-19 12:41:12.405582385 -0700
+@@ -27,9 +27,9 @@
+ #define GNU_USER_LINK_EMULATION64 "elf_x86_64"
+ #define GNU_USER_LINK_EMULATIONX32 "elf32_x86_64"
+ 
+-#define GLIBC_DYNAMIC_LINKER32 "/lib/ld-linux.so.2"
+-#define GLIBC_DYNAMIC_LINKER64 "/lib64/ld-linux-x86-64.so.2"
+-#define GLIBC_DYNAMIC_LINKERX32 "/libx32/ld-linux-x32.so.2"
++#define GLIBC_DYNAMIC_LINKER32 "/tools/lib32/ld-linux.so.2"
++#define GLIBC_DYNAMIC_LINKER64 "/tools/lib/ld-linux-x86-64.so.2"
++#define GLIBC_DYNAMIC_LINKERX32 "/tools/libx32/ld-linux-x32.so.2"
+ 
+ #undef MUSL_DYNAMIC_LINKER32
+ #define MUSL_DYNAMIC_LINKER32 "/lib/ld-musl-i386.so.1"
+diff -Naur gcc-8.2.0.orig/gcc/config/i386/linux.h gcc-8.2.0/gcc/config/i386/linux.h
+--- gcc-8.2.0.orig/gcc/config/i386/linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.2.0/gcc/config/i386/linux.h	2019-02-19 12:41:12.404582385 -0700
+@@ -20,7 +20,7 @@
+ <http://www.gnu.org/licenses/>.  */
+ 
+ #define GNU_USER_LINK_EMULATION "elf_i386"
+-#define GLIBC_DYNAMIC_LINKER "/lib/ld-linux.so.2"
++#define GLIBC_DYNAMIC_LINKER "/tools/lib/ld-linux.so.2"
+ 
+ #undef MUSL_DYNAMIC_LINKER
+ #define MUSL_DYNAMIC_LINKER "/lib/ld-musl-i386.so.1"
+diff -Naur gcc-8.2.0.orig/gcc/config/i386/t-linux64 gcc-8.2.0/gcc/config/i386/t-linux64
+--- gcc-8.2.0.orig/gcc/config/i386/t-linux64	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.2.0/gcc/config/i386/t-linux64	2019-02-19 12:41:12.406582385 -0700
+@@ -33,6 +33,6 @@
+ comma=,
+ MULTILIB_OPTIONS    = $(subst $(comma),/,$(TM_MULTILIB_CONFIG))
+ MULTILIB_DIRNAMES   = $(patsubst m%, %, $(subst /, ,$(MULTILIB_OPTIONS)))
+-MULTILIB_OSDIRNAMES = m64=../lib64$(call if_multiarch,:x86_64-linux-gnu)
+-MULTILIB_OSDIRNAMES+= m32=$(if $(wildcard $(shell echo $(SYSTEM_HEADER_DIR))/../../usr/lib32),../lib32,../lib)$(call if_multiarch,:i386-linux-gnu)
++MULTILIB_OSDIRNAMES = m64=../lib$(call if_multiarch,:x86_64-linux-gnu)
++MULTILIB_OSDIRNAMES+= m32=$(if $(wildcard $(shell echo $(SYSTEM_HEADER_DIR))/../../usr/lib32),../lib32,../lib32)$(call if_multiarch,:i386-linux-gnu)
+ MULTILIB_OSDIRNAMES+= mx32=../libx32$(call if_multiarch,:x86_64-linux-gnux32)
+diff -Naur gcc-8.2.0.orig/gcc/config/ia64/linux.h gcc-8.2.0/gcc/config/ia64/linux.h
+--- gcc-8.2.0.orig/gcc/config/ia64/linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.2.0/gcc/config/ia64/linux.h	2019-02-19 12:41:12.406582385 -0700
+@@ -55,7 +55,7 @@
+ /* Define this for shared library support because it isn't in the main
+    linux.h file.  */
+ 
+-#define GLIBC_DYNAMIC_LINKER "/lib/ld-linux-ia64.so.2"
++#define GLIBC_DYNAMIC_LINKER "/tools/lib/ld-linux-ia64.so.2"
+ 
+ #undef LINK_SPEC
+ #define LINK_SPEC "\
+diff -Naur gcc-8.2.0.orig/gcc/config/kopensolaris-gnu.h gcc-8.2.0/gcc/config/kopensolaris-gnu.h
+--- gcc-8.2.0.orig/gcc/config/kopensolaris-gnu.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.2.0/gcc/config/kopensolaris-gnu.h	2019-02-19 12:41:12.407582385 -0700
+@@ -31,4 +31,4 @@
+   while (0)
+ 
+ #undef GNU_USER_DYNAMIC_LINKER
+-#define GNU_USER_DYNAMIC_LINKER "/lib/ld.so.1"
++#define GNU_USER_DYNAMIC_LINKER "/tools/lib/ld.so.1"
+diff -Naur gcc-8.2.0.orig/gcc/config/linux.h gcc-8.2.0/gcc/config/linux.h
+--- gcc-8.2.0.orig/gcc/config/linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.2.0/gcc/config/linux.h	2019-02-19 12:41:12.408582385 -0700
+@@ -81,10 +81,10 @@
+    GLIBC_DYNAMIC_LINKER must be defined for each target using them, or
+    GLIBC_DYNAMIC_LINKER32 and GLIBC_DYNAMIC_LINKER64 for targets
+    supporting both 32-bit and 64-bit compilation.  */
+-#define UCLIBC_DYNAMIC_LINKER "/lib/ld-uClibc.so.0"
+-#define UCLIBC_DYNAMIC_LINKER32 "/lib/ld-uClibc.so.0"
+-#define UCLIBC_DYNAMIC_LINKER64 "/lib/ld64-uClibc.so.0"
+-#define UCLIBC_DYNAMIC_LINKERX32 "/lib/ldx32-uClibc.so.0"
++#define UCLIBC_DYNAMIC_LINKER "/tools/lib/ld-uClibc.so.0"
++#define UCLIBC_DYNAMIC_LINKER32 "/tools/lib/ld-uClibc.so.0"
++#define UCLIBC_DYNAMIC_LINKER64 "/tools/lib/ld64-uClibc.so.0"
++#define UCLIBC_DYNAMIC_LINKERX32 "/tools/lib/ldx32-uClibc.so.0"
+ #define BIONIC_DYNAMIC_LINKER "/system/bin/linker"
+ #define BIONIC_DYNAMIC_LINKER32 "/system/bin/linker"
+ #define BIONIC_DYNAMIC_LINKER64 "/system/bin/linker64"
+diff -Naur gcc-8.2.0.orig/gcc/config/lm32/uclinux-elf.h gcc-8.2.0/gcc/config/lm32/uclinux-elf.h
+--- gcc-8.2.0.orig/gcc/config/lm32/uclinux-elf.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.2.0/gcc/config/lm32/uclinux-elf.h	2019-02-19 12:41:12.409582385 -0700
+@@ -67,7 +67,7 @@
+    %{shared:-shared} \
+    %{symbolic:-Bsymbolic} \
+    %{rdynamic:-export-dynamic} \
+-   -dynamic-linker /lib/ld-linux.so.2"
++   -dynamic-linker /tools/lib/ld-linux.so.2"
+ 
+ #define TARGET_OS_CPP_BUILTINS() GNU_USER_TARGET_OS_CPP_BUILTINS()
+ 
+diff -Naur gcc-8.2.0.orig/gcc/config/m32r/linux.h gcc-8.2.0/gcc/config/m32r/linux.h
+--- gcc-8.2.0.orig/gcc/config/m32r/linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.2.0/gcc/config/m32r/linux.h	2019-02-19 12:41:12.410582385 -0700
+@@ -37,7 +37,7 @@
+    When the -shared link option is used a final link is not being
+    done.  */
+ 
+-#define GLIBC_DYNAMIC_LINKER "/lib/ld-linux.so.2"
++#define GLIBC_DYNAMIC_LINKER "/tools/lib/ld-linux.so.2"
+ 
+ #undef	LINK_SPEC
+ #if TARGET_LITTLE_ENDIAN
+diff -Naur gcc-8.2.0.orig/gcc/config/m68k/linux.h gcc-8.2.0/gcc/config/m68k/linux.h
+--- gcc-8.2.0.orig/gcc/config/m68k/linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.2.0/gcc/config/m68k/linux.h	2019-02-19 12:41:12.411582385 -0700
+@@ -71,7 +71,7 @@
+    When the -shared link option is used a final link is not being
+    done.  */
+ 
+-#define GLIBC_DYNAMIC_LINKER "/lib/ld.so.1"
++#define GLIBC_DYNAMIC_LINKER "/tools/lib/ld.so.1"
+ 
+ #undef LINK_SPEC
+ #define LINK_SPEC "-m m68kelf %{shared} \
+diff -Naur gcc-8.2.0.orig/gcc/config/microblaze/linux.h gcc-8.2.0/gcc/config/microblaze/linux.h
+--- gcc-8.2.0.orig/gcc/config/microblaze/linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.2.0/gcc/config/microblaze/linux.h	2019-02-19 12:41:12.411582385 -0700
+@@ -28,7 +28,7 @@
+ #undef TLS_NEEDS_GOT
+ #define TLS_NEEDS_GOT 1
+ 
+-#define GLIBC_DYNAMIC_LINKER "/lib/ld.so.1"
++#define GLIBC_DYNAMIC_LINKER "/tools/lib/ld.so.1"
+ #define UCLIBC_DYNAMIC_LINKER "/lib/ld-uClibc.so.0"
+ 
+ #if TARGET_BIG_ENDIAN_DEFAULT == 0 /* LE */
+diff -Naur gcc-8.2.0.orig/gcc/config/mips/linux.h gcc-8.2.0/gcc/config/mips/linux.h
+--- gcc-8.2.0.orig/gcc/config/mips/linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.2.0/gcc/config/mips/linux.h	2019-02-19 12:51:02.297567556 -0700
+@@ -22,11 +22,11 @@
+ #define GNU_USER_LINK_EMULATIONN32 "elf32%{EB:b}%{EL:l}tsmipn32"
+ 
+ #define GLIBC_DYNAMIC_LINKER32 \
+-  "%{mnan=2008:/lib/ld-linux-mipsn8.so.1;:/lib/ld.so.1}"
++  "%{mnan=2008:/tools/lib32/ld-linux-mipsn8.so.1;:/tools/lib32/ld.so.1}"
+ #define GLIBC_DYNAMIC_LINKER64 \
+-  "%{mnan=2008:/lib64/ld-linux-mipsn8.so.1;:/lib64/ld.so.1}"
++  "%{mnan=2008:/tools/lib/ld-linux-mipsn8.so.1;:/tools/lib/ld.so.1}"
+ #define GLIBC_DYNAMIC_LINKERN32 \
+-  "%{mnan=2008:/lib32/ld-linux-mipsn8.so.1;:/lib32/ld.so.1}"
++  "%{mnan=2008:/tools/lib64/ld-linux-mipsn8.so.1;:/tools/lib64/ld.so.1}"
+ 
+ #undef UCLIBC_DYNAMIC_LINKER32
+ #define UCLIBC_DYNAMIC_LINKER32 \
+diff -Naur gcc-8.2.0.orig/gcc/config/mips/t-linux64 gcc-8.2.0/gcc/config/mips/t-linux64
+--- gcc-8.2.0.orig/gcc/config/mips/t-linux64	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.2.0/gcc/config/mips/t-linux64	2019-02-19 12:45:59.530575167 -0700
+@@ -21,6 +21,6 @@
+ MIPS_EL = $(if $(filter %el, $(firstword $(subst -, ,$(target)))),el)
+ MIPS_SOFT = $(if $(strip $(filter MASK_SOFT_FLOAT_ABI, $(target_cpu_default)) $(filter soft, $(with_float))),soft)
+ MULTILIB_OSDIRNAMES = \
+-	../lib32$(call if_multiarch,:mips64$(MIPS_EL)-linux-gnuabin32$(MIPS_SOFT)) \
+-	../lib$(call if_multiarch,:mips$(MIPS_EL)-linux-gnu$(MIPS_SOFT)) \
+-	../lib64$(call if_multiarch,:mips64$(MIPS_EL)-linux-gnuabi64$(MIPS_SOFT))
++	../lib64$(call if_multiarch,:mips64$(MIPS_EL)-linux-gnuabin32$(MIPS_SOFT)) \
++	../lib32$(call if_multiarch,:mips$(MIPS_EL)-linux-gnu$(MIPS_SOFT)) \
++	../lib$(call if_multiarch,:mips64$(MIPS_EL)-linux-gnuabi64$(MIPS_SOFT))
+diff -Naur gcc-8.2.0.orig/gcc/config/mn10300/linux.h gcc-8.2.0/gcc/config/mn10300/linux.h
+--- gcc-8.2.0.orig/gcc/config/mn10300/linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.2.0/gcc/config/mn10300/linux.h	2019-02-19 12:41:12.413582385 -0700
+@@ -32,7 +32,7 @@
+ #undef  ASM_SPEC
+ #define ASM_SPEC ""
+ 
+-#define GLIBC_DYNAMIC_LINKER "/lib/ld.so.1"
++#define GLIBC_DYNAMIC_LINKER "/tools/lib/ld.so.1"
+ 
+ #undef  LINK_SPEC
+ #define LINK_SPEC "%{mrelax:--relax} %{shared:-shared} \
+diff -Naur gcc-8.2.0.orig/gcc/config/nios2/linux.h gcc-8.2.0/gcc/config/nios2/linux.h
+--- gcc-8.2.0.orig/gcc/config/nios2/linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.2.0/gcc/config/nios2/linux.h	2019-02-19 12:41:12.414582385 -0700
+@@ -29,7 +29,7 @@
+ #undef CPP_SPEC
+ #define CPP_SPEC "%{posix:-D_POSIX_SOURCE} %{pthread:-D_REENTRANT}"
+ 
+-#define GLIBC_DYNAMIC_LINKER "/lib/ld-linux-nios2.so.1"
++#define GLIBC_DYNAMIC_LINKER "/tools/lib/ld-linux-nios2.so.1"
+ 
+ #undef LINK_SPEC
+ #define LINK_SPEC LINK_SPEC_ENDIAN \
+diff -Naur gcc-8.2.0.orig/gcc/config/pa/pa-linux.h gcc-8.2.0/gcc/config/pa/pa-linux.h
+--- gcc-8.2.0.orig/gcc/config/pa/pa-linux.h	2018-05-27 14:54:27.000000000 -0700
++++ gcc-8.2.0/gcc/config/pa/pa-linux.h	2019-02-19 12:41:12.415582385 -0700
+@@ -37,7 +37,7 @@
+ /* Define this for shared library support because it isn't in the main
+    linux.h file.  */
+ 
+-#define GLIBC_DYNAMIC_LINKER "/lib/ld.so.1"
++#define GLIBC_DYNAMIC_LINKER "/tools/lib/ld.so.1"
+ 
+ #undef LINK_SPEC
+ #define LINK_SPEC "\
+diff -Naur gcc-8.2.0.orig/gcc/config/rs6000/linux64.h gcc-8.2.0/gcc/config/rs6000/linux64.h
+--- gcc-8.2.0.orig/gcc/config/rs6000/linux64.h	2018-06-25 12:34:01.000000000 -0700
++++ gcc-8.2.0/gcc/config/rs6000/linux64.h	2019-02-19 12:41:12.416582385 -0700
+@@ -413,16 +413,16 @@
+ #undef	LINK_OS_DEFAULT_SPEC
+ #define LINK_OS_DEFAULT_SPEC "%(link_os_linux)"
+ 
+-#define GLIBC_DYNAMIC_LINKER32 "%(dynamic_linker_prefix)/lib/ld.so.1"
++#define GLIBC_DYNAMIC_LINKER32 "/tools/lib32/ld.so.1"
+ 
+ #ifdef LINUX64_DEFAULT_ABI_ELFv2
+ #define GLIBC_DYNAMIC_LINKER64 \
+-"%{mabi=elfv1:%(dynamic_linker_prefix)/lib64/ld64.so.1;" \
+-":%(dynamic_linker_prefix)/lib64/ld64.so.2}"
++"%{mabi=elfv1:/tools/lib/ld64.so.1;" \
++":/tools/lib/ld64.so.2}"
+ #else
+ #define GLIBC_DYNAMIC_LINKER64 \
+-"%{mabi=elfv2:%(dynamic_linker_prefix)/lib64/ld64.so.2;" \
+-":%(dynamic_linker_prefix)/lib64/ld64.so.1}"
++"%{mabi=elfv2:/tools/lib/ld64.so.2;" \
++":/tools/lib/ld64.so.1}"
+ #endif
+ 
+ #define MUSL_DYNAMIC_LINKER32 \
+@@ -430,8 +430,8 @@
+ #define MUSL_DYNAMIC_LINKER64 \
+   "/lib/ld-musl-powerpc64" MUSL_DYNAMIC_LINKER_E "%{msoft-float:-sf}.so.1"
+ 
+-#define UCLIBC_DYNAMIC_LINKER32 "/lib/ld-uClibc.so.0"
+-#define UCLIBC_DYNAMIC_LINKER64 "/lib/ld64-uClibc.so.0"
++#define UCLIBC_DYNAMIC_LINKER32 "/tools/lib32/ld-uClibc.so.0"
++#define UCLIBC_DYNAMIC_LINKER64 "/tools/lib/ld64-uClibc.so.0"
+ #if DEFAULT_LIBC == LIBC_UCLIBC
+ #define CHOOSE_DYNAMIC_LINKER(G, U, M) \
+   "%{mglibc:" G ";:%{mmusl:" M ";:" U "}}"
+diff -Naur gcc-8.2.0.orig/gcc/config/rs6000/sysv4.h gcc-8.2.0/gcc/config/rs6000/sysv4.h
+--- gcc-8.2.0.orig/gcc/config/rs6000/sysv4.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.2.0/gcc/config/rs6000/sysv4.h	2019-02-19 12:41:12.417582385 -0700
+@@ -791,8 +791,8 @@
+ 
+ #define MUSL_DYNAMIC_LINKER_E ENDIAN_SELECT("","le","")
+ 
+-#define GLIBC_DYNAMIC_LINKER "/lib/ld.so.1"
+-#define UCLIBC_DYNAMIC_LINKER "/lib/ld-uClibc.so.0"
++#define GLIBC_DYNAMIC_LINKER "/tools/lib/ld.so.1"
++#define UCLIBC_DYNAMIC_LINKER "/tools/lib/ld-uClibc.so.0"
+ #define MUSL_DYNAMIC_LINKER \
+   "/lib/ld-musl-powerpc" MUSL_DYNAMIC_LINKER_E "%{msoft-float:-sf}.so.1"
+ #if DEFAULT_LIBC == LIBC_UCLIBC
+diff -Naur gcc-8.2.0.orig/gcc/config/rs6000/t-linux64 gcc-8.2.0/gcc/config/rs6000/t-linux64
+--- gcc-8.2.0.orig/gcc/config/rs6000/t-linux64	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.2.0/gcc/config/rs6000/t-linux64	2019-02-19 12:41:12.418582385 -0700
+@@ -28,8 +28,8 @@
+ MULTILIB_OPTIONS    := m64/m32
+ MULTILIB_DIRNAMES   := 64 32
+ MULTILIB_EXTRA_OPTS := 
+-MULTILIB_OSDIRNAMES := m64=../lib64$(call if_multiarch,:powerpc64-linux-gnu)
+-MULTILIB_OSDIRNAMES += m32=$(if $(wildcard $(shell echo $(SYSTEM_HEADER_DIR))/../../usr/lib32),../lib32,../lib)$(call if_multiarch,:powerpc-linux-gnu)
++MULTILIB_OSDIRNAMES := m64=../lib$(call if_multiarch,:powerpc64-linux-gnu)
++MULTILIB_OSDIRNAMES += m32=$(if $(wildcard $(shell echo $(SYSTEM_HEADER_DIR))/../../usr/lib32),../lib,../lib32)$(call if_multiarch,:powerpc-linux-gnu)
+ 
+ rs6000-linux.o: $(srcdir)/config/rs6000/rs6000-linux.c
+ 	$(COMPILE) $<
+diff -Naur gcc-8.2.0.orig/gcc/config/s390/linux.h gcc-8.2.0/gcc/config/s390/linux.h
+--- gcc-8.2.0.orig/gcc/config/s390/linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.2.0/gcc/config/s390/linux.h	2019-02-19 12:41:12.419582385 -0700
+@@ -73,8 +73,8 @@
+ #define MULTILIB_DEFAULTS { "m31" }
+ #endif
+ 
+-#define GLIBC_DYNAMIC_LINKER32 "/lib/ld.so.1"
+-#define GLIBC_DYNAMIC_LINKER64 "/lib/ld64.so.1"
++#define GLIBC_DYNAMIC_LINKER32 "/tools/lib/ld.so.1"
++#define GLIBC_DYNAMIC_LINKER64 "/tools/lib/ld64.so.1"
+ 
+ #undef  LINK_SPEC
+ #define LINK_SPEC \
+diff -Naur gcc-8.2.0.orig/gcc/config/sh/linux.h gcc-8.2.0/gcc/config/sh/linux.h
+--- gcc-8.2.0.orig/gcc/config/sh/linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.2.0/gcc/config/sh/linux.h	2019-02-19 12:41:12.420582385 -0700
+@@ -64,7 +64,7 @@
+   "/lib/ld-musl-sh" MUSL_DYNAMIC_LINKER_E MUSL_DYNAMIC_LINKER_FP \
+   "%{mfdpic:-fdpic}.so.1"
+ 
+-#define GLIBC_DYNAMIC_LINKER "/lib/ld-linux.so.2"
++#define GLIBC_DYNAMIC_LINKER "/tools/lib/ld-linux.so.2"
+ 
+ #undef SUBTARGET_LINK_EMUL_SUFFIX
+ #define SUBTARGET_LINK_EMUL_SUFFIX "%{mfdpic:_fd;:_linux}"
+diff -Naur gcc-8.2.0.orig/gcc/config/sparc/linux64.h gcc-8.2.0/gcc/config/sparc/linux64.h
+--- gcc-8.2.0.orig/gcc/config/sparc/linux64.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.2.0/gcc/config/sparc/linux64.h	2019-02-19 12:53:15.745564202 -0700
+@@ -84,8 +84,8 @@
+    When the -shared link option is used a final link is not being
+    done.  */
+ 
+-#define GLIBC_DYNAMIC_LINKER32 "/lib/ld-linux.so.2"
+-#define GLIBC_DYNAMIC_LINKER64 "/lib64/ld-linux.so.2"
++#define GLIBC_DYNAMIC_LINKER32 "/tools/lib32/ld-linux.so.2"
++#define GLIBC_DYNAMIC_LINKER64 "/tools/lib/ld-linux.so.2"
+ 
+ #ifdef SPARC_BI_ARCH
+ 
+@@ -213,7 +213,7 @@
+ #else /* !SPARC_BI_ARCH */
+ 
+ #undef LINK_SPEC
+-#define LINK_SPEC "-m elf64_sparc -Y P,%R/usr/lib64 %{shared:-shared} \
++#define LINK_SPEC "-m elf64_sparc -Y P,%R/tools/lib64 %{shared:-shared} \
+   %{!shared: \
+     %{!static: \
+       %{rdynamic:-export-dynamic} \
+diff -Naur gcc-8.2.0.orig/gcc/config/sparc/linux.h gcc-8.2.0/gcc/config/sparc/linux.h
+--- gcc-8.2.0.orig/gcc/config/sparc/linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.2.0/gcc/config/sparc/linux.h	2019-02-19 12:41:12.421582385 -0700
+@@ -83,7 +83,7 @@
+    When the -shared link option is used a final link is not being
+    done.  */
+ 
+-#define GLIBC_DYNAMIC_LINKER "/lib/ld-linux.so.2"
++#define GLIBC_DYNAMIC_LINKER "/tools/lib/ld-linux.so.2"
+ 
+ #undef  LINK_SPEC
+ #define LINK_SPEC "-m elf32_sparc %{shared:-shared} \
+diff -Naur gcc-8.2.0.orig/gcc/config/sparc/t-linux64 gcc-8.2.0/gcc/config/sparc/t-linux64
+--- gcc-8.2.0.orig/gcc/config/sparc/t-linux64	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.2.0/gcc/config/sparc/t-linux64	2019-02-19 12:57:42.080557506 -0700
+@@ -27,3 +27,5 @@
+ MULTILIB_DIRNAMES = 64 32
+ MULTILIB_OSDIRNAMES = ../lib64$(call if_multiarch,:sparc64-linux-gnu)
+ MULTILIB_OSDIRNAMES += $(if $(wildcard $(shell echo $(SYSTEM_HEADER_DIR))/../../usr/lib32),../lib32,../lib)$(call if_multiarch,:sparc-linux-gnu)
++MULTILIB_OSDIRNAMES = ../lib$(call if_multiarch,:sparc64-linux-gnu)
++MULTILIB_OSDIRNAMES += $(if $(wildcard $(shell echo $(SYSTEM_HEADER_DIR))/../../usr/lib),../lib,../lib32)$(call if_multiarch,:sparc-linux-gnu)
+diff -Naur gcc-8.2.0.orig/gcc/config/xtensa/linux.h gcc-8.2.0/gcc/config/xtensa/linux.h
+--- gcc-8.2.0.orig/gcc/config/xtensa/linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.2.0/gcc/config/xtensa/linux.h	2019-02-19 12:41:12.422582385 -0700
+@@ -46,7 +46,7 @@
+   %{mauto-litpools:--auto-litpools} \
+   %{mno-auto-litpools:--no-auto-litpools}"
+ 
+-#define GLIBC_DYNAMIC_LINKER "/lib/ld.so.1"
++#define GLIBC_DYNAMIC_LINKER "/tools/lib/ld.so.1"
+ 
+ #undef LINK_SPEC
+ #define LINK_SPEC \
