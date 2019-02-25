@@ -196,10 +196,24 @@
 <!ENTITY gawk-md5 "95cf553f50ec9f386b5dfcd67f30180a">
 <!ENTITY gawk-home "&gnu-software;gawk/">
 
+<!--
 <!ENTITY gcc-version "8.2.0">
 <!ENTITY gcc-size "61,974 KB">
 <!ENTITY gcc-url "&gnu;gcc/gcc-&gcc-version;/gcc-&gcc-version;.tar.xz">
 <!ENTITY gcc-md5 "4ab282f414676496483b3e1793d07862">
+<!ENTITY gcc-home "https://gcc.gnu.org/">
+<!ENTITY libquadmath-version "0.0.0">
+<!ENTITY libstdcpp-version   "6.0.25">
+<!ENTITY libitm-version      "1.0.0">
+<!ENTITY libatomic-version   "1.2.0">
+<!ENTITY libmpx-version      "2.0.1">
+<!ENTITY libmpxwrap-version  "2.0.1">
+-->
+
+<!ENTITY gcc-version "8.3.0">
+<!ENTITY gcc-size "61,974 KB">
+<!ENTITY gcc-url "&gnu;gcc/gcc-&gcc-version;/gcc-&gcc-version;.tar.xz">
+<!ENTITY gcc-md5 "65b210b4bfe7e060051f799e0f994896">
 <!ENTITY gcc-home "https://gcc.gnu.org/">
 <!ENTITY libquadmath-version "0.0.0">
 <!ENTITY libstdcpp-version   "6.0.25">
