@@ -183,7 +183,6 @@ install -v -Dm644 ../glibc-&glibc-version;/nscd/nscd.service /lib/systemd/system
     language were not installed by the above command. Install them
     with:</para>
 
-<screen><userinput>make localedata/install-locales</userinput></screen>
 <screen role="nodump"><userinput>make localedata/install-locales</userinput></screen>
 
     <para>To save time, an alternative to running the previous command (which

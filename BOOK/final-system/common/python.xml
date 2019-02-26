@@ -30,7 +30,7 @@
 
     <para os="A">Apply multilib patch:</para>
 
-<screen os="B"><userinput remap="pre">patch -Np1 -i ../*ython*multi*.patch 
+<screen os="B"><userinput remap="pre">patch -Np1 -i ../&python-multilib-patch; 
 autoconf</userinput></screen>
 
     <para os="a">Prepare Python for compilation:</para>
