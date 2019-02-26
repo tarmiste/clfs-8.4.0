@@ -1,6 +1,6 @@
-diff -Naur gcc-8.2.0.orig/gcc/config/aarch64/aarch64-linux.h gcc-8.2.0/gcc/config/aarch64/aarch64-linux.h
---- gcc-8.2.0.orig/gcc/config/aarch64/aarch64-linux.h	2018-01-03 03:03:58.000000000 -0700
-+++ gcc-8.2.0/gcc/config/aarch64/aarch64-linux.h	2019-02-21 17:47:38.276365899 -0700
+diff -Naur gcc-8.3.0.orig/gcc/config/aarch64/aarch64-linux.h gcc-8.3.0/gcc/config/aarch64/aarch64-linux.h
+--- gcc-8.3.0.orig/gcc/config/aarch64/aarch64-linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.3.0/gcc/config/aarch64/aarch64-linux.h	2019-02-26 15:30:55.214302865 -0700
 @@ -21,10 +21,10 @@
  #ifndef GCC_AARCH64_LINUX_H
  #define GCC_AARCH64_LINUX_H
@@ -14,9 +14,9 @@ diff -Naur gcc-8.2.0.orig/gcc/config/aarch64/aarch64-linux.h gcc-8.2.0/gcc/confi
  
  #undef  ASAN_CC1_SPEC
  #define ASAN_CC1_SPEC "%{%:sanitize(address):-funwind-tables}"
-diff -Naur gcc-8.2.0.orig/gcc/config/alpha/linux-elf.h gcc-8.2.0/gcc/config/alpha/linux-elf.h
---- gcc-8.2.0.orig/gcc/config/alpha/linux-elf.h	2018-01-03 03:03:58.000000000 -0700
-+++ gcc-8.2.0/gcc/config/alpha/linux-elf.h	2019-02-21 17:47:38.316365897 -0700
+diff -Naur gcc-8.3.0.orig/gcc/config/alpha/linux-elf.h gcc-8.3.0/gcc/config/alpha/linux-elf.h
+--- gcc-8.3.0.orig/gcc/config/alpha/linux-elf.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.3.0/gcc/config/alpha/linux-elf.h	2019-02-26 15:30:55.215302865 -0700
 @@ -23,8 +23,8 @@
  #define EXTRA_SPECS \
  { "elf_dynamic_linker", ELF_DYNAMIC_LINKER },
@@ -28,9 +28,9 @@ diff -Naur gcc-8.2.0.orig/gcc/config/alpha/linux-elf.h gcc-8.2.0/gcc/config/alph
  #if DEFAULT_LIBC == LIBC_UCLIBC
  #define CHOOSE_DYNAMIC_LINKER(G, U) "%{mglibc:" G ";:" U "}"
  #elif DEFAULT_LIBC == LIBC_GLIBC
-diff -Naur gcc-8.2.0.orig/gcc/config/arc/linux.h gcc-8.2.0/gcc/config/arc/linux.h
---- gcc-8.2.0.orig/gcc/config/arc/linux.h	2018-01-26 04:34:00.000000000 -0700
-+++ gcc-8.2.0/gcc/config/arc/linux.h	2019-02-21 17:47:38.331365897 -0700
+diff -Naur gcc-8.3.0.orig/gcc/config/arc/linux.h gcc-8.3.0/gcc/config/arc/linux.h
+--- gcc-8.3.0.orig/gcc/config/arc/linux.h	2018-11-14 04:22:55.000000000 -0700
++++ gcc-8.3.0/gcc/config/arc/linux.h	2019-02-26 15:30:55.216302865 -0700
 @@ -29,8 +29,8 @@
      }						\
    while (0)
@@ -42,9 +42,9 @@ diff -Naur gcc-8.2.0.orig/gcc/config/arc/linux.h gcc-8.2.0/gcc/config/arc/linux.
  
  /* Note that the default is to link against dynamic libraries, if they are
     available.  Override with -static.  */
-diff -Naur gcc-8.2.0.orig/gcc/config/arm/linux-eabi.h gcc-8.2.0/gcc/config/arm/linux-eabi.h
---- gcc-8.2.0.orig/gcc/config/arm/linux-eabi.h	2018-01-03 03:03:58.000000000 -0700
-+++ gcc-8.2.0/gcc/config/arm/linux-eabi.h	2019-02-21 17:47:38.348365896 -0700
+diff -Naur gcc-8.3.0.orig/gcc/config/arm/linux-eabi.h gcc-8.3.0/gcc/config/arm/linux-eabi.h
+--- gcc-8.3.0.orig/gcc/config/arm/linux-eabi.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.3.0/gcc/config/arm/linux-eabi.h	2019-02-26 15:30:55.217302865 -0700
 @@ -62,8 +62,8 @@
     GLIBC_DYNAMIC_LINKER_DEFAULT and TARGET_DEFAULT_FLOAT_ABI.  */
  
@@ -65,9 +65,9 @@ diff -Naur gcc-8.2.0.orig/gcc/config/arm/linux-eabi.h gcc-8.2.0/gcc/config/arm/l
  
  /* At this point, bpabi.h will have clobbered LINK_SPEC.  We want to
     use the GNU/Linux version, not the generic BPABI version.  */
-diff -Naur gcc-8.2.0.orig/gcc/config/arm/linux-elf.h gcc-8.2.0/gcc/config/arm/linux-elf.h
---- gcc-8.2.0.orig/gcc/config/arm/linux-elf.h	2018-01-03 03:03:58.000000000 -0700
-+++ gcc-8.2.0/gcc/config/arm/linux-elf.h	2019-02-21 17:47:38.352365896 -0700
+diff -Naur gcc-8.3.0.orig/gcc/config/arm/linux-elf.h gcc-8.3.0/gcc/config/arm/linux-elf.h
+--- gcc-8.3.0.orig/gcc/config/arm/linux-elf.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.3.0/gcc/config/arm/linux-elf.h	2019-02-26 15:30:55.218302865 -0700
 @@ -60,7 +60,7 @@
  
  #define LIBGCC_SPEC "%{mfloat-abi=soft*:-lfloat} -lgcc"
@@ -77,9 +77,9 @@ diff -Naur gcc-8.2.0.orig/gcc/config/arm/linux-elf.h gcc-8.2.0/gcc/config/arm/li
  
  #define LINUX_TARGET_LINK_SPEC  "%{h*} \
     %{static:-Bstatic} \
-diff -Naur gcc-8.2.0.orig/gcc/config/bfin/linux.h gcc-8.2.0/gcc/config/bfin/linux.h
---- gcc-8.2.0.orig/gcc/config/bfin/linux.h	2018-01-03 03:03:58.000000000 -0700
-+++ gcc-8.2.0/gcc/config/bfin/linux.h	2019-02-21 17:47:38.358365896 -0700
+diff -Naur gcc-8.3.0.orig/gcc/config/bfin/linux.h gcc-8.3.0/gcc/config/bfin/linux.h
+--- gcc-8.3.0.orig/gcc/config/bfin/linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.3.0/gcc/config/bfin/linux.h	2019-02-26 15:30:55.219302865 -0700
 @@ -49,7 +49,7 @@
    %{shared:-G -Bdynamic} \
    %{!shared: %{!static: \
@@ -89,9 +89,9 @@ diff -Naur gcc-8.2.0.orig/gcc/config/bfin/linux.h gcc-8.2.0/gcc/config/bfin/linu
     %{static}} -init __init -fini __fini"
  
  #undef TARGET_SUPPORTS_SYNC_CALLS
-diff -Naur gcc-8.2.0.orig/gcc/config/c6x/uclinux-elf.h gcc-8.2.0/gcc/config/c6x/uclinux-elf.h
---- gcc-8.2.0.orig/gcc/config/c6x/uclinux-elf.h	2018-01-03 03:03:58.000000000 -0700
-+++ gcc-8.2.0/gcc/config/c6x/uclinux-elf.h	2019-02-21 17:47:38.378365896 -0700
+diff -Naur gcc-8.3.0.orig/gcc/config/c6x/uclinux-elf.h gcc-8.3.0/gcc/config/c6x/uclinux-elf.h
+--- gcc-8.3.0.orig/gcc/config/c6x/uclinux-elf.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.3.0/gcc/config/c6x/uclinux-elf.h	2019-02-26 15:30:55.220302865 -0700
 @@ -36,7 +36,7 @@
  #define STARTFILE_SPEC \
    "%{!shared:crt1%O%s} crti%O%s %{shared|pie:crtbeginS.o%s;:crtbegin.o%s}"
@@ -101,9 +101,9 @@ diff -Naur gcc-8.2.0.orig/gcc/config/c6x/uclinux-elf.h gcc-8.2.0/gcc/config/c6x/
  
  #undef LINK_SPEC
  #define LINK_SPEC ENDIAN_LINK_SPEC \
-diff -Naur gcc-8.2.0.orig/gcc/config/cris/linux.h gcc-8.2.0/gcc/config/cris/linux.h
---- gcc-8.2.0.orig/gcc/config/cris/linux.h	2018-01-03 03:03:58.000000000 -0700
-+++ gcc-8.2.0/gcc/config/cris/linux.h	2019-02-21 17:47:38.384365895 -0700
+diff -Naur gcc-8.3.0.orig/gcc/config/cris/linux.h gcc-8.3.0/gcc/config/cris/linux.h
+--- gcc-8.3.0.orig/gcc/config/cris/linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.3.0/gcc/config/cris/linux.h	2019-02-26 15:30:55.220302865 -0700
 @@ -102,7 +102,7 @@
  #undef CRIS_DEFAULT_CPU_VERSION
  #define CRIS_DEFAULT_CPU_VERSION CRIS_CPU_NG
@@ -113,9 +113,9 @@ diff -Naur gcc-8.2.0.orig/gcc/config/cris/linux.h gcc-8.2.0/gcc/config/cris/linu
  
  #undef CRIS_LINK_SUBTARGET_SPEC
  #define CRIS_LINK_SUBTARGET_SPEC \
-diff -Naur gcc-8.2.0.orig/gcc/config/frv/linux.h gcc-8.2.0/gcc/config/frv/linux.h
---- gcc-8.2.0.orig/gcc/config/frv/linux.h	2018-01-03 03:03:58.000000000 -0700
-+++ gcc-8.2.0/gcc/config/frv/linux.h	2019-02-21 17:47:38.391365895 -0700
+diff -Naur gcc-8.3.0.orig/gcc/config/frv/linux.h gcc-8.3.0/gcc/config/frv/linux.h
+--- gcc-8.3.0.orig/gcc/config/frv/linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.3.0/gcc/config/frv/linux.h	2019-02-26 15:30:55.221302865 -0700
 @@ -34,7 +34,7 @@
  #define ENDFILE_SPEC \
    "%{shared|pie:crtendS.o%s;:crtend.o%s} crtn.o%s"
@@ -125,9 +125,9 @@ diff -Naur gcc-8.2.0.orig/gcc/config/frv/linux.h gcc-8.2.0/gcc/config/frv/linux.
  
  #undef LINK_SPEC
  #define LINK_SPEC "\
-diff -Naur gcc-8.2.0.orig/gcc/config/i386/gnu.h gcc-8.2.0/gcc/config/i386/gnu.h
---- gcc-8.2.0.orig/gcc/config/i386/gnu.h	2018-01-03 03:03:58.000000000 -0700
-+++ gcc-8.2.0/gcc/config/i386/gnu.h	2019-02-21 17:47:38.414365894 -0700
+diff -Naur gcc-8.3.0.orig/gcc/config/i386/gnu.h gcc-8.3.0/gcc/config/i386/gnu.h
+--- gcc-8.3.0.orig/gcc/config/i386/gnu.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.3.0/gcc/config/i386/gnu.h	2019-02-26 15:30:55.222302865 -0700
 @@ -22,7 +22,7 @@
  #define GNU_USER_LINK_EMULATION "elf_i386"
  
@@ -137,9 +137,9 @@ diff -Naur gcc-8.2.0.orig/gcc/config/i386/gnu.h gcc-8.2.0/gcc/config/i386/gnu.h
  
  #undef	STARTFILE_SPEC
  #if defined HAVE_LD_PIE
-diff -Naur gcc-8.2.0.orig/gcc/config/i386/linux64.h gcc-8.2.0/gcc/config/i386/linux64.h
---- gcc-8.2.0.orig/gcc/config/i386/linux64.h	2018-01-03 03:03:58.000000000 -0700
-+++ gcc-8.2.0/gcc/config/i386/linux64.h	2019-02-21 17:47:38.423365894 -0700
+diff -Naur gcc-8.3.0.orig/gcc/config/i386/linux64.h gcc-8.3.0/gcc/config/i386/linux64.h
+--- gcc-8.3.0.orig/gcc/config/i386/linux64.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.3.0/gcc/config/i386/linux64.h	2019-02-26 15:30:55.223302865 -0700
 @@ -27,13 +27,13 @@
  #define GNU_USER_LINK_EMULATION64 "elf_x86_64"
  #define GNU_USER_LINK_EMULATIONX32 "elf32_x86_64"
@@ -160,9 +160,9 @@ diff -Naur gcc-8.2.0.orig/gcc/config/i386/linux64.h gcc-8.2.0/gcc/config/i386/li
  #undef MUSL_DYNAMIC_LINKERX32
 -#define MUSL_DYNAMIC_LINKERX32 "/lib/ld-musl-x32.so.1"
 +#define MUSL_DYNAMIC_LINKERX32 "/tools/lib/ld-musl-x32.so.1"
-diff -Naur gcc-8.2.0.orig/gcc/config/i386/linux.h gcc-8.2.0/gcc/config/i386/linux.h
---- gcc-8.2.0.orig/gcc/config/i386/linux.h	2018-01-03 03:03:58.000000000 -0700
-+++ gcc-8.2.0/gcc/config/i386/linux.h	2019-02-21 17:47:38.424365894 -0700
+diff -Naur gcc-8.3.0.orig/gcc/config/i386/linux.h gcc-8.3.0/gcc/config/i386/linux.h
+--- gcc-8.3.0.orig/gcc/config/i386/linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.3.0/gcc/config/i386/linux.h	2019-02-26 15:30:55.224302865 -0700
 @@ -20,7 +20,7 @@
  <http://www.gnu.org/licenses/>.  */
  
@@ -173,9 +173,9 @@ diff -Naur gcc-8.2.0.orig/gcc/config/i386/linux.h gcc-8.2.0/gcc/config/i386/linu
  #undef MUSL_DYNAMIC_LINKER
 -#define MUSL_DYNAMIC_LINKER "/lib/ld-musl-i386.so.1"
 +#define MUSL_DYNAMIC_LINKER "/tools/lib/ld-musl-i386.so.1"
-diff -Naur gcc-8.2.0.orig/gcc/config/ia64/linux.h gcc-8.2.0/gcc/config/ia64/linux.h
---- gcc-8.2.0.orig/gcc/config/ia64/linux.h	2018-01-03 03:03:58.000000000 -0700
-+++ gcc-8.2.0/gcc/config/ia64/linux.h	2019-02-21 17:47:38.441365894 -0700
+diff -Naur gcc-8.3.0.orig/gcc/config/ia64/linux.h gcc-8.3.0/gcc/config/ia64/linux.h
+--- gcc-8.3.0.orig/gcc/config/ia64/linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.3.0/gcc/config/ia64/linux.h	2019-02-26 15:30:55.225302865 -0700
 @@ -55,7 +55,7 @@
  /* Define this for shared library support because it isn't in the main
     linux.h file.  */
@@ -185,18 +185,18 @@ diff -Naur gcc-8.2.0.orig/gcc/config/ia64/linux.h gcc-8.2.0/gcc/config/ia64/linu
  
  #undef LINK_SPEC
  #define LINK_SPEC "\
-diff -Naur gcc-8.2.0.orig/gcc/config/kopensolaris-gnu.h gcc-8.2.0/gcc/config/kopensolaris-gnu.h
---- gcc-8.2.0.orig/gcc/config/kopensolaris-gnu.h	2018-01-03 03:03:58.000000000 -0700
-+++ gcc-8.2.0/gcc/config/kopensolaris-gnu.h	2019-02-21 17:47:38.450365893 -0700
+diff -Naur gcc-8.3.0.orig/gcc/config/kopensolaris-gnu.h gcc-8.3.0/gcc/config/kopensolaris-gnu.h
+--- gcc-8.3.0.orig/gcc/config/kopensolaris-gnu.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.3.0/gcc/config/kopensolaris-gnu.h	2019-02-26 15:30:55.225302865 -0700
 @@ -31,4 +31,4 @@
    while (0)
  
  #undef GNU_USER_DYNAMIC_LINKER
 -#define GNU_USER_DYNAMIC_LINKER "/lib/ld.so.1"
 +#define GNU_USER_DYNAMIC_LINKER "/tools/lib/ld.so.1"
-diff -Naur gcc-8.2.0.orig/gcc/config/linux.h gcc-8.2.0/gcc/config/linux.h
---- gcc-8.2.0.orig/gcc/config/linux.h	2018-01-03 03:03:58.000000000 -0700
-+++ gcc-8.2.0/gcc/config/linux.h	2019-02-21 17:47:38.455365893 -0700
+diff -Naur gcc-8.3.0.orig/gcc/config/linux.h gcc-8.3.0/gcc/config/linux.h
+--- gcc-8.3.0.orig/gcc/config/linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.3.0/gcc/config/linux.h	2019-02-26 15:30:55.226302865 -0700
 @@ -81,10 +81,10 @@
     GLIBC_DYNAMIC_LINKER must be defined for each target using them, or
     GLIBC_DYNAMIC_LINKER32 and GLIBC_DYNAMIC_LINKER64 for targets
@@ -212,9 +212,9 @@ diff -Naur gcc-8.2.0.orig/gcc/config/linux.h gcc-8.2.0/gcc/config/linux.h
  #define BIONIC_DYNAMIC_LINKER "/system/bin/linker"
  #define BIONIC_DYNAMIC_LINKER32 "/system/bin/linker"
  #define BIONIC_DYNAMIC_LINKER64 "/system/bin/linker64"
-diff -Naur gcc-8.2.0.orig/gcc/config/lm32/uclinux-elf.h gcc-8.2.0/gcc/config/lm32/uclinux-elf.h
---- gcc-8.2.0.orig/gcc/config/lm32/uclinux-elf.h	2018-01-03 03:03:58.000000000 -0700
-+++ gcc-8.2.0/gcc/config/lm32/uclinux-elf.h	2019-02-21 17:47:38.463365893 -0700
+diff -Naur gcc-8.3.0.orig/gcc/config/lm32/uclinux-elf.h gcc-8.3.0/gcc/config/lm32/uclinux-elf.h
+--- gcc-8.3.0.orig/gcc/config/lm32/uclinux-elf.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.3.0/gcc/config/lm32/uclinux-elf.h	2019-02-26 15:30:55.227302865 -0700
 @@ -67,7 +67,7 @@
     %{shared:-shared} \
     %{symbolic:-Bsymbolic} \
@@ -224,9 +224,9 @@ diff -Naur gcc-8.2.0.orig/gcc/config/lm32/uclinux-elf.h gcc-8.2.0/gcc/config/lm3
  
  #define TARGET_OS_CPP_BUILTINS() GNU_USER_TARGET_OS_CPP_BUILTINS()
  
-diff -Naur gcc-8.2.0.orig/gcc/config/m32r/linux.h gcc-8.2.0/gcc/config/m32r/linux.h
---- gcc-8.2.0.orig/gcc/config/m32r/linux.h	2018-01-03 03:03:58.000000000 -0700
-+++ gcc-8.2.0/gcc/config/m32r/linux.h	2019-02-21 17:47:38.479365893 -0700
+diff -Naur gcc-8.3.0.orig/gcc/config/m32r/linux.h gcc-8.3.0/gcc/config/m32r/linux.h
+--- gcc-8.3.0.orig/gcc/config/m32r/linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.3.0/gcc/config/m32r/linux.h	2019-02-26 15:30:55.228302865 -0700
 @@ -37,7 +37,7 @@
     When the -shared link option is used a final link is not being
     done.  */
@@ -236,9 +236,9 @@ diff -Naur gcc-8.2.0.orig/gcc/config/m32r/linux.h gcc-8.2.0/gcc/config/m32r/linu
  
  #undef	LINK_SPEC
  #if TARGET_LITTLE_ENDIAN
-diff -Naur gcc-8.2.0.orig/gcc/config/m68k/linux.h gcc-8.2.0/gcc/config/m68k/linux.h
---- gcc-8.2.0.orig/gcc/config/m68k/linux.h	2018-01-03 03:03:58.000000000 -0700
-+++ gcc-8.2.0/gcc/config/m68k/linux.h	2019-02-21 17:47:38.499365892 -0700
+diff -Naur gcc-8.3.0.orig/gcc/config/m68k/linux.h gcc-8.3.0/gcc/config/m68k/linux.h
+--- gcc-8.3.0.orig/gcc/config/m68k/linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.3.0/gcc/config/m68k/linux.h	2019-02-26 15:30:55.229302865 -0700
 @@ -71,7 +71,7 @@
     When the -shared link option is used a final link is not being
     done.  */
@@ -248,9 +248,9 @@ diff -Naur gcc-8.2.0.orig/gcc/config/m68k/linux.h gcc-8.2.0/gcc/config/m68k/linu
  
  #undef LINK_SPEC
  #define LINK_SPEC "-m m68kelf %{shared} \
-diff -Naur gcc-8.2.0.orig/gcc/config/microblaze/linux.h gcc-8.2.0/gcc/config/microblaze/linux.h
---- gcc-8.2.0.orig/gcc/config/microblaze/linux.h	2018-01-03 03:03:58.000000000 -0700
-+++ gcc-8.2.0/gcc/config/microblaze/linux.h	2019-02-21 17:47:38.521365891 -0700
+diff -Naur gcc-8.3.0.orig/gcc/config/microblaze/linux.h gcc-8.3.0/gcc/config/microblaze/linux.h
+--- gcc-8.3.0.orig/gcc/config/microblaze/linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.3.0/gcc/config/microblaze/linux.h	2019-02-26 15:30:55.230302865 -0700
 @@ -28,8 +28,8 @@
  #undef TLS_NEEDS_GOT
  #define TLS_NEEDS_GOT 1
@@ -271,9 +271,9 @@ diff -Naur gcc-8.2.0.orig/gcc/config/microblaze/linux.h gcc-8.2.0/gcc/config/mic
  
  #undef  SUBTARGET_EXTRA_SPECS
  #define SUBTARGET_EXTRA_SPECS \
-diff -Naur gcc-8.2.0.orig/gcc/config/mips/linux.h gcc-8.2.0/gcc/config/mips/linux.h
---- gcc-8.2.0.orig/gcc/config/mips/linux.h	2018-01-03 03:03:58.000000000 -0700
-+++ gcc-8.2.0/gcc/config/mips/linux.h	2019-02-21 17:57:57.801347506 -0700
+diff -Naur gcc-8.3.0.orig/gcc/config/mips/linux.h gcc-8.3.0/gcc/config/mips/linux.h
+--- gcc-8.3.0.orig/gcc/config/mips/linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.3.0/gcc/config/mips/linux.h	2019-02-26 15:30:55.231302865 -0700
 @@ -22,29 +22,29 @@
  #define GNU_USER_LINK_EMULATIONN32 "elf32%{EB:b}%{EL:l}tsmipn32"
  
@@ -313,9 +313,9 @@ diff -Naur gcc-8.2.0.orig/gcc/config/mips/linux.h gcc-8.2.0/gcc/config/mips/linu
  
  #define BIONIC_DYNAMIC_LINKERN32 "/system/bin/linker32"
  #define GNU_USER_DYNAMIC_LINKERN32 \
-diff -Naur gcc-8.2.0.orig/gcc/config/mn10300/linux.h gcc-8.2.0/gcc/config/mn10300/linux.h
---- gcc-8.2.0.orig/gcc/config/mn10300/linux.h	2018-01-03 03:03:58.000000000 -0700
-+++ gcc-8.2.0/gcc/config/mn10300/linux.h	2019-02-21 17:47:38.531365891 -0700
+diff -Naur gcc-8.3.0.orig/gcc/config/mn10300/linux.h gcc-8.3.0/gcc/config/mn10300/linux.h
+--- gcc-8.3.0.orig/gcc/config/mn10300/linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.3.0/gcc/config/mn10300/linux.h	2019-02-26 15:30:55.231302865 -0700
 @@ -32,7 +32,7 @@
  #undef  ASM_SPEC
  #define ASM_SPEC ""
@@ -325,9 +325,9 @@ diff -Naur gcc-8.2.0.orig/gcc/config/mn10300/linux.h gcc-8.2.0/gcc/config/mn1030
  
  #undef  LINK_SPEC
  #define LINK_SPEC "%{mrelax:--relax} %{shared:-shared} \
-diff -Naur gcc-8.2.0.orig/gcc/config/nios2/linux.h gcc-8.2.0/gcc/config/nios2/linux.h
---- gcc-8.2.0.orig/gcc/config/nios2/linux.h	2018-01-03 03:03:58.000000000 -0700
-+++ gcc-8.2.0/gcc/config/nios2/linux.h	2019-02-21 17:47:38.538365891 -0700
+diff -Naur gcc-8.3.0.orig/gcc/config/nios2/linux.h gcc-8.3.0/gcc/config/nios2/linux.h
+--- gcc-8.3.0.orig/gcc/config/nios2/linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.3.0/gcc/config/nios2/linux.h	2019-02-26 15:30:55.232302865 -0700
 @@ -29,7 +29,7 @@
  #undef CPP_SPEC
  #define CPP_SPEC "%{posix:-D_POSIX_SOURCE} %{pthread:-D_REENTRANT}"
@@ -337,9 +337,9 @@ diff -Naur gcc-8.2.0.orig/gcc/config/nios2/linux.h gcc-8.2.0/gcc/config/nios2/li
  
  #undef LINK_SPEC
  #define LINK_SPEC LINK_SPEC_ENDIAN \
-diff -Naur gcc-8.2.0.orig/gcc/config/pa/pa-linux.h gcc-8.2.0/gcc/config/pa/pa-linux.h
---- gcc-8.2.0.orig/gcc/config/pa/pa-linux.h	2018-05-27 14:54:27.000000000 -0700
-+++ gcc-8.2.0/gcc/config/pa/pa-linux.h	2019-02-21 17:47:38.546365891 -0700
+diff -Naur gcc-8.3.0.orig/gcc/config/pa/pa-linux.h gcc-8.3.0/gcc/config/pa/pa-linux.h
+--- gcc-8.3.0.orig/gcc/config/pa/pa-linux.h	2018-05-27 14:54:27.000000000 -0700
++++ gcc-8.3.0/gcc/config/pa/pa-linux.h	2019-02-26 15:30:55.233302865 -0700
 @@ -37,7 +37,7 @@
  /* Define this for shared library support because it isn't in the main
     linux.h file.  */
@@ -349,9 +349,9 @@ diff -Naur gcc-8.2.0.orig/gcc/config/pa/pa-linux.h gcc-8.2.0/gcc/config/pa/pa-li
  
  #undef LINK_SPEC
  #define LINK_SPEC "\
-diff -Naur gcc-8.2.0.orig/gcc/config/powerpcspe/linux64.h gcc-8.2.0/gcc/config/powerpcspe/linux64.h
---- gcc-8.2.0.orig/gcc/config/powerpcspe/linux64.h	2018-01-03 03:03:58.000000000 -0700
-+++ gcc-8.2.0/gcc/config/powerpcspe/linux64.h	2019-02-21 17:47:38.556365890 -0700
+diff -Naur gcc-8.3.0.orig/gcc/config/powerpcspe/linux64.h gcc-8.3.0/gcc/config/powerpcspe/linux64.h
+--- gcc-8.3.0.orig/gcc/config/powerpcspe/linux64.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.3.0/gcc/config/powerpcspe/linux64.h	2019-02-26 15:30:55.234302865 -0700
 @@ -425,12 +425,12 @@
  #endif
  
@@ -369,9 +369,9 @@ diff -Naur gcc-8.2.0.orig/gcc/config/powerpcspe/linux64.h gcc-8.2.0/gcc/config/p
  #if DEFAULT_LIBC == LIBC_UCLIBC
  #define CHOOSE_DYNAMIC_LINKER(G, U, M) \
    "%{mglibc:" G ";:%{mmusl:" M ";:" U "}}"
-diff -Naur gcc-8.2.0.orig/gcc/config/powerpcspe/sysv4.h gcc-8.2.0/gcc/config/powerpcspe/sysv4.h
---- gcc-8.2.0.orig/gcc/config/powerpcspe/sysv4.h	2018-01-03 03:03:58.000000000 -0700
-+++ gcc-8.2.0/gcc/config/powerpcspe/sysv4.h	2019-02-21 17:47:38.558365890 -0700
+diff -Naur gcc-8.3.0.orig/gcc/config/powerpcspe/sysv4.h gcc-8.3.0/gcc/config/powerpcspe/sysv4.h
+--- gcc-8.3.0.orig/gcc/config/powerpcspe/sysv4.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.3.0/gcc/config/powerpcspe/sysv4.h	2019-02-26 15:30:55.236302865 -0700
 @@ -780,10 +780,10 @@
  
  #define MUSL_DYNAMIC_LINKER_E ENDIAN_SELECT("","le","")
@@ -386,9 +386,9 @@ diff -Naur gcc-8.2.0.orig/gcc/config/powerpcspe/sysv4.h gcc-8.2.0/gcc/config/pow
  #if DEFAULT_LIBC == LIBC_UCLIBC
  #define CHOOSE_DYNAMIC_LINKER(G, U, M) \
    "%{mglibc:" G ";:%{mmusl:" M ";:" U "}}"
-diff -Naur gcc-8.2.0.orig/gcc/config/riscv/linux.h gcc-8.2.0/gcc/config/riscv/linux.h
---- gcc-8.2.0.orig/gcc/config/riscv/linux.h	2018-04-20 18:03:30.000000000 -0700
-+++ gcc-8.2.0/gcc/config/riscv/linux.h	2019-02-21 17:47:38.574365890 -0700
+diff -Naur gcc-8.3.0.orig/gcc/config/riscv/linux.h gcc-8.3.0/gcc/config/riscv/linux.h
+--- gcc-8.3.0.orig/gcc/config/riscv/linux.h	2018-04-20 18:03:30.000000000 -0700
++++ gcc-8.3.0/gcc/config/riscv/linux.h	2019-02-26 15:30:55.237302865 -0700
 @@ -22,7 +22,7 @@
      GNU_USER_TARGET_OS_CPP_BUILTINS();				\
    } while (0)
@@ -407,10 +407,28 @@ diff -Naur gcc-8.2.0.orig/gcc/config/riscv/linux.h gcc-8.2.0/gcc/config/riscv/li
  
  /* Because RISC-V only has word-sized atomics, it requries libatomic where
     others do not.  So link libatomic by default, as needed.  */
-diff -Naur gcc-8.2.0.orig/gcc/config/rs6000/linux64.h gcc-8.2.0/gcc/config/rs6000/linux64.h
---- gcc-8.2.0.orig/gcc/config/rs6000/linux64.h	2018-06-25 12:34:01.000000000 -0700
-+++ gcc-8.2.0/gcc/config/rs6000/linux64.h	2019-02-21 17:47:38.580365890 -0700
-@@ -426,12 +426,12 @@
+diff -Naur gcc-8.3.0.orig/gcc/config/rs6000/linux64.h gcc-8.3.0/gcc/config/rs6000/linux64.h
+--- gcc-8.3.0.orig/gcc/config/rs6000/linux64.h	2018-06-25 12:34:01.000000000 -0700
++++ gcc-8.3.0/gcc/config/rs6000/linux64.h	2019-02-26 15:34:51.094296936 -0700
+@@ -413,25 +413,25 @@
+ #undef	LINK_OS_DEFAULT_SPEC
+ #define LINK_OS_DEFAULT_SPEC "%(link_os_linux)"
+ 
+-#define GLIBC_DYNAMIC_LINKER32 "%(dynamic_linker_prefix)/lib/ld.so.1"
++#define GLIBC_DYNAMIC_LINKER32 "%(dynamic_linker_prefix)/tools/lib/ld.so.1"
+ 
+ #ifdef LINUX64_DEFAULT_ABI_ELFv2
+ #define GLIBC_DYNAMIC_LINKER64 \
+-"%{mabi=elfv1:%(dynamic_linker_prefix)/lib64/ld64.so.1;" \
+-":%(dynamic_linker_prefix)/lib64/ld64.so.2}"
++"%{mabi=elfv1:%(dynamic_linker_prefix)/tools/lib64/ld64.so.1;" \
++":%(dynamic_linker_prefix)/tools/lib64/ld64.so.2}"
+ #else
+ #define GLIBC_DYNAMIC_LINKER64 \
+-"%{mabi=elfv2:%(dynamic_linker_prefix)/lib64/ld64.so.2;" \
+-":%(dynamic_linker_prefix)/lib64/ld64.so.1}"
++"%{mabi=elfv2:%(dynamic_linker_prefix)/tools/lib64/ld64.so.2;" \
++":%(dynamic_linker_prefix)/tools/lib64/ld64.so.1}"
  #endif
  
  #define MUSL_DYNAMIC_LINKER32 \
@@ -427,9 +445,9 @@ diff -Naur gcc-8.2.0.orig/gcc/config/rs6000/linux64.h gcc-8.2.0/gcc/config/rs600
  #if DEFAULT_LIBC == LIBC_UCLIBC
  #define CHOOSE_DYNAMIC_LINKER(G, U, M) \
    "%{mglibc:" G ";:%{mmusl:" M ";:" U "}}"
-diff -Naur gcc-8.2.0.orig/gcc/config/rs6000/sysv4.h gcc-8.2.0/gcc/config/rs6000/sysv4.h
---- gcc-8.2.0.orig/gcc/config/rs6000/sysv4.h	2018-01-03 03:03:58.000000000 -0700
-+++ gcc-8.2.0/gcc/config/rs6000/sysv4.h	2019-02-21 17:47:38.583365889 -0700
+diff -Naur gcc-8.3.0.orig/gcc/config/rs6000/sysv4.h gcc-8.3.0/gcc/config/rs6000/sysv4.h
+--- gcc-8.3.0.orig/gcc/config/rs6000/sysv4.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.3.0/gcc/config/rs6000/sysv4.h	2019-02-26 15:30:55.239302865 -0700
 @@ -791,10 +791,10 @@
  
  #define MUSL_DYNAMIC_LINKER_E ENDIAN_SELECT("","le","")
@@ -444,9 +462,9 @@ diff -Naur gcc-8.2.0.orig/gcc/config/rs6000/sysv4.h gcc-8.2.0/gcc/config/rs6000/
  #if DEFAULT_LIBC == LIBC_UCLIBC
  #define CHOOSE_DYNAMIC_LINKER(G, U, M) \
    "%{mglibc:" G ";:%{mmusl:" M ";:" U "}}"
-diff -Naur gcc-8.2.0.orig/gcc/config/s390/linux.h gcc-8.2.0/gcc/config/s390/linux.h
---- gcc-8.2.0.orig/gcc/config/s390/linux.h	2018-01-03 03:03:58.000000000 -0700
-+++ gcc-8.2.0/gcc/config/s390/linux.h	2019-02-21 17:47:38.591365889 -0700
+diff -Naur gcc-8.3.0.orig/gcc/config/s390/linux.h gcc-8.3.0/gcc/config/s390/linux.h
+--- gcc-8.3.0.orig/gcc/config/s390/linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.3.0/gcc/config/s390/linux.h	2019-02-26 15:30:55.240302865 -0700
 @@ -73,8 +73,8 @@
  #define MULTILIB_DEFAULTS { "m31" }
  #endif
@@ -458,9 +476,9 @@ diff -Naur gcc-8.2.0.orig/gcc/config/s390/linux.h gcc-8.2.0/gcc/config/s390/linu
  
  #undef  LINK_SPEC
  #define LINK_SPEC \
-diff -Naur gcc-8.2.0.orig/gcc/config/sh/linux.h gcc-8.2.0/gcc/config/sh/linux.h
---- gcc-8.2.0.orig/gcc/config/sh/linux.h	2018-01-03 03:03:58.000000000 -0700
-+++ gcc-8.2.0/gcc/config/sh/linux.h	2019-02-21 17:47:38.601365889 -0700
+diff -Naur gcc-8.3.0.orig/gcc/config/sh/linux.h gcc-8.3.0/gcc/config/sh/linux.h
+--- gcc-8.3.0.orig/gcc/config/sh/linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.3.0/gcc/config/sh/linux.h	2019-02-26 15:30:55.241302865 -0700
 @@ -61,10 +61,10 @@
  
  #undef MUSL_DYNAMIC_LINKER
@@ -474,9 +492,9 @@ diff -Naur gcc-8.2.0.orig/gcc/config/sh/linux.h gcc-8.2.0/gcc/config/sh/linux.h
  
  #undef SUBTARGET_LINK_EMUL_SUFFIX
  #define SUBTARGET_LINK_EMUL_SUFFIX "%{mfdpic:_fd;:_linux}"
-diff -Naur gcc-8.2.0.orig/gcc/config/sparc/linux64.h gcc-8.2.0/gcc/config/sparc/linux64.h
---- gcc-8.2.0.orig/gcc/config/sparc/linux64.h	2018-01-03 03:03:58.000000000 -0700
-+++ gcc-8.2.0/gcc/config/sparc/linux64.h	2019-02-21 17:47:38.619365888 -0700
+diff -Naur gcc-8.3.0.orig/gcc/config/sparc/linux64.h gcc-8.3.0/gcc/config/sparc/linux64.h
+--- gcc-8.3.0.orig/gcc/config/sparc/linux64.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.3.0/gcc/config/sparc/linux64.h	2019-02-26 15:30:55.242302865 -0700
 @@ -84,8 +84,8 @@
     When the -shared link option is used a final link is not being
     done.  */
@@ -497,9 +515,9 @@ diff -Naur gcc-8.2.0.orig/gcc/config/sparc/linux64.h gcc-8.2.0/gcc/config/sparc/
    %{!shared: \
      %{!static: \
        %{rdynamic:-export-dynamic} \
-diff -Naur gcc-8.2.0.orig/gcc/config/sparc/linux.h gcc-8.2.0/gcc/config/sparc/linux.h
---- gcc-8.2.0.orig/gcc/config/sparc/linux.h	2018-01-03 03:03:58.000000000 -0700
-+++ gcc-8.2.0/gcc/config/sparc/linux.h	2019-02-21 17:47:38.620365888 -0700
+diff -Naur gcc-8.3.0.orig/gcc/config/sparc/linux.h gcc-8.3.0/gcc/config/sparc/linux.h
+--- gcc-8.3.0.orig/gcc/config/sparc/linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.3.0/gcc/config/sparc/linux.h	2019-02-26 15:30:55.243302864 -0700
 @@ -83,7 +83,7 @@
     When the -shared link option is used a final link is not being
     done.  */
@@ -509,9 +527,9 @@ diff -Naur gcc-8.2.0.orig/gcc/config/sparc/linux.h gcc-8.2.0/gcc/config/sparc/li
  
  #undef  LINK_SPEC
  #define LINK_SPEC "-m elf32_sparc %{shared:-shared} \
-diff -Naur gcc-8.2.0.orig/gcc/config/tilepro/linux.h gcc-8.2.0/gcc/config/tilepro/linux.h
---- gcc-8.2.0.orig/gcc/config/tilepro/linux.h	2018-01-03 03:03:58.000000000 -0700
-+++ gcc-8.2.0/gcc/config/tilepro/linux.h	2019-02-21 17:47:38.636365888 -0700
+diff -Naur gcc-8.3.0.orig/gcc/config/tilepro/linux.h gcc-8.3.0/gcc/config/tilepro/linux.h
+--- gcc-8.3.0.orig/gcc/config/tilepro/linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.3.0/gcc/config/tilepro/linux.h	2019-02-26 15:30:55.244302864 -0700
 @@ -27,7 +27,7 @@
    %{!shared: \
      %{!static: \
@@ -521,9 +539,9 @@ diff -Naur gcc-8.2.0.orig/gcc/config/tilepro/linux.h gcc-8.2.0/gcc/config/tilepr
      %{static:-static}}"
  
  #define NO_PROFILE_COUNTERS	1
-diff -Naur gcc-8.2.0.orig/gcc/config/vax/linux.h gcc-8.2.0/gcc/config/vax/linux.h
---- gcc-8.2.0.orig/gcc/config/vax/linux.h	2018-01-03 03:03:58.000000000 -0700
-+++ gcc-8.2.0/gcc/config/vax/linux.h	2019-02-21 17:47:38.640365888 -0700
+diff -Naur gcc-8.3.0.orig/gcc/config/vax/linux.h gcc-8.3.0/gcc/config/vax/linux.h
+--- gcc-8.3.0.orig/gcc/config/vax/linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.3.0/gcc/config/vax/linux.h	2019-02-26 15:30:55.245302864 -0700
 @@ -41,7 +41,7 @@
    %{!shared: \
      %{!static: \
@@ -533,9 +551,9 @@ diff -Naur gcc-8.2.0.orig/gcc/config/vax/linux.h gcc-8.2.0/gcc/config/vax/linux.
      %{static:-static}}"
  
  #undef  WCHAR_TYPE
-diff -Naur gcc-8.2.0.orig/gcc/config/xtensa/linux.h gcc-8.2.0/gcc/config/xtensa/linux.h
---- gcc-8.2.0.orig/gcc/config/xtensa/linux.h	2018-01-03 03:03:58.000000000 -0700
-+++ gcc-8.2.0/gcc/config/xtensa/linux.h	2019-02-21 17:47:38.646365888 -0700
+diff -Naur gcc-8.3.0.orig/gcc/config/xtensa/linux.h gcc-8.3.0/gcc/config/xtensa/linux.h
+--- gcc-8.3.0.orig/gcc/config/xtensa/linux.h	2018-01-03 03:03:58.000000000 -0700
++++ gcc-8.3.0/gcc/config/xtensa/linux.h	2019-02-26 15:30:55.245302864 -0700
 @@ -46,7 +46,7 @@
    %{mauto-litpools:--auto-litpools} \
    %{mno-auto-litpools:--no-auto-litpools}"
