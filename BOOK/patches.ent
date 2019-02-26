@@ -23,7 +23,7 @@
 <!ENTITY coreutils-uname-patch-size "5.020 KB">
 
 <!ENTITY gcc-specs-patch "gcc-&gcc-version;-specs-1.patch">
-<!ENTITY gcc-specs-patch-md5 "a9d7f32b161f0f3e33d07323014f2df2">
+<!ENTITY gcc-specs-patch-md5 "3b140292556645a39b1df82a64f11620">
 <!ENTITY gcc-specs-patch-size "21 KB">
 
 <!ENTITY gcc-isl20-patch "gcc-&gcc-version;-isl20.patch">
