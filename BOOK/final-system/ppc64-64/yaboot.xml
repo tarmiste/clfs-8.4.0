@@ -88,7 +88,7 @@
     href="../ppc/yaboot.xml"
     xpointer="xpointer(//*[@os='c'])"/>
 
-<screen os="d"><userinput>make PREFIX=/usr</userinput></screen>
+<screen os="d"><userinput>#make PREFIX=/usr</userinput></screen>
 
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
     href="../ppc/yaboot.xml"
@@ -102,12 +102,12 @@
       output to check it.</para>
     </important>
 
-<screen os='f'><userinput>make PREFIX=/usr install 2&gt;&amp;1 | tee instlog</userinput></screen>
+<screen os='f'><userinput>#make PREFIX=/usr install 2&gt;&amp;1 | tee instlog</userinput></screen>
 
     <para os='g'>To ensure that the install was successful, run the following
     command:</para>
 
-<screen os='h'><userinput>grep 'powerpc:common64' instlog</userinput></screen>
+<screen os='h'><userinput>#grep 'powerpc:common64' instlog</userinput></screen>
 
     <para os='i'>If the command gave you <emphasis>any</emphasis> output
     (... is incompatible with powerpc:common output) the build of yaboot is
