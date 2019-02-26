@@ -53,7 +53,7 @@
     <screen os="h"><userinput remap="configure">mkdir -p build
 cd       build
 
-PKG_CONFIG_PATH="{PKG_CONFIG_PATH32}:/tools/lib/pkgconfig" \
+PKG_CONFIG_PATH="${PKG_CONFIG_PATH32}:/tools/lib/pkgconfig" \
 LANG=en_US.UTF-8                   \
 meson --prefix=/usr                \
       --sysconfdir=/etc            \
