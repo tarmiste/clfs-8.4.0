@@ -184,6 +184,7 @@ install -v -Dm644 ../glibc-&glibc-version;/nscd/nscd.service /lib/systemd/system
     with:</para>
 
 <screen><userinput>make localedata/install-locales</userinput></screen>
+<screen role="nodump"><userinput>make localedata/install-locales</userinput></screen>
 
     <para>To save time, an alternative to running the previous command (which
     generates and installs every locale listed in the
@@ -198,7 +199,7 @@ install -v -Dm644 ../glibc-&glibc-version;/nscd/nscd.service /lib/systemd/system
     will install the minimum set of locales necessary for the tests to run
     successfully:</para>
 
-<screen role="nodump"><userinput>mkdir -pv /usr/lib/locale
+<screen><userinput>mkdir -pv /usr/lib/locale
 localedef -i POSIX -f UTF-8 C.UTF-8 2> /dev/null || true
 localedef -i cs_CZ -f UTF-8 cs_CZ.UTF-8
 localedef -i de_DE -f ISO-8859-1 de_DE
