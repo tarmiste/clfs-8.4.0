@@ -15,6 +15,7 @@
 <screen><userinput>cat &gt;&gt; ${CLFS}/root/.bash_profile &lt;&lt; EOF
 export BUILD32="${BUILD32}"
 export BUILD64="${BUILD64}"
+export CLFS_TARGET32="${CLFS_TARGET32}"
 # Setting the PKG_CONFIG_* values is done here to assist with jhalfs builds
 export PKG_CONFIG_PATH32="/usr/lib/pkgconfig"
 export PKG_CONFIG_PATHN32="/usr/lib32/pkgconfig"
