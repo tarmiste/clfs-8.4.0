@@ -43,7 +43,7 @@
     <para os="p1">The following patch contains a number of updates to the
     &binutils-version; branch by the Binutils developers:</para>
 
-    <screen os="p2"><userinput>#patch -Np1 -i ../&binutils-branch_update-patch;</userinput></screen>
+    <screen os="p2"><userinput>patch -Np1 -i ../&binutils-branch_update-patch;</userinput></screen>
 -->
 
     <para os="g">The Binutils documentation recommends building Binutils outside of the
@@ -59,6 +59,7 @@ LDFLAGS="-Wl,-rpath-link,/usr/lib:/lib" \
 ../binutils-&binutils-dir;/configure \
     --prefix=/usr \
     --enable-shared \
+    --enable-gold=no \
     --enable-plugins \
     --with-system-zlib \
     --enable-threads</userinput></screen>

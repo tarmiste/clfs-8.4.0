@@ -58,6 +58,7 @@
     --disable-nls \
     --disable-static \
     --disable-multilib \
+    --enable-gold=no \
     --enable-plugins \
     --enable-threads \
     --disable-werror</userinput></screen>
@@ -136,7 +137,7 @@
       </varlistentry>
 
       <varlistentry os="bd10">
-        <term><parameter>--enable-gold=yes</parameter></term>
+        <term><parameter>--enable-gold=no</parameter></term>
         <listitem>
           <para>This option enables the building of the gold linker.</para>
         </listitem>

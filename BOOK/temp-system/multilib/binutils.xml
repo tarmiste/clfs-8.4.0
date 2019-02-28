@@ -53,6 +53,7 @@
     --disable-nls \
     --enable-shared \
     --enable-64-bit-bfd \
+    --enable-gold=no \
     --enable-plugins \
     --with-system-zlib \
     --enable-threads</userinput></screen>

@@ -53,6 +53,7 @@
     --disable-nls \
     --enable-shared \
     --disable-multilib \
+    --enable-gold=no \
     --enable-plugins \
     --with-system-zlib \
     --enable-threads</userinput></screen>
