@@ -68,6 +68,7 @@
     </varlistentry>
 -->
 
+<!--
     <varlistentry>
       <term>Gmp Branch Update - <token>&gmp-branch_update-patch-size;</token>:</term>
       <listitem>
@@ -77,7 +78,6 @@
       </listitem>
     </varlistentry>
 
-<!--
     <varlistentry>
       <term>Iana-Etc Protocol and Port Numbers Update - <token>&iana-etc-numbers_update-patch-size;</token>:</term>
       <listitem>
