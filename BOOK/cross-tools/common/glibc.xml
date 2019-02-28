@@ -138,7 +138,7 @@ RANLIB="${CLFS_TARGET}-ranlib" \
 
     <para os="dk">Compile the package:</para>
 
-<screen os="dl"><userinput>make</userinput></screen>
+<screen os="dl"><userinput>CXX= make</userinput></screen>
 
     <para os="dm">Install the package:</para>
 
