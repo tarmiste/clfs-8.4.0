@@ -36,6 +36,10 @@
 <!ENTITY gcc-branch_update-patch-size "1 KB">
 -->
 
+<!ENTITY gmp-branch_update-patch "gmp-&gmp-version;-branch_update-1.patch">
+<!ENTITY gmp-branch_update-patch-md5 "f631b4444432a549943d04425d9ea2ce">
+<!ENTITY gmp-branch_update-patch-size "1 KB">
+
 <!ENTITY iana-etc-numbers_update-date "20140202">
 <!ENTITY iana-etc-numbers_update-patch "iana-etc-&iana-etc-version;-numbers_update-&iana-etc-numbers_update-date;-2.patch.xz">
 <!ENTITY iana-etc-numbers_update-patch-md5 "b0e7051fef0b3ba064209a5f3d23bd2a">

@@ -1,0 +1,6 @@
+diff -Naur nulla/nullpatch nullb/nullpatch
+--- nulla/nullpatch	1970-01-01 00:00:00.000000000 +0000
++++ nullb/nullpatch	2019-02-17 10:16:57.825069739 +0000
+@@ -0,0 +1,2 @@
++# Patched by a patch which does nothing except create this file and 
++# which exists soley as a place holder.
