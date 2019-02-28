@@ -24,8 +24,8 @@
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ppc64/kernel.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ppc/hfsutils.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ppc64/powerpc-utils.xml"/>
-<!--
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ppc64/yaboot-build.xml"/>
+<!--
 -->
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/creatingdirs.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="multilib/createfiles.xml"/>
