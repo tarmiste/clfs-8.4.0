@@ -26,11 +26,13 @@
     href="../ppc/openssl.xml"
     xpointer="xpointer(//*[@os='a'])"/>
 
-<screen os="b"><userinput remap="configure">CC="gcc ${BUILD32}" ./config --prefix=/usr         \
+<screen os="b"><userinput remap="configure">CC="gcc ${BUILD32}" ./config \
+         --prefix=/usr         \
          --openssldir=/etc/ssl \
          --libdir=lib          \
          shared                \
-         zlib-dynamic </userinput></screen>
+         zlib-dynamic 
+         make depend </userinput></screen>
 
 
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
