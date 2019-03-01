@@ -23,6 +23,14 @@
 
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
     href="../ppc/parted.xml"
+    xpointer="xpointer(//*[@os='A'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../ppc/parted.xml"
+    xpointer="xpointer(//*[@os='B'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../ppc/parted.xml"
     xpointer="xpointer(//*[@os='a'])"/>
 
 <screen><userinput>CC="gcc ${BUILD64}" ./configure \

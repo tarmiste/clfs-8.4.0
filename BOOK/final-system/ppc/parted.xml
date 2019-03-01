@@ -27,6 +27,10 @@
   <sect2 role="installation">
     <title>Installation of Parted</title>
 
+    <para os="A">Apply patch to build parted without devmapper:</para>
+
+<screen os="B"><userinput>patch -Np1 -i ../parted-3.2-devmapper-1.patch</userinput></screen>
+
     <para os="a">Prepare Parted for compilation:</para>
 
 <screen><userinput>./configure \
