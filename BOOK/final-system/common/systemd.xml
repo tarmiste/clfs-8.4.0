@@ -26,7 +26,7 @@
 
     <para os="a">Apply a patch to fix two critical security vulnerabilities:</para>
 
-<screen os="b"><userinput remap="pre">patch -Np1 -i ../systemd-240-security_fixes-1.patch</userinput></screen>
+<screen os="b"><userinput remap="pre">patch -Np1 -i ../systemd-240-security_fixes-2.patch</userinput></screen>
 
     <para os="c">Create a symlink to work around missing xsltproc:</para>
 
