@@ -30,9 +30,13 @@
     --prefix=/tools \
     --build=${CLFS_HOST} \
     --host=${CLFS_TARGET} \
+    --without-python \
     --disable-makeinstall-chown \
     --disable-makeinstall-setuid \
+    --without-systemdsystemunitdir \
+    --without-ncurses \
     --disable-nologin \
+    PKG_CONFIG=""  \
     --without-python</userinput></screen>
 
     <variablelist os="c">
