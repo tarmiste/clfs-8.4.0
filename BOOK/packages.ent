@@ -437,10 +437,10 @@
 <!ENTITY openssl-md5 "963deb2272d6be7d4c2458afd2517b73">
 <!ENTITY openssl-home "https://www.openssl.org/">
 
-<!ENTITY parted-version "3.1">
+<!ENTITY parted-version "3.2">
 <!ENTITY parted-size "1,492 KB">
 <!ENTITY parted-url "&gnu;parted/parted-&parted-version;.tar.xz">
-<!ENTITY parted-md5 "5d89d64d94bcfefa9ce8f59f4b81bdcb">
+<!ENTITY parted-md5 "0247b6a7b314f8edeb618159fa95f9cb">
 <!ENTITY parted-home "&gnu-software;parted">
 
 <!ENTITY patch-version "2.7.6">
