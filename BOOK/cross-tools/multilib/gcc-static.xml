@@ -86,6 +86,7 @@ LDFLAGS="-Wl,-rpath,/cross-tools/lib" \
     --disable-shared \
     --with-mpfr=/cross-tools \
     --with-gmp=/cross-tools \
+    --with-isl=/cross-tools \
     --with-mpc=/cross-tools \
     --without-headers \
     --with-newlib \
@@ -100,7 +101,8 @@ LDFLAGS="-Wl,-rpath,/cross-tools/lib" \
     --disable-libcilkrts \
     --disable-libstdc++-v3 \
     --disable-threads \
-    --with-isl=/cross-tools \
+    --disable-nls \
+    --disable-libmpx \
     --enable-languages=c \
     --with-glibc-version=&glibc-version;</userinput></screen>
 

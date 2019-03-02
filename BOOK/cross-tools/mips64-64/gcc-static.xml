@@ -102,6 +102,8 @@ LDFLAGS="-Wl,-rpath,/cross-tools/lib" \
     --disable-libcilkrts \
     --disable-threads \
     --disable-multilib \
+    --disable-nls \
+    --disable-libmpx \
     --enable-languages=c \
     --with-abi=64 \
     --with-glibc-version=&glibc-version;</userinput></screen>
