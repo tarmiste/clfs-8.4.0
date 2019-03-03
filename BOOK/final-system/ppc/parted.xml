@@ -31,6 +31,11 @@
 
 <screen os="B"><userinput>patch -Np1 -i ../parted-3.2-devmapper-1.patch</userinput></screen>
 
+    <para os="C">Add a needed include: </para>
+
+<screen os="D"><userinput>sed -i '/utsname.h/a#include &lt;sys/sysmacros.h&gt;' libparted/arch/linux.c</userinput></screen>
+
+
     <para os="a">Prepare Parted for compilation:</para>
 
 <screen><userinput>./configure \
