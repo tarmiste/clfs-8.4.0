@@ -25,6 +25,15 @@
       </listitem>
     </varlistentry>
 
+    <varlistentry os="parted-devmapper-patch">
+      <term>HFS Utils Fixes Patch - <token>&parted-devmapper-patch-size;</token>:</term>
+      <listitem>
+        <para>Download: <ulink
+        url="&patches-root;&parted-devmapper-patch;"/></para>
+        <para>MD5 sum: <literal>&parted-devmapper-patch-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+
     <varlistentry os="powerpcutils-fixes-patch">
       <term>Powerpc-utils Fixes Patch - <token>&powerpcutils-patch-size;</token>:</term>
       <listitem>
