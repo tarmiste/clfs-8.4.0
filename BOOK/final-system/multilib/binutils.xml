@@ -71,6 +71,7 @@ LDFLAGS="-Wl,-rpath-link,/usr/lib64:/lib64:/usr/lib:/lib ${BUILD64}" \
     --libdir=/usr/lib64 \
     --enable-gold=no \
     --enable-plugins \
+    --enable-64-bit-bfd \
     --with-system-zlib \
     --enable-threads</userinput></screen>
 

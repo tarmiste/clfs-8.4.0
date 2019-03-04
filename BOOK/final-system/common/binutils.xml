@@ -61,6 +61,7 @@ LDFLAGS="-Wl,-rpath-link,/usr/lib:/lib" \
     --enable-shared \
     --enable-gold=no \
     --enable-plugins \
+    --enable-64-bit-bfd \
     --with-system-zlib \
     --enable-threads</userinput></screen>
 
