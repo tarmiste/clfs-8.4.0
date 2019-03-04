@@ -77,7 +77,7 @@
     href="../../bootable/x86/kernel.xml"
     xpointer="xpointer(//*[@os='s2'])"/>
 
-<screen><userinput>make ARCH=sparc CROSS_COMPILE=${CLFS_TARGET}- \
+<screen><userinput>#make ARCH=sparc CROSS_COMPILE=${CLFS_TARGET}- \
    INSTALL_MOD_PATH=/tools firmware_install</userinput></screen>
 
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
